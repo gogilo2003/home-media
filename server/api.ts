@@ -1,8 +1,21 @@
 import type { Video } from '../types.ts';
 import { groupSeries } from './series.ts';
 
-export function enhanceVideos(videos: Video[]): Video[] {
-  return videos.map((v) => ({ ...v }));
+export async function enhanceVideos(videos: Video[]): Promise<Video[]> {
+  const { findCaptionsForVideo } = await import('./captions.ts');
+  const out: Video[] = [];
+  for (const v of videos) {
+    try {
+      const path = await import('node:path');
+      const { VIDEO_ROOT } = await import('./config.ts');
+      const full = (v as any).fullPath || path.resolve(VIDEO_ROOT, v.path);
+      const captions = await findCaptionsForVideo(full, v.path);
+      out.push({ ...v, captions: captions.length ? captions : undefined } as any);
+    } catch {
+      out.push(v as any);
+    }
+  }
+  return out;
 }
 
 export function toApiResponse(videos: Video[]) {
