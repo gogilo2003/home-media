@@ -9,14 +9,18 @@ description: Implement HTTP Range request handling for video streaming. Use when
 
 | Concern | File |
 |---|---|
-| Range header parsing | `server/range.js` |
-| `/video/:id` handler | `server/stream.js` |
-| Path-traversal guard, id encoding | `server/ids.js` |
-| MIME lookup | `server/mime.js` |
-| Response helper | `server/http.js` |
+| Range header parsing | `server/range.ts` |
+| `/video/:id` handler | `server/stream.ts` |
+| Path-traversal guard, id encoding | `server/ids.ts` |
+| MIME lookup | `server/mime.ts` |
+| Response helper | `server/http.ts` |
 
-`server.js` is the entry point and holds routing only — never put streaming
+`server.ts` is the entry point and holds routing only — never put streaming
 logic there. No module may exceed 80 lines.
+
+Backend modules are TypeScript with **erasable syntax only**: no `enum`, no
+`namespace`, no parameter properties, no decorators. Node strips the types at
+load, so a wrong type runs happily until `npm run typecheck` catches it.
 
 ## When to use
 

@@ -1,10 +1,13 @@
 import fsp from 'node:fs/promises';
 import fs from 'node:fs';
 import path from 'node:path';
-import { PUBLIC_DIR } from './config.js';
-import { staticTypeFor } from './mime.js';
+import type { ServerResponse } from 'node:http';
+import { PUBLIC_DIR } from './config.ts';
+import { staticTypeFor } from './mime.ts';
 
-export function send(res, status, body, headers = {}) {
+export type Headers = Record<string, string | number>;
+
+export function send(res: ServerResponse, status: number, body: string, headers: Headers = {}): void {
   res.writeHead(status, {
     'Content-Type': 'text/plain; charset=utf-8',
     'Content-Length': Buffer.byteLength(body),
@@ -13,7 +16,7 @@ export function send(res, status, body, headers = {}) {
   res.end(body);
 }
 
-export async function serveStatic(res, file) {
+export async function serveStatic(res: ServerResponse, file: string): Promise<void> {
   const fullPath = path.join(PUBLIC_DIR, file);
   try {
     const stat = await fsp.stat(fullPath);

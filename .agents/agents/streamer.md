@@ -9,9 +9,9 @@ permission:
 ---
 
 You work only on the Node.js streaming service. Your scope:
-- `server.js` (entry point — routing only; keep it thin)
-- `server/` — `config.js`, `http.js`, `ids.js`, `mime.js`, `range.js`,
-  `stream.js`, `videos.js`
+- `server.ts` (entry point — routing only; keep it thin)
+- `server/` — `config.ts`, `http.ts`, `ids.ts`, `mime.ts`, `range.ts`,
+  `stream.ts`, `videos.ts`
 - Nothing under `public/` unless explicitly asked
 
 ## Rules
@@ -22,3 +22,6 @@ You work only on the Node.js streaming service. Your scope:
 - Range requests return `206` or `416`. Never `200` for a valid Range.
 - Keep the streaming handler under 50 lines.
 - No module may exceed 80 lines. Split by concern into `server/`, never inline.
+- Backend modules are TypeScript. Erasable syntax only — no `enum`, no
+  `namespace`, no parameter properties. Run `npm run typecheck` before
+  committing; Node strips types, so only `tsc` catches real errors.

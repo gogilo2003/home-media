@@ -1,11 +1,11 @@
 import http from 'node:http';
-import { PORT, VIDEO_ROOT, STATIC_ROUTES } from './server/config.js';
-import { send, serveStatic } from './server/http.js';
-import { listVideos } from './server/videos.js';
-import { streamVideo } from './server/stream.js';
+import { PORT, VIDEO_ROOT, STATIC_ROUTES } from './server/config.ts';
+import { send, serveStatic } from './server/http.ts';
+import { listVideos } from './server/videos.ts';
+import { streamVideo } from './server/stream.ts';
 
 const server = http.createServer(async (req, res) => {
-  const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+  const url = new URL(req.url ?? '/', `http://${req.headers.host ?? 'localhost'}`);
   try {
     if (req.method !== 'GET' && req.method !== 'HEAD') {
       return send(res, 405, 'Method not allowed');

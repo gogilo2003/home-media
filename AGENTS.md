@@ -4,19 +4,30 @@ Modular Node.js streaming server for the LAN. No framework. No database.
 No auth. Just filesystem + HTTP.
 
 ## Architecture
-- `server.js` — entry point only: creates the HTTP server, dispatches routes, listens.
+- `server.ts` — entry point only: creates the HTTP server, dispatches routes, listens.
 - `server/` — backend modules, one concern each:
-  - `config.js` — `PORT`, `VIDEO_ROOT`, `PUBLIC_DIR`, static route map
-  - `http.js` — response helper and static file serving
-  - `ids.js` — `encodeId` / `decodeId` / `safeResolve`
-  - `mime.js` — extension sets and MIME lookup
-  - `range.js` — HTTP Range parsing
-  - `videos.js` — `/api/videos` directory listing
-  - `stream.js` — `/video/:id` streaming
-- `public/` — static frontend, served by the same server.
+  - `config.ts` — `PORT`, `VIDEO_ROOT`, `PUBLIC_DIR`, static route map
+  - `http.ts` — response helper and static file serving
+  - `ids.ts` — `encodeId` / `decodeId` / `safeResolve`
+  - `mime.ts` — extension sets and MIME lookup
+  - `range.ts` — HTTP Range parsing
+  - `videos.ts` — `/api/videos` directory listing
+  - `stream.ts` — `/video/:id` streaming
+- `types.ts` — shared API contract (`Video`, `ByteRange`). Type-only; nothing is served.
+- `public/` — static frontend. `app.js` is plain JavaScript, type-checked via JSDoc.
 - `src/input.css` — Tailwind source. `public/styles.css` is generated.
 - `videos/` — media directory (`VIDEO_ROOT`). Never commit its contents.
 - `docs/roadmaps/` — phase-by-phase work plans.
+
+## TypeScript
+- Node runs `.ts` directly via built-in type stripping. **No build step, no bundler.**
+- `tsc --noEmit` is the only check; run it with `npm run typecheck`.
+- **Erasable syntax only.** `enum`, `namespace`, parameter properties, and
+  decorators all fail at runtime. Use `union` types and plain objects instead.
+- Imports carry explicit extensions: `import { x } from './config.ts'`.
+- Type-only imports must use `import type` — they are erased, so nothing ships.
+- The browser cannot strip types, so `public/app.js` stays JavaScript and opts
+  in with `// @ts-check`, referencing `types.ts` through JSDoc.
 
 ## Current Work
 Roadmap: `docs/roadmaps/v0.1.0-minimal.md`
@@ -27,6 +38,7 @@ Stop and report. Do not proceed to the next phase without confirmation.
 | Purpose    | Command                                                                           |
 |------------|-----------------------------------------------------------------------------------|
 | Run server | `npm start`                                                                       |
+| Typecheck  | `npm run typecheck`                                                               |
 | Watch CSS  | `npm run css`                                                                     |
 | Build CSS  | `npm run css:build`                                                               |
 | Smoke test | `curl -s http://localhost:3000/api/videos`                                        |
@@ -38,13 +50,13 @@ Stop and report. Do not proceed to the next phase without confirmation.
 - **Docs, roadmap, AGENTS.md** → default agent
 
 ## Hard Rules
-- Runtime deps: **none**. Dev deps: only `tailwindcss`.
+- Runtime deps: **none**. Dev deps: `tailwindcss` plus `typescript` and `@types/node` for checking.
 - No HTTP framework (no Express, Fastify, Koa, Hono).
 - No `dotenv`, `lodash`, `axios`, `node-fetch`, or any utility library.
 - Every fs call using a **client-supplied or `id`-derived** path must pass it through `safeResolve()` first. Paths returned by `readdir()` under `VIDEO_ROOT` are already trusted and do not need it.
 - Range requests: `206` with correct `Content-Range`, or `416`. Never `200`.
 - Full responses include `Accept-Ranges: bytes`.
-- No module may exceed **80 lines**. `server.js` is a thin entry point and should stay under 50; if it grows, the logic belongs in `server/`.
+- No module may exceed **80 lines**. `server.ts` is a thin entry point and should stay under 50; if it grows, the logic belongs in `server/`.
 - Browser `<video>` handles seeking. Do not add MSE, HLS, or a player library.
 
 ## MIME Types (use exactly)
@@ -68,11 +80,11 @@ Do not commit generated files (`public/styles.css`). It is gitignored.
 
 ## Stop and Ask Before
 - Adding any runtime dependency
-- Exceeding 80 lines in any module, or 50 in `server.js`
+- Exceeding 80 lines in any module, or 50 in `server.ts`
 - Touching anything in the "Deferred" list
 - Changing the API response shape
 - Adding new routes beyond `/`, `/api/videos`, `/video/:id`, and static assets
-- Adding a new top-level directory, or re-merging `server/` back into one file
+- Adding a new top-level directory, re-merging `server/` into one file, or converting `public/app.js` to `.ts` (the browser cannot strip types)
 
 ## Deferred (do not build without explicit approval)
 - Auth, sessions, users, JWT
@@ -86,6 +98,7 @@ Do not commit generated files (`public/styles.css`). It is gitignored.
 - New source files go in `src/` (build inputs) or `public/` (served assets).
 - Backend modules go in `server/`, one concern per file, named after the concern
   (`range.js` for Range parsing, `ids.js` for id encoding, and so on).
-- Do not create files at the repository root unless listed in Architecture above.
+- Do not create files at the repository root unless listed in Architecture above
+  (`server.ts`, `types.ts`, `tailwind.config.js`, `package.json`, and the `.gitignore`).
 - Do not create `lib/`, `utils/`, `helpers/`, or `services/` folders.
   `server/` is the only backend directory.

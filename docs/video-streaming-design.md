@@ -63,15 +63,16 @@ movies/inception.mp4  →  id = bW92aWVzL2luY2VwdGlvbi5tcDQ
 
 ```
 video-platform/
-├── server.js              # entry point: http server + routing + listen
+├── server.ts              # entry point: http server + routing + listen
 ├── server/
-│   ├── config.js          # PORT, VIDEO_ROOT, PUBLIC_DIR, static routes
-│   ├── http.js            # response helper + static file serving
-│   ├── ids.js             # encodeId / decodeId / safeResolve
-│   ├── mime.js            # extension sets + MIME lookup
-│   ├── range.js           # HTTP Range parsing
-│   ├── videos.js          # /api/videos listing
-│   └── stream.js          # /video/:id streaming
+│   ├── config.ts          # PORT, VIDEO_ROOT, PUBLIC_DIR, static routes
+│   ├── http.ts            # response helper + static file serving
+│   ├── ids.ts             # encodeId / decodeId / safeResolve
+│   ├── mime.ts            # extension sets + MIME lookup
+│   ├── range.ts           # HTTP Range parsing
+│   ├── videos.ts          # /api/videos listing
+│   └── stream.ts          # /video/:id streaming
+├── types.ts                # shared Video / ByteRange contract (erased at runtime)
 ├── public/
 │   ├── index.html         # the page
 │   ├── app.js             # fetch + render + player logic
@@ -86,7 +87,7 @@ video-platform/
 └── README.md
 ```
 
-`server.js` stays a thin entry point; backend concerns live in `server/`, one
+`server.ts` stays a thin entry point; backend concerns live in `server/`, one
 file per concern. No module may exceed 80 lines.
 
 `videos/` is scanned recursively at request time (or cached — see §7). Supported extensions: `.mp4`, `.webm`, `.mkv`, `.mov`, `.m4v`.
@@ -186,8 +187,11 @@ Accept-Ranges: bytes
 ## 7. Server Implementation Notes
 
 `package.json` sets `"type": "module"`, so everything is **ESM**: use `import`,
-never `require`. `server.js` is a thin entry point that creates the HTTP
-server, dispatches routes, and listens. Backend concerns live in `server/`,
+never `require`. It is **TypeScript** run directly by Node through built-in
+type stripping — there is no build step and no bundler. Only erasable syntax
+works (`enum`, `namespace` and parameter properties fail at runtime).
+`server.ts` is a thin entry point that creates the HTTP server, dispatches
+routes, and listens. Backend concerns live in `server/`,
 one file per concern, each well under the 80-line ceiling.
 
 **`server/config.js`** — resolved once at startup:
@@ -200,14 +204,14 @@ export const VIDEO_ROOT = path.resolve(process.env.VIDEO_ROOT || './videos');
 export const PUBLIC_DIR = path.join(import.meta.dirname, '..', 'public');
 ```
 
-**`server.js`** — entry point and nothing else:
+**`server.ts`** — entry point and nothing else:
 
 ```javascript
 import http from 'node:http';
-import { PORT, VIDEO_ROOT, STATIC_ROUTES } from './server/config.js';
-import { send, serveStatic } from './server/http.js';
-import { listVideos } from './server/videos.js';
-import { streamVideo } from './server/stream.js';
+import { PORT, VIDEO_ROOT, STATIC_ROUTES } from './server/config.ts';
+import { send, serveStatic } from './server/http.ts';
+import { listVideos } from './server/videos.ts';
+import { streamVideo } from './server/stream.ts';
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
@@ -381,7 +385,7 @@ Works instantly but not recommended for production and adds a runtime dependency
 npx tailwindcss -i ./src/input.css -o ./public/styles.css --watch
 
 # Terminal 2
-node server.js
+node server.ts
 
 # Access locally
 open http://localhost:3000
@@ -537,7 +541,7 @@ The minimal version isn't a throwaway. It's the skeleton the full design hangs o
 ## 15. Success Criteria for v1
 
 You're done when:
-1. `node server.js` starts the server
+1. `npm start` (which runs `node server.ts`) starts the server
 2. Browser shows a grid of video filenames
 3. Clicking one plays it
 4. Seeking works (drag the progress bar, video jumps)
