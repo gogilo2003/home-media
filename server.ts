@@ -1,5 +1,5 @@
 import http from 'node:http';
-import { PORT, VIDEO_ROOT, STATIC_ROUTES } from './server/config.ts';
+import { PORT, STATIC_ROUTES } from './server/config.ts';
 import { send, serveStatic } from './server/http.ts';
 import { listVideos } from './server/videos.ts';
 import { streamVideo } from './server/stream.ts';
@@ -35,5 +35,5 @@ server.listen(PORT, '0.0.0.0', () => {
   } else {
     console.log('  LAN:       none detected — check your network connection');
   }
-  console.log(`Video root: ${VIDEO_ROOT}`);
+  // console.log(`Video root: ${VIDEO_ROOT}`);
 });
