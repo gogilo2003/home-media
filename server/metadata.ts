@@ -1,7 +1,3 @@
-import fsp from 'node:fs/promises';
-import path from 'node:path';
-import { VIDEO_ROOT } from './config.ts';
-import type { Category } from '../types.ts';
 
 export interface Episode {
   name: string;
