@@ -38,12 +38,13 @@ async function extractPreview(video, previewDir, force) {
   return undefined;
 }
 
-export async function addPreviews(videos, previewDir, force = false) {
+export async function addPreviews(videos, previewDir, force = false, onVideo) {
   let next = 0;
   const workers = Array.from({length: Math.min(4, videos.length)}, async () => {
     while (next < videos.length) {
       const video = videos[next++];
       video.preview = await extractPreview(video, previewDir, force);
+      onVideo?.(video);
     }
   });
   await Promise.all(workers);

@@ -2,6 +2,7 @@
 import {catalogVideos} from '../server/catalog.ts';
 import {findCaptionsForVideo} from '../server/captions.ts';
 import {addPreviews} from './catalog-previews.mjs';
+import {createProgress} from './progress.mjs';
 import fsp from 'node:fs/promises';
 import path from 'node:path';
 
@@ -10,7 +11,10 @@ async function main() {
   const previewsOnly = args.includes('--previews-only');
   const forcePreviews = previewsOnly || args.includes('--refresh-previews');
   const root = args.find(arg => !arg.startsWith('--')) || process.env.VIDEO_ROOT || './videos';
+  console.error(`Scanning ${root} ...`);
   const c = await catalogVideos({root, followSymlinks: true});
+  console.error(`Found ${c.total} videos`);
+  const captionsBar = createProgress(c.total, 'captions');
   const enriched = [];
   for (let i=0; i<c.videos.length; i++) {
     const v = c.videos[i];
@@ -20,10 +24,16 @@ async function main() {
     } catch {
       enriched.push({...v});
     }
+    captionsBar.render(v.name);
   }
+  captionsBar.end('Captions done');
   const previewDir = path.resolve('catalog/previews');
   await fsp.mkdir(previewDir, {recursive: true});
-  await addPreviews(enriched, previewDir, forcePreviews);
+  const previewsBar = createProgress(c.total, 'previews');
+  await addPreviews(enriched, previewDir, forcePreviews, (video) => {
+    previewsBar.render(video.preview ? video.name : `${video.name} (no preview)`);
+  });
+  previewsBar.end('Previews done');
   if (previewsOnly) {
     console.log('Previews refreshed; catalog/index.json was not changed.');
     return;
