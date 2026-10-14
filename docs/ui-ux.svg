@@ -1,0 +1,271 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0E14" />
+      <stop offset="100%" stop-color="#121721" />
+    </linearGradient>
+
+    <!-- Accent Gradient -->
+    <linearGradient id="accent-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#4F46E5" />
+    </linearGradient>
+
+    <!-- Card Background Gradient -->
+    <linearGradient id="card-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1C2331" />
+      <stop offset="100%" stop-color="#151A24" />
+    </linearGradient>
+
+    <!-- Thumbnail Gradients -->
+    <linearGradient id="thumb-1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#312E81" />
+      <stop offset="50%" stop-color="#1E1B4B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+
+    <linearGradient id="thumb-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064E3B" />
+      <stop offset="50%" stop-color="#022C22" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+
+    <linearGradient id="thumb-3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#831843" />
+      <stop offset="50%" stop-color="#500724" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+
+    <linearGradient id="thumb-4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#78350F" />
+      <stop offset="50%" stop-color="#451A03" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+
+    <!-- Drop Shadow Filter -->
+    <filter id="drop-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    .font-sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .title-logo { font-size: 20px; font-weight: 700; fill: #FFFFFF; letter-spacing: -0.5px; }
+    .search-text { font-size: 14px; fill: #64748B; }
+    .tab-text { font-size: 14px; font-weight: 500; }
+    .filter-label { font-size: 13px; fill: #94A3B8; font-weight: 500; }
+    .filter-val { font-size: 13px; fill: #F1F5F9; font-weight: 600; }
+    .card-title { font-size: 15px; font-weight: 600; fill: #F8FAFC; }
+    .card-meta { font-size: 12px; fill: #94A3B8; }
+    .badge-text { font-size: 11px; font-weight: 700; fill: #E2E8F0; }
+  </style>
+
+  <!-- Canvas Background -->
+  <rect width="1440" height="900" fill="url(#bg-grad)" />
+
+  <!-- ==================== HEADER SECTION ==================== -->
+  <g id="Header" transform="translate(60, 36)">
+    <!-- Brand / App Logo & Title -->
+    <g id="Logo" transform="translate(0, 0)">
+      <rect width="38" height="38" rx="10" fill="url(#accent-grad)" />
+      <!-- Play Icon in Logo -->
+      <path d="M15 12L27 19L15 26V12Z" fill="#FFFFFF" />
+      <text x="50" y="26" class="font-sans title-logo">HomeMedia</text>
+      <rect x="175" y="10" width="58" height="20" rx="4" fill="#1E293B" />
+      <text x="183" y="24" class="font-sans badge-text" fill="#818CF8">LOCAL</text>
+    </g>
+
+    <!-- Lean Search Bar -->
+    <g id="Search-Bar" transform="translate(920, 0)">
+      <rect width="400" height="42" rx="10" fill="#161B26" stroke="#262F40" stroke-width="1" />
+      <!-- Search Icon -->
+      <circle cx="24" cy="21" r="6.5" stroke="#64748B" stroke-width="1.8" fill="none" />
+      <line x1="29" y1="26" x2="35" y2="32" stroke="#64748B" stroke-width="1.8" stroke-linecap="round" />
+      <text x="46" y="26" class="font-sans search-text">Search titles, artists, directors...</text>
+      <!-- Shortcut hint -->
+      <rect x="352" y="11" width="36" height="20" rx="4" fill="#222B3A" />
+      <text x="360" y="25" class="font-sans" font-size="11" fill="#94A3B8" font-weight="600">⌘ K</text>
+    </g>
+  </g>
+
+  <!-- Divider Line -->
+  <line x1="60" y1="104" x2="1380" y2="104" stroke="#1E2636" stroke-width="1" />
+
+  <!-- ==================== CATEGORY NAVIGATION & EXPANSION ==================== -->
+  <g id="Categories" transform="translate(60, 130)">
+    <!-- Active Category: Movies -->
+    <g id="Tab-Movies" transform="translate(0, 0)">
+      <rect width="105" height="40" rx="10" fill="url(#accent-grad)" />
+      <text x="52" y="25" text-anchor="middle" class="font-sans tab-text" fill="#FFFFFF">Movies</text>
+    </g>
+
+    <!-- Category: Series -->
+    <g id="Tab-Series" transform="translate(117, 0)">
+      <rect width="100" height="40" rx="10" fill="#161B26" stroke="#262F40" stroke-width="1" />
+      <text x="50" y="25" text-anchor="middle" class="font-sans tab-text" fill="#94A3B8">Series</text>
+    </g>
+
+    <!-- Category: Music -->
+    <g id="Tab-Music" transform="translate(229, 0)">
+      <rect width="98" height="40" rx="10" fill="#161B26" stroke="#262F40" stroke-width="1" />
+      <text x="49" y="25" text-anchor="middle" class="font-sans tab-text" fill="#94A3B8">Music</text>
+    </g>
+
+    <!-- Category: Others -->
+    <g id="Tab-Others" transform="translate(339, 0)">
+      <rect width="100" height="40" rx="10" fill="#161B26" stroke="#262F40" stroke-width="1" />
+      <text x="50" y="25" text-anchor="middle" class="font-sans tab-text" fill="#94A3B8">Others</text>
+    </g>
+
+    <!-- Future-Ready Modular Add Button (+) -->
+    <g id="Tab-Add" transform="translate(451, 0)">
+      <rect width="40" height="40" rx="10" fill="#161B26" stroke="#262F40" stroke-width="1" stroke-dasharray="3 3" />
+      <path d="M20 13V27M13 20H27" stroke="#64748B" stroke-width="2" stroke-linecap="round" />
+    </g>
+  </g>
+
+  <!-- ==================== LEAN FILTER & SORT BAR ==================== -->
+  <g id="Filters" transform="translate(60, 192)">
+    <!-- Items Counter -->
+    <text x="0" y="22" class="font-sans filter-label" font-size="14">Showing <tspan fill="#FFFFFF" font-weight="700">128</tspan> Items</text>
+
+    <!-- Filter Control Group -->
+    <g id="Filter-Controls" transform="translate(810, 0)">
+      <!-- Sort By -->
+      <g transform="translate(0, 0)">
+        <rect width="160" height="34" rx="8" fill="#161B26" stroke="#262F40" stroke-width="1" />
+        <text x="14" y="21" class="font-sans filter-label">Sort: <tspan class="filter-val">Recently Added</tspan></text>
+        <path d="M142 15L146 19L150 15" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" fill="none" />
+      </g>
+
+      <!-- Year Filter -->
+      <g transform="translate(172, 0)">
+        <rect width="110" height="34" rx="8" fill="#161B26" stroke="#262F40" stroke-width="1" />
+        <text x="14" y="21" class="font-sans filter-label">Year: <tspan class="filter-val">All</tspan></text>
+        <path d="M92 15L96 19L100 15" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" fill="none" />
+      </g>
+
+      <!-- Resolution/Quality Filter -->
+      <g transform="translate(294, 0)">
+        <rect width="118" height="34" rx="8" fill="#161B26" stroke="#262F40" stroke-width="1" />
+        <text x="14" y="21" class="font-sans filter-label">Quality: <tspan class="filter-val">All</tspan></text>
+        <path d="M100 15L104 19L108 15" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" fill="none" />
+      </g>
+
+      <!-- View Layout Icon (Grid) -->
+      <g transform="translate(424, 0)">
+        <rect width="34" height="34" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1" />
+        <rect x="8" y="8" width="7" height="7" rx="1.5" fill="#818CF8" />
+        <rect x="19" y="8" width="7" height="7" rx="1.5" fill="#818CF8" />
+        <rect x="8" y="19" width="7" height="7" rx="1.5" fill="#818CF8" />
+        <rect x="19" y="19" width="7" height="7" rx="1.5" fill="#818CF8" />
+      </g>
+    </g>
+  </g>
+
+  <!-- ==================== MEDIA CARD GRID ==================== -->
+  <g id="Grid-Container" transform="translate(60, 246)">
+
+    <!-- CARD 1 -->
+    <g id="Card-1" transform="translate(0, 0)" filter="url(#drop-shadow)">
+      <rect width="308" height="580" rx="14" fill="url(#card-bg)" stroke="#222A3A" stroke-width="1" />
+      <!-- Poster Thumbnail Art -->
+      <rect x="1" y="1" width="306" height="420" rx="13" fill="url(#thumb-1)" />
+      <!-- Abstract Graphic in Poster -->
+      <circle cx="154" cy="180" r="80" fill="#4338CA" opacity="0.4" />
+      <polygon points="154,120 220,240 88,240" fill="#6366F1" opacity="0.6" />
+      <!-- Quality Badge -->
+      <rect x="16" y="16" width="56" height="24" rx="6" fill="#000000" fill-opacity="0.65" />
+      <text x="24" y="32" class="font-sans badge-text" fill="#38BDF8">4K UHD</text>
+      <!-- Duration Badge -->
+      <rect x="222" y="16" width="70" height="24" rx="6" fill="#000000" fill-opacity="0.65" />
+      <text x="233" y="32" class="font-sans badge-text">2h 14m</text>
+      <!-- Quick Play Button Hover Target -->
+      <circle cx="154" cy="210" r="28" fill="#FFFFFF" fill-opacity="0.9" />
+      <polygon points="149,198 165,210 149,222" fill="#0F172A" />
+
+      <!-- Card Metadata -->
+      <text x="20" y="460" class="font-sans card-title">Interstellar Voyage</text>
+      <text x="20" y="486" class="font-sans card-meta">2024 • Sci-Fi, Adventure</text>
+      <line x1="20" y1="506" x2="288" y2="506" stroke="#222B3A" stroke-width="1" />
+      <text x="20" y="534" class="font-sans" font-size="12" fill="#64748B">File Size: 14.2 GB • Atmos</text>
+    </g>
+
+    <!-- CARD 2 -->
+    <g id="Card-2" transform="translate(338, 0)" filter="url(#drop-shadow)">
+      <rect width="308" height="580" rx="14" fill="url(#card-bg)" stroke="#222A3A" stroke-width="1" />
+      <!-- Poster Thumbnail Art -->
+      <rect x="1" y="1" width="306" height="420" rx="13" fill="url(#thumb-2)" />
+      <circle cx="154" cy="200" r="90" fill="#059669" opacity="0.3" />
+      <rect x="94" y="150" width="120" height="120" rx="20" fill="#10B981" opacity="0.5" transform="rotate(25 154 210)" />
+      <!-- Quality Badge -->
+      <rect x="16" y="16" width="56" height="24" rx="6" fill="#000000" fill-opacity="0.65" />
+      <text x="26" y="32" class="font-sans badge-text" fill="#34D399">1080p</text>
+      <!-- Duration Badge -->
+      <rect x="222" y="16" width="70" height="24" rx="6" fill="#000000" fill-opacity="0.65" />
+      <text x="233" y="32" class="font-sans badge-text">1h 48m</text>
+      <!-- Play Button -->
+      <circle cx="154" cy="210" r="28" fill="#FFFFFF" fill-opacity="0.9" />
+      <polygon points="149,198 165,210 149,222" fill="#0F172A" />
+
+      <!-- Card Metadata -->
+      <text x="20" y="460" class="font-sans card-title">Silent Forest Mystery</text>
+      <text x="20" y="486" class="font-sans card-meta">2023 • Thriller, Mystery</text>
+      <line x1="20" y1="506" x2="288" y2="506" stroke="#222B3A" stroke-width="1" />
+      <text x="20" y="534" class="font-sans" font-size="12" fill="#64748B">File Size: 8.6 GB • 5.1 Ch</text>
+    </g>
+
+    <!-- CARD 3 -->
+    <g id="Card-3" transform="translate(676, 0)" filter="url(#drop-shadow)">
+      <rect width="308" height="580" rx="14" fill="url(#card-bg)" stroke="#222A3A" stroke-width="1" />
+      <!-- Poster Thumbnail Art -->
+      <rect x="1" y="1" width="306" height="420" rx="13" fill="url(#thumb-3)" />
+      <circle cx="154" cy="210" r="70" fill="#BE185D" opacity="0.4" />
+      <circle cx="180" cy="180" r="50" fill="#F43F5E" opacity="0.5" />
+      <!-- Quality Badge -->
+      <rect x="16" y="16" width="56" height="24" rx="6" fill="#000000" fill-opacity="0.65" />
+      <text x="24" y="32" class="font-sans badge-text" fill="#38BDF8">4K HDR</text>
+      <!-- Duration Badge -->
+      <rect x="222" y="16" width="70" height="24" rx="6" fill="#000000" fill-opacity="0.65" />
+      <text x="233" y="32" class="font-sans badge-text">2h 35m</text>
+      <!-- Play Button -->
+      <circle cx="154" cy="210" r="28" fill="#FFFFFF" fill-opacity="0.9" />
+      <polygon points="149,198 165,210 149,222" fill="#0F172A" />
+
+      <!-- Card Metadata -->
+      <text x="20" y="460" class="font-sans card-title">Midnight Echoes</text>
+      <text x="20" y="486" class="font-sans card-meta">2024 • Action, Noir</text>
+      <line x1="20" y1="506" x2="288" y2="506" stroke="#222B3A" stroke-width="1" />
+      <text x="20" y="534" class="font-sans" font-size="12" fill="#64748B">File Size: 18.5 GB • TrueHD</text>
+    </g>
+
+    <!-- CARD 4 -->
+    <g id="Card-4" transform="translate(1014, 0)" filter="url(#drop-shadow)">
+      <rect width="308" height="580" rx="14" fill="url(#card-bg)" stroke="#222A3A" stroke-width="1" />
+      <!-- Poster Thumbnail Art -->
+      <rect x="1" y="1" width="306" height="420" rx="13" fill="url(#thumb-4)" />
+      <polygon points="154,130 230,270 78,270" fill="#D97706" opacity="0.4" />
+      <!-- Quality Badge -->
+      <rect x="16" y="16" width="56" height="24" rx="6" fill="#000000" fill-opacity="0.65" />
+      <text x="24" y="32" class="font-sans badge-text" fill="#38BDF8">4K UHD</text>
+      <!-- Duration Badge -->
+      <rect x="222" y="16" width="70" height="24" rx="6" fill="#000000" fill-opacity="0.65" />
+      <text x="233" y="32" class="font-sans badge-text">1h 55m</text>
+      <!-- Play Button -->
+      <circle cx="154" cy="210" r="28" fill="#FFFFFF" fill-opacity="0.9" />
+      <polygon points="149,198 165,210 149,222" fill="#0F172A" />
+
+      <!-- Card Metadata -->
+      <text x="20" y="460" class="font-sans card-title">Desert Chronicles</text>
+      <text x="20" y="486" class="font-sans card-meta">2022 • Documentary</text>
+      <line x1="20" y1="506" x2="288" y2="506" stroke="#222B3A" stroke-width="1" />
+      <text x="20" y="534" class="font-sans" font-size="12" fill="#64748B">File Size: 11.0 GB • Stereo</text>
+    </g>
+  </g>
+</svg>
