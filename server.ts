@@ -21,6 +21,16 @@ const server = http.createServer(async (req, res) => {
     if (url.pathname.startsWith('/video/')) {
       return await streamVideo(req, res, decodeURIComponent(url.pathname.slice(7)));
     }
+    if (url.pathname.startsWith('/captions/')) {
+      const parts = url.pathname.slice(10).split('/');
+      if (parts.length >= 2) {
+        const cap = parts.pop()!;
+        const vid = parts.join('/');
+        const { serveCaption } = await import('./server/captions-api.ts');
+        return await serveCaption(req, res, vid, cap);
+      }
+      return send(res, 404, 'Not found');
+    }
     send(res, 404, 'Not found');
   } catch (err) {
     console.error(err);
