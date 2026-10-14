@@ -4,11 +4,9 @@ import type { IncomingMessage, ServerResponse } from 'node:http';
 import { send } from './http.ts';
 import { decodeId, safeResolve } from './ids.ts';
 import { isVideo, mimeFor } from './mime.ts';
-import { isBrowserSafe } from './codecs.ts';
-import { streamTranscoded } from './transcode.ts';
-import { serveFile as serveOriginal } from './file-stream.ts';
+import { serveFile } from './file-stream.ts';
 
-export async function streamVideo(req: IncomingMessage, res: ServerResponse, id: string, force = false): Promise<void> {
+export async function streamVideo(req: IncomingMessage, res: ServerResponse, id: string): Promise<void> {
   let relPath: string;
   try { relPath = decodeId(id); } catch { return send(res, 400, 'Bad id'); }
   let fullPath: string;
@@ -20,9 +18,5 @@ export async function streamVideo(req: IncomingMessage, res: ServerResponse, id:
     const stat = await fsp.stat(fullPath);
     if (!stat.isFile()) throw new Error('not a file');
   } catch { return send(res, 404, 'Not found'); }
-  if (!force && await isBrowserSafe(fullPath, ext)) {
-    console.log(`Serving original: ${id}`);
-    return serveOriginal(req, res, fullPath, mimeFor(ext));
-  }
-  return streamTranscoded(req, res, fullPath, id, force);
+  return serveFile(req, res, fullPath, mimeFor(ext));
 }

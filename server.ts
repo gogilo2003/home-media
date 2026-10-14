@@ -23,7 +23,7 @@ const server = http.createServer(async (req, res) => {
       return send(res, 200, JSON.stringify(toApiResponse(videos)), { 'Content-Type': 'application/json' });
     }
     if (url.pathname.startsWith('/video/')) {
-      return await streamVideo(req, res, decodeURIComponent(url.pathname.slice(7)), url.searchParams.get('force') === '1');
+      return await streamVideo(req, res, decodeURIComponent(url.pathname.slice(7)));
     }
     if (url.pathname.startsWith('/captions/')) {
       const parts = url.pathname.slice(10).split('/');
