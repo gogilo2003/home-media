@@ -69,6 +69,7 @@ video-platform/
 │   ├── http.ts            # response helper + static file serving
 │   ├── ids.ts             # encodeId / decodeId / safeResolve
 │   ├── mime.ts            # extension sets + MIME lookup
+│   ├── net.ts             # LAN address discovery for the banner
 │   ├── range.ts           # HTTP Range parsing
 │   ├── videos.ts          # /api/videos listing
 │   └── stream.ts          # /video/:id streaming
@@ -212,6 +213,7 @@ import { PORT, VIDEO_ROOT, STATIC_ROUTES } from './server/config.ts';
 import { send, serveStatic } from './server/http.ts';
 import { listVideos } from './server/videos.ts';
 import { streamVideo } from './server/stream.ts';
+import { lanAddresses } from './server/net.ts';
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
@@ -230,6 +232,7 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`Listening on http://0.0.0.0:${PORT}`);
+  for (const addr of lanAddresses()) console.log(`  LAN:       http://${addr}:${PORT}`);
   console.log(`Video root: ${VIDEO_ROOT}`);
 });
 ```

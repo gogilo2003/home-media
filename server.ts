@@ -3,6 +3,7 @@ import { PORT, VIDEO_ROOT, STATIC_ROUTES } from './server/config.ts';
 import { send, serveStatic } from './server/http.ts';
 import { listVideos } from './server/videos.ts';
 import { streamVideo } from './server/stream.ts';
+import { lanAddresses } from './server/net.ts';
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url ?? '/', `http://${req.headers.host ?? 'localhost'}`);
@@ -27,6 +28,12 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, '0.0.0.0', () => {
+  const lan = lanAddresses();
   console.log(`Listening on http://0.0.0.0:${PORT}`);
+  if (lan.length) {
+    for (const addr of lan) console.log(`  LAN:       http://${addr}:${PORT}`);
+  } else {
+    console.log('  LAN:       none detected — check your network connection');
+  }
   console.log(`Video root: ${VIDEO_ROOT}`);
 });

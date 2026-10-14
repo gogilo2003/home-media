@@ -10,6 +10,7 @@ No auth. Just filesystem + HTTP.
   - `http.ts` — response helper and static file serving
   - `ids.ts` — `encodeId` / `decodeId` / `safeResolve`
   - `mime.ts` — extension sets and MIME lookup
+  - `net.ts` — LAN address discovery for the startup banner
   - `range.ts` — HTTP Range parsing
   - `videos.ts` — `/api/videos` directory listing
   - `stream.ts` — `/video/:id` streaming
