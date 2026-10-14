@@ -15,6 +15,8 @@ You work only on the Node.js streaming service. Your scope:
 
 ## Rules
 - Never add a database dependency. Streaming is stateless.
-- Every file path must pass through `safeResolve()` before any `fs` call.
+- Every file path using a **client-supplied or id-derived** value must pass
+  through `safeResolve()` before any fs call. Paths from `readdir()` under
+  `VIDEO_ROOT` are already trusted.
 - Range requests return `206` or `416`. Never `200` for a valid Range.
 - Keep the streaming handler under 50 lines.
