@@ -7,11 +7,14 @@
  * against one definition.
  */
 
+export type Category = 'Movies' | 'Music' | 'Series' | 'Other';
+
 export interface Video {
   id: string;
   name: string;
   path: string;
   size: number;
+  category?: Category;
 }
 
 export interface ByteRange {
