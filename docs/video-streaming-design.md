@@ -350,6 +350,24 @@ The browser's `<video>` element **automatically sends `Range` headers** when the
 
 This is the single biggest simplification: **the browser is your player.**
 
+### 8.4 Mobile library and series detail
+
+`docs/ui-ux-mobile.svg` is the mobile library design reference. Its 390 × 844
+artboard uses the dark HomeMedia palette, a compact brand header and search
+field, horizontally arranged category tabs, and a compact row of sort, year,
+and 4K/HDR filters. The library uses a two-column poster grid. Cards reserve
+most of their height for artwork, show duration over the poster, then title,
+year, and quality badges below it. Treat this SVG as visual guidance; the
+filter controls and poster metadata shown there are not all implemented in
+the current page.
+
+The implemented series detail view is responsive as well. At narrow widths,
+the video player appears first and the episode sidebar follows beneath it.
+The sidebar keeps its season selector above a vertically scrollable episode
+list. At large widths the player and sidebar sit side by side. Choosing a
+season updates the episode list, and choosing an episode loads it into the
+player without leaving the show detail view.
+
 ---
 
 ## 9. Tailwind Setup

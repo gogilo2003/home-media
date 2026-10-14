@@ -80,6 +80,7 @@ export async function listVideos(options: { followSymlinks?: boolean } = {}): Pr
           path: relPath,
           size: stat.size,
           category: classify(relPath),
+          preview: `/catalog/previews/${encodeId(relPath)}.jpg`,
         });
       } catch {
         continue;
@@ -111,6 +112,7 @@ export async function listVideos(options: { followSymlinks?: boolean } = {}): Pr
           path: relPath,
           size: stat.size,
           category: classify(relPath),
+          preview: `/catalog/previews/${encodeId(relPath)}.jpg`,
         });
       } catch {
         continue;

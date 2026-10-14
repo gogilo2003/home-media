@@ -1,9 +1,9 @@
 import http from 'node:http';
 import { PORT, STATIC_ROUTES } from './server/config.ts';
 import { send, serveStatic } from './server/http.ts';
-import { listVideos } from './server/videos.ts';
 import { streamVideo } from './server/stream.ts';
 import { lanAddresses } from './server/net.ts';
+import { servePreview } from './server/preview.ts';
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url ?? '/', `http://${req.headers.host ?? 'localhost'}`);
@@ -13,14 +13,17 @@ const server = http.createServer(async (req, res) => {
     }
     const file = STATIC_ROUTES[url.pathname];
     if (file) return await serveStatic(res, file);
+    if (url.pathname.startsWith('/catalog/previews/')) {
+      return await servePreview(req, res, url.pathname.slice('/catalog/previews/'.length));
+    }
     if (url.pathname === '/api/videos') {
-      const vids = await listVideos();
-      const { toApiResponse, enhanceVideos } = await import('./server/api.ts');
-      const enriched = await enhanceVideos(vids);
-      return send(res, 200, JSON.stringify(toApiResponse(enriched)), { 'Content-Type': 'application/json' });
+      const { readCatalogVideos } = await import('./server/catalog-index.ts');
+      const { toApiResponse } = await import('./server/api.ts');
+      const videos = await readCatalogVideos();
+      return send(res, 200, JSON.stringify(toApiResponse(videos)), { 'Content-Type': 'application/json' });
     }
     if (url.pathname.startsWith('/video/')) {
-      return await streamVideo(req, res, decodeURIComponent(url.pathname.slice(7)));
+      return await streamVideo(req, res, decodeURIComponent(url.pathname.slice(7)), url.searchParams.get('force') === '1');
     }
     if (url.pathname.startsWith('/captions/')) {
       const parts = url.pathname.slice(10).split('/');

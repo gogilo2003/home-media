@@ -15,6 +15,7 @@ export interface Video {
   path: string;
   size: number;
   category?: Category;
+  preview?: string;
 }
 
 export interface ByteRange {

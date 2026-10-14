@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 import {catalogVideos} from '../server/catalog.ts';
 import {findCaptionsForVideo} from '../server/captions.ts';
+import {addPreviews} from './catalog-previews.mjs';
 import fsp from 'node:fs/promises';
 import path from 'node:path';
 
 async function main() {
-  const root = process.argv[2] || process.env.VIDEO_ROOT || './videos';
+  const args = process.argv.slice(2);
+  const previewsOnly = args.includes('--previews-only');
+  const forcePreviews = previewsOnly || args.includes('--refresh-previews');
+  const root = args.find(arg => !arg.startsWith('--')) || process.env.VIDEO_ROOT || './videos';
   const c = await catalogVideos({root, followSymlinks: true});
   const enriched = [];
   for (let i=0; i<c.videos.length; i++) {
@@ -16,6 +20,13 @@ async function main() {
     } catch {
       enriched.push({...v});
     }
+  }
+  const previewDir = path.resolve('catalog/previews');
+  await fsp.mkdir(previewDir, {recursive: true});
+  await addPreviews(enriched, previewDir, forcePreviews);
+  if (previewsOnly) {
+    console.log('Previews refreshed; catalog/index.json was not changed.');
+    return;
   }
   const byShow = new Map();
   for (const v of enriched) {
@@ -36,10 +47,10 @@ async function main() {
     const seasons = [];
     for (const [season, eps] of smap.entries()) {
       eps.sort((a,b)=>a.path.localeCompare(b.path));
-      seasons.push({name: season, episodes: eps.map(e=>({name:e.name, path:e.path, fullPath:e.fullPath, size:e.size, captions:e.captions}))});
+      seasons.push({name: season, preview: eps[0]?.preview, episodes: eps.map(e=>({name:e.name, path:e.path, fullPath:e.fullPath, size:e.size, captions:e.captions, preview:e.preview}))});
     }
     seasons.sort((a,b)=>a.name.localeCompare(b.name, undefined,{numeric:true}));
-    series.push({title: show, showPath: 'Videos/Series/' + show, seasons});
+    series.push({title: show, showPath: 'Videos/Series/' + show, preview: seasons[0]?.preview, seasons});
   }
   const meta = {
     version: '1.0',
@@ -50,7 +61,6 @@ async function main() {
   };
   meta.counts.total = c.total;
   await fsp.mkdir('catalog', {recursive:true});
-  await fsp.mkdir('catalog/previews', {recursive:true});
   await fsp.writeFile(path.join('catalog', 'index.json'), JSON.stringify(meta, null, 2));
   console.log('Catalog written to catalog/index.json');
   console.log('Total:', meta.counts.total, 'Movies:', meta.counts.Movies, 'Series:', meta.counts.Series, 'Music:', meta.counts.Music, 'Other:', meta.counts.Other);

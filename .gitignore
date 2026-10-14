@@ -12,3 +12,4 @@ videos/*
 *.mkv
 *.mov
 *.m4v
+catalog/previews/*.jpg
