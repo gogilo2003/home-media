@@ -1,0 +1,1595 @@
+{
+  "version": "1.0",
+  "updated": "2026-10-14T09:02:06.732Z",
+  "videos": [
+    {
+      "id": "MTI0MTgyNDgtaGRfMTkyMF8xMDgwXzI0ZnBzLm1wNA",
+      "name": "12418248-hd_1920_1080_24fps.mp4",
+      "path": "12418248-hd_1920_1080_24fps.mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/12418248-hd_1920_1080_24fps.mp4",
+      "size": 17616526,
+      "category": "Other"
+    },
+    {
+      "id": "MTI0NTcyMTRfMzg0MF8yMTYwXzI0ZnBzLm1wNA",
+      "name": "12457214_3840_2160_24fps.mp4",
+      "path": "12457214_3840_2160_24fps.mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/12457214_3840_2160_24fps.mp4",
+      "size": 103104985,
+      "category": "Other"
+    },
+    {
+      "id": "MTQ2NTEzNzFfMzg0MF8yMTYwXzI1ZnBzLm1wNA",
+      "name": "14651371_3840_2160_25fps.mp4",
+      "path": "14651371_3840_2160_25fps.mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/14651371_3840_2160_25fps.mp4",
+      "size": 12551497,
+      "category": "Other"
+    },
+    {
+      "id": "MTU0MDc2NTZfMzg0MF8yMTYwXzI1ZnBzLm1wNA",
+      "name": "15407656_3840_2160_25fps.mp4",
+      "path": "15407656_3840_2160_25fps.mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/15407656_3840_2160_25fps.mp4",
+      "size": 122627855,
+      "category": "Other"
+    },
+    {
+      "id": "ZmlsZV9leGFtcGxlX01QNF8xOTIwXzE4TUcubXA0",
+      "name": "file_example_MP4_1920_18MG.mp4",
+      "path": "file_example_MP4_1920_18MG.mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/file_example_MP4_1920_18MG.mp4",
+      "size": 17839845,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9BIFdvcmtpbmcgTWFuICgyMDI1KSBbNzIwcF0gW0JsdVJheV0gW1lUUy5NWF0vQS5Xb3JraW5nLk1hbi4yMDI1LjcyMHAuQmx1UmF5LngyNjQuQUFDLVtZVFMuTVhdLm1wNA",
+      "name": "A.Working.Man.2025.720p.BluRay.x264.AAC-[YTS.MX].mp4",
+      "path": "Videos/Movies/A Working Man (2025) [720p] [BluRay] [YTS.MX]/A.Working.Man.2025.720p.BluRay.x264.AAC-[YTS.MX].mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/A Working Man (2025) [720p] [BluRay] [YTS.MX]/A.Working.Man.2025.720p.BluRay.x264.AAC-[YTS.MX].mp4",
+      "size": 1120404157,
+      "category": "Movies",
+      "captions": [
+        {
+          "label": "A.Working.Man.2025.720p.BluRay.x264.AAC-[YTS.MX].srt",
+          "url": "/captions/Videos%2FMovies%2FA%20Working%20Man%20(2025)%20%5B720p%5D%20%5BBluRay%5D%20%5BYTS.MX%5D%2FA.Working.Man.2025.720p.BluRay.x264.AAC-%5BYTS.MX%5D.mp4/A.Working.Man.2025.720p.BluRay.x264.AAC-%5BYTS.MX%5D.srt",
+          "format": "srt"
+        }
+      ]
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9Db2xvbWJpYW5hLjIwMTEuNzIwcC5CbHVSYXkueDI2NC5BQUMtW1lUUy5NWF0ubXA0",
+      "name": "Colombiana.2011.720p.BluRay.x264.AAC-[YTS.MX].mp4",
+      "path": "Videos/Movies/Colombiana.2011.720p.BluRay.x264.AAC-[YTS.MX].mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/Colombiana.2011.720p.BluRay.x264.AAC-[YTS.MX].mp4",
+      "size": 1075432485,
+      "category": "Movies"
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9FeGl0LlByb3RvY29sLjIwMjUuMTA4MHAuQmx1UmF5LngyNjQuQUFDNS4xLVtZVFMuR0cgLSBZVFMuQlpdLm1wNA",
+      "name": "Exit.Protocol.2025.1080p.BluRay.x264.AAC5.1-[YTS.GG - YTS.BZ].mp4",
+      "path": "Videos/Movies/Exit.Protocol.2025.1080p.BluRay.x264.AAC5.1-[YTS.GG - YTS.BZ].mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/Exit.Protocol.2025.1080p.BluRay.x264.AAC5.1-[YTS.GG - YTS.BZ].mp4",
+      "size": 1675628808,
+      "category": "Movies"
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9GYWxsIDIgRGVhZHBvaW50ICgyMDI2KSBbNzIwcF0gW1dFQlJpcF0gW1lUUy5HRyAtIFlUUy5CWl0vRmFsbC4yLkRlYWRwb2ludC4yMDI2LjcyMHAuV0VCUmlwLngyNjQuQUFDLVtZVFMuR0cgLSBZVFMuQlpdLm1wNA",
+      "name": "Fall.2.Deadpoint.2026.720p.WEBRip.x264.AAC-[YTS.GG - YTS.BZ].mp4",
+      "path": "Videos/Movies/Fall 2 Deadpoint (2026) [720p] [WEBRip] [YTS.GG - YTS.BZ]/Fall.2.Deadpoint.2026.720p.WEBRip.x264.AAC-[YTS.GG - YTS.BZ].mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/Fall 2 Deadpoint (2026) [720p] [WEBRip] [YTS.GG - YTS.BZ]/Fall.2.Deadpoint.2026.720p.WEBRip.x264.AAC-[YTS.GG - YTS.BZ].mp4",
+      "size": 936688704,
+      "category": "Movies",
+      "captions": [
+        {
+          "label": "Fall.2.Deadpoint.2026.720p.WEBRip.x264.AAC-[YTS.GG - YTS.BZ].srt",
+          "url": "/captions/Videos%2FMovies%2FFall%202%20Deadpoint%20(2026)%20%5B720p%5D%20%5BWEBRip%5D%20%5BYTS.GG%20-%20YTS.BZ%5D%2FFall.2.Deadpoint.2026.720p.WEBRip.x264.AAC-%5BYTS.GG%20-%20YTS.BZ%5D.mp4/Fall.2.Deadpoint.2026.720p.WEBRip.x264.AAC-%5BYTS.GG%20-%20YTS.BZ%5D.srt",
+          "format": "srt"
+        },
+        {
+          "label": "Canadian.fre.srt",
+          "url": "/captions/Videos%2FMovies%2FFall%202%20Deadpoint%20(2026)%20%5B720p%5D%20%5BWEBRip%5D%20%5BYTS.GG%20-%20YTS.BZ%5D%2FFall.2.Deadpoint.2026.720p.WEBRip.x264.AAC-%5BYTS.GG%20-%20YTS.BZ%5D.mp4/Canadian.fre.srt",
+          "format": "srt"
+        },
+        {
+          "label": "English.srt",
+          "url": "/captions/Videos%2FMovies%2FFall%202%20Deadpoint%20(2026)%20%5B720p%5D%20%5BWEBRip%5D%20%5BYTS.GG%20-%20YTS.BZ%5D%2FFall.2.Deadpoint.2026.720p.WEBRip.x264.AAC-%5BYTS.GG%20-%20YTS.BZ%5D.mp4/English.srt",
+          "format": "srt",
+          "lang": "en"
+        },
+        {
+          "label": "Forced.eng.srt",
+          "url": "/captions/Videos%2FMovies%2FFall%202%20Deadpoint%20(2026)%20%5B720p%5D%20%5BWEBRip%5D%20%5BYTS.GG%20-%20YTS.BZ%5D%2FFall.2.Deadpoint.2026.720p.WEBRip.x264.AAC-%5BYTS.GG%20-%20YTS.BZ%5D.mp4/Forced.eng.srt",
+          "format": "srt",
+          "lang": "en"
+        },
+        {
+          "label": "SDH.eng.srt",
+          "url": "/captions/Videos%2FMovies%2FFall%202%20Deadpoint%20(2026)%20%5B720p%5D%20%5BWEBRip%5D%20%5BYTS.GG%20-%20YTS.BZ%5D%2FFall.2.Deadpoint.2026.720p.WEBRip.x264.AAC-%5BYTS.GG%20-%20YTS.BZ%5D.mp4/SDH.eng.srt",
+          "format": "srt",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9GaXJlcHJvb2YuMjAwOC43MjBwLkJsdVJheS54MjY0LkFBQy1bWVRTLk1YXS5tcDQ",
+      "name": "Fireproof.2008.720p.BluRay.x264.AAC-[YTS.MX].mp4",
+      "path": "Videos/Movies/Fireproof.2008.720p.BluRay.x264.AAC-[YTS.MX].mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/Fireproof.2008.720p.BluRay.x264.AAC-[YTS.MX].mp4",
+      "size": 1139067803,
+      "category": "Movies"
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9Hb25lIGluIFNpeHR5IFNlY29uZHMgKDIwMDApIFsxMDgwcF0vR29uZS5pbi5TaXh0eS5TZWNvbmRzLjIwMDAuNzIwcC5CclJpcC54MjY0LllJRlkrSEkubXA0",
+      "name": "Gone.in.Sixty.Seconds.2000.720p.BrRip.x264.YIFY+HI.mp4",
+      "path": "Videos/Movies/Gone in Sixty Seconds (2000) [1080p]/Gone.in.Sixty.Seconds.2000.720p.BrRip.x264.YIFY+HI.mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/Gone in Sixty Seconds (2000) [1080p]/Gone.in.Sixty.Seconds.2000.720p.BrRip.x264.YIFY+HI.mp4",
+      "size": 1717440214,
+      "category": "Movies",
+      "captions": [
+        {
+          "label": "Gone.in.Sixty.Seconds.2000.720p.BrRip.x264.YIFY+HI.srt",
+          "url": "/captions/Videos%2FMovies%2FGone%20in%20Sixty%20Seconds%20(2000)%20%5B1080p%5D%2FGone.in.Sixty.Seconds.2000.720p.BrRip.x264.YIFY%2BHI.mp4/Gone.in.Sixty.Seconds.2000.720p.BrRip.x264.YIFY%2BHI.srt",
+          "format": "srt"
+        }
+      ]
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9IZWFkIE9mIFN0YXRlICgyMDAzKSBbMTA4MHBdIFtCbHVSYXldIFs1LjFdIFtZVFMuR0cgLSBZVFMuQlpdL0hlYWQuT2YuU3RhdGUuMjAwMy4xMDgwcC5CbHVSYXkueDI2NC5BQUM1LjEtW1lUUy5HRyAtIFlUUy5CWl0ubXA0",
+      "name": "Head.Of.State.2003.1080p.BluRay.x264.AAC5.1-[YTS.GG - YTS.BZ].mp4",
+      "path": "Videos/Movies/Head Of State (2003) [1080p] [BluRay] [5.1] [YTS.GG - YTS.BZ]/Head.Of.State.2003.1080p.BluRay.x264.AAC5.1-[YTS.GG - YTS.BZ].mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/Head Of State (2003) [1080p] [BluRay] [5.1] [YTS.GG - YTS.BZ]/Head.Of.State.2003.1080p.BluRay.x264.AAC5.1-[YTS.GG - YTS.BZ].mp4",
+      "size": 1883968513,
+      "category": "Movies",
+      "captions": [
+        {
+          "label": "tur.srt",
+          "url": "/captions/Videos%2FMovies%2FHead%20Of%20State%20(2003)%20%5B1080p%5D%20%5BBluRay%5D%20%5B5.1%5D%20%5BYTS.GG%20-%20YTS.BZ%5D%2FHead.Of.State.2003.1080p.BluRay.x264.AAC5.1-%5BYTS.GG%20-%20YTS.BZ%5D.mp4/tur.srt",
+          "format": "srt",
+          "lang": "tr"
+        }
+      ]
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9IaXRjaCAoMjAwNSkgWzEwODBwXS9IaXRjaC4yMDA1LjEwODBwLkJyUmlwLngyNjQuWUlGWS5tcDQ",
+      "name": "Hitch.2005.1080p.BrRip.x264.YIFY.mp4",
+      "path": "Videos/Movies/Hitch (2005) [1080p]/Hitch.2005.1080p.BrRip.x264.YIFY.mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/Hitch (2005) [1080p]/Hitch.2005.1080p.BrRip.x264.YIFY.mp4",
+      "size": 1774743792,
+      "category": "Movies",
+      "captions": [
+        {
+          "label": "Hitch.2005.1080p.BrRip.x264.YIFY.srt",
+          "url": "/captions/Videos%2FMovies%2FHitch%20(2005)%20%5B1080p%5D%2FHitch.2005.1080p.BrRip.x264.YIFY.mp4/Hitch.2005.1080p.BrRip.x264.YIFY.srt",
+          "format": "srt"
+        }
+      ]
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9NdXRpbnkgKDIwMjYpIFs3MjBwXSBbV0VCUmlwXSBbWVRTLkdHIC0gWVRTLkJaXS9NdXRpbnkuMjAyNi43MjBwLldFQlJpcC54MjY0LkFBQy1bWVRTLkdHIC0gWVRTLkJaXS5tcDQ",
+      "name": "Mutiny.2026.720p.WEBRip.x264.AAC-[YTS.GG - YTS.BZ].mp4",
+      "path": "Videos/Movies/Mutiny (2026) [720p] [WEBRip] [YTS.GG - YTS.BZ]/Mutiny.2026.720p.WEBRip.x264.AAC-[YTS.GG - YTS.BZ].mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/Mutiny (2026) [720p] [WEBRip] [YTS.GG - YTS.BZ]/Mutiny.2026.720p.WEBRip.x264.AAC-[YTS.GG - YTS.BZ].mp4",
+      "size": 916237651,
+      "category": "Movies",
+      "captions": [
+        {
+          "label": "Mutiny.2026.720p.WEBRip.x264.AAC-[YTS.GG - YTS.BZ].srt",
+          "url": "/captions/Videos%2FMovies%2FMutiny%20(2026)%20%5B720p%5D%20%5BWEBRip%5D%20%5BYTS.GG%20-%20YTS.BZ%5D%2FMutiny.2026.720p.WEBRip.x264.AAC-%5BYTS.GG%20-%20YTS.BZ%5D.mp4/Mutiny.2026.720p.WEBRip.x264.AAC-%5BYTS.GG%20-%20YTS.BZ%5D.srt",
+          "format": "srt"
+        }
+      ]
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9PbmUgTGFzdCBTaG90IDIwMjYgMTA4MHAgV0VCLURMIEhFVkMgeDI2NSA1LjEgQk9ORS5ta3Y",
+      "name": "One Last Shot 2026 1080p WEB-DL HEVC x265 5.1 BONE.mkv",
+      "path": "Videos/Movies/One Last Shot 2026 1080p WEB-DL HEVC x265 5.1 BONE.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/One Last Shot 2026 1080p WEB-DL HEVC x265 5.1 BONE.mkv",
+      "size": 1549701195,
+      "category": "Movies"
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9SdW5uZXIgKDIwMjYpIFsxMDgwcF0gW1dFQlJpcF0gWzUuMV0gW1lUUy5HRyAtIFlUUy5CWl0vUnVubmVyLjIwMjYuMTA4MHAuV0VCUmlwLngyNjQuQUFDNS4xLVtZVFMuR0cgLSBZVFMuQlpdLm1wNA",
+      "name": "Runner.2026.1080p.WEBRip.x264.AAC5.1-[YTS.GG - YTS.BZ].mp4",
+      "path": "Videos/Movies/Runner (2026) [1080p] [WEBRip] [5.1] [YTS.GG - YTS.BZ]/Runner.2026.1080p.WEBRip.x264.AAC5.1-[YTS.GG - YTS.BZ].mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/Runner (2026) [1080p] [WEBRip] [5.1] [YTS.GG - YTS.BZ]/Runner.2026.1080p.WEBRip.x264.AAC5.1-[YTS.GG - YTS.BZ].mp4",
+      "size": 1954751767,
+      "category": "Movies",
+      "captions": [
+        {
+          "label": "SDH.ita.HI.srt",
+          "url": "/captions/Videos%2FMovies%2FRunner%20(2026)%20%5B1080p%5D%20%5BWEBRip%5D%20%5B5.1%5D%20%5BYTS.GG%20-%20YTS.BZ%5D%2FRunner.2026.1080p.WEBRip.x264.AAC5.1-%5BYTS.GG%20-%20YTS.BZ%5D.mp4/SDH.ita.HI.srt",
+          "format": "srt"
+        }
+      ]
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9UaGUgSXRhbGlhbiBKb2IgKDIwMDMpIFsxMDgwcF0vVGhlLkl0YWxpYW4uSm9iLjIwMDMuMTA4MHAuQnJSaXAueDI2NC5ZSUZZLm1wNA",
+      "name": "The.Italian.Job.2003.1080p.BrRip.x264.YIFY.mp4",
+      "path": "Videos/Movies/The Italian Job (2003) [1080p]/The.Italian.Job.2003.1080p.BrRip.x264.YIFY.mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/The Italian Job (2003) [1080p]/The.Italian.Job.2003.1080p.BrRip.x264.YIFY.mp4",
+      "size": 1614778351,
+      "category": "Movies"
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9UaGUgUm9jayAoMTk5NikgWzEwODBwXS9UaGUuUm9jay4xOTk2LjEwODBwLkJyUmlwLngyNjQuWUlGWS5tcDQ",
+      "name": "The.Rock.1996.1080p.BrRip.x264.YIFY.mp4",
+      "path": "Videos/Movies/The Rock (1996) [1080p]/The.Rock.1996.1080p.BrRip.x264.YIFY.mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/The Rock (1996) [1080p]/The.Rock.1996.1080p.BrRip.x264.YIFY.mp4",
+      "size": 1936614211,
+      "category": "Movies",
+      "captions": [
+        {
+          "label": "The.Rock.1996.1080p.BrRip.x264.YIFY.srt",
+          "url": "/captions/Videos%2FMovies%2FThe%20Rock%20(1996)%20%5B1080p%5D%2FThe.Rock.1996.1080p.BrRip.x264.YIFY.mp4/The.Rock.1996.1080p.BrRip.x264.YIFY.srt",
+          "format": "srt"
+        }
+      ]
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9UaGUgU3R1cGlkcyAoMTk5NikgWzEwODBwXSBbV0VCUmlwXSBbWVRTLk1YXS9UaGUuU3R1cGlkcy4xOTk2LjEwODBwLldFQlJpcC54MjY0LkFBQy1bWVRTLk1YXS5tcDQ",
+      "name": "The.Stupids.1996.1080p.WEBRip.x264.AAC-[YTS.MX].mp4",
+      "path": "Videos/Movies/The Stupids (1996) [1080p] [WEBRip] [YTS.MX]/The.Stupids.1996.1080p.WEBRip.x264.AAC-[YTS.MX].mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/The Stupids (1996) [1080p] [WEBRip] [YTS.MX]/The.Stupids.1996.1080p.WEBRip.x264.AAC-[YTS.MX].mp4",
+      "size": 1677564667,
+      "category": "Movies",
+      "captions": [
+        {
+          "label": "The.Stupids.1996.1080p.WEBRip.x264.AAC-[YTS.MX].srt",
+          "url": "/captions/Videos%2FMovies%2FThe%20Stupids%20(1996)%20%5B1080p%5D%20%5BWEBRip%5D%20%5BYTS.MX%5D%2FThe.Stupids.1996.1080p.WEBRip.x264.AAC-%5BYTS.MX%5D.mp4/The.Stupids.1996.1080p.WEBRip.x264.AAC-%5BYTS.MX%5D.srt",
+          "format": "srt"
+        },
+        {
+          "label": "English.srt",
+          "url": "/captions/Videos%2FMovies%2FThe%20Stupids%20(1996)%20%5B1080p%5D%20%5BWEBRip%5D%20%5BYTS.MX%5D%2FThe.Stupids.1996.1080p.WEBRip.x264.AAC-%5BYTS.MX%5D.mp4/English.srt",
+          "format": "srt",
+          "lang": "en"
+        },
+        {
+          "label": "SDH.eng.srt",
+          "url": "/captions/Videos%2FMovies%2FThe%20Stupids%20(1996)%20%5B1080p%5D%20%5BWEBRip%5D%20%5BYTS.MX%5D%2FThe.Stupids.1996.1080p.WEBRip.x264.AAC-%5BYTS.MX%5D.mp4/SDH.eng.srt",
+          "format": "srt",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9UaGUuUGFyZW50LlRyYXAuMTk5OC43MjBwLkJsdVJheS54MjY0LVtZVFMuQU1dLm1wNA",
+      "name": "The.Parent.Trap.1998.720p.BluRay.x264-[YTS.AM].mp4",
+      "path": "Videos/Movies/The.Parent.Trap.1998.720p.BluRay.x264-[YTS.AM].mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/The.Parent.Trap.1998.720p.BluRay.x264-[YTS.AM].mp4",
+      "size": 1136003028,
+      "category": "Movies"
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9WYWxlcmlhbiBBbmQgVGhlIENpdHkgT2YgQSBUaG91c2FuZCBQbGFuZXRzICgyMDE3KSBbMTA4MHBdIFtCbHVSYXldIFs1LjFdIFtZVFMuTVhdL1ZhbGVyaWFuLkFuZC5UaGUuQ2l0eS5PZi5BLlRob3VzYW5kLlBsYW5ldHMuMjAxNy4xMDgwcC5CbHVSYXkueDI2NC5BQUM1LjEtW1lUUy5NWF0ubXA0",
+      "name": "Valerian.And.The.City.Of.A.Thousand.Planets.2017.1080p.BluRay.x264.AAC5.1-[YTS.MX].mp4",
+      "path": "Videos/Movies/Valerian And The City Of A Thousand Planets (2017) [1080p] [BluRay] [5.1] [YTS.MX]/Valerian.And.The.City.Of.A.Thousand.Planets.2017.1080p.BluRay.x264.AAC5.1-[YTS.MX].mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/Valerian And The City Of A Thousand Planets (2017) [1080p] [BluRay] [5.1] [YTS.MX]/Valerian.And.The.City.Of.A.Thousand.Planets.2017.1080p.BluRay.x264.AAC5.1-[YTS.MX].mp4",
+      "size": 2711888557,
+      "category": "Movies"
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9XYXIuTWFjaGluZS4yMDI2LklOVEVSTkFMLkJMVVJBWS4xMDgwcC5CbHVSYXkueDI2NC5BQUM1LjEtW1lUUy5CWl0ubXA0",
+      "name": "War.Machine.2026.INTERNAL.BLURAY.1080p.BluRay.x264.AAC5.1-[YTS.BZ].mp4",
+      "path": "Videos/Movies/War.Machine.2026.INTERNAL.BLURAY.1080p.BluRay.x264.AAC5.1-[YTS.BZ].mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/War.Machine.2026.INTERNAL.BLURAY.1080p.BluRay.x264.AAC5.1-[YTS.BZ].mp4",
+      "size": 2166973002,
+      "category": "Movies"
+    },
+    {
+      "id": "VmlkZW9zL01vdmllcy9YWHguUmV0dXJuLk9mLlhhbmRlci5DYWdlLjIwMTcuMTA4MHAuQmx1UmF5LngyNjQtW1lUUy5BR10ubXA0",
+      "name": "XXx.Return.Of.Xander.Cage.2017.1080p.BluRay.x264-[YTS.AG].mp4",
+      "path": "Videos/Movies/XXx.Return.Of.Xander.Cage.2017.1080p.BluRay.x264-[YTS.AG].mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Movies/XXx.Return.Of.Xander.Cage.2017.1080p.BluRay.x264-[YTS.AG].mp4",
+      "size": 1749467003,
+      "category": "Movies"
+    },
+    {
+      "id": "VmlkZW9zL1BBVyBQYXRyb2wgVGhlIERpbm8gTW92aWUgMjAyNiAxMDgwcCBXRUItREwgSEVWQyB4MjY1IDUuMSBCT05FLm1rdg",
+      "name": "PAW Patrol The Dino Movie 2026 1080p WEB-DL HEVC x265 5.1 BONE.mkv",
+      "path": "Videos/PAW Patrol The Dino Movie 2026 1080p WEB-DL HEVC x265 5.1 BONE.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/PAW Patrol The Dino Movie 2026 1080p WEB-DL HEVC x265 5.1 BONE.mkv",
+      "size": 1713434407,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NjcmVlbmNhc3RzL1NjcmVlbmNhc3QgZnJvbSAyMDI2LTAzLTEwIDA1LTA0LTMwLndlYm0",
+      "name": "Screencast from 2026-03-10 05-04-30.webm",
+      "path": "Videos/Screencasts/Screencast from 2026-03-10 05-04-30.webm",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Screencasts/Screencast from 2026-03-10 05-04-30.webm",
+      "size": 21539368,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NjcmVlbmNhc3RzL1NjcmVlbmNhc3QgZnJvbSAyMDI2LTAzLTEzIDE3LTI5LTEwLndlYm0",
+      "name": "Screencast from 2026-03-13 17-29-10.webm",
+      "path": "Videos/Screencasts/Screencast from 2026-03-13 17-29-10.webm",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Screencasts/Screencast from 2026-03-13 17-29-10.webm",
+      "size": 3215772,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NjcmVlbmNhc3RzL1NjcmVlbmNhc3QgZnJvbSAyMDI2LTEwLTAzIDA3LTQyLTU5LndlYm0",
+      "name": "Screencast from 2026-10-03 07-42-59.webm",
+      "path": "Videos/Screencasts/Screencast from 2026-10-03 07-42-59.webm",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Screencasts/Screencast from 2026-10-03 07-42-59.webm",
+      "size": 31187312,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NjcmVlbmNhc3RzL1NjcmVlbmNhc3QgZnJvbSAyMDI2LTEwLTAzIDA3LTQ4LTQ0LndlYm0",
+      "name": "Screencast from 2026-10-03 07-48-44.webm",
+      "path": "Videos/Screencasts/Screencast from 2026-10-03 07-48-44.webm",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Screencasts/Screencast from 2026-10-03 07-48-44.webm",
+      "size": 59471074,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDEvTWFraW5nLk9mLlN0cmlrZS5CYWNrLlByb2plY3QuRGF3bi5ta3Y",
+      "name": "Making.Of.Strike.Back.Project.Dawn.mkv",
+      "path": "Videos/Series/Strike.Back/S01/Making.Of.Strike.Back.Project.Dawn.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S01/Making.Of.Strike.Back.Project.Dawn.mkv",
+      "size": 512749658,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDEvU3RyaWtlLkJhY2suUzAxZTAxZTAyLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S01e01e02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S01/Strike.Back.S01e01e02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S01/Strike.Back.S01e01e02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 1380760233,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDEvU3RyaWtlLkJhY2suUzAxZTAzZTA0LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S01e03e04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S01/Strike.Back.S01e03e04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S01/Strike.Back.S01e03e04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 1319277556,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDEvU3RyaWtlLkJhY2suUzAxZTA1ZTA2LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S01e05e06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S01/Strike.Back.S01e05e06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S01/Strike.Back.S01e05e06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 1348049276,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDIvU3RyaWtlLkJhY2suUzAyRTAxLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S02E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 590352327,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDIvU3RyaWtlLkJhY2suUzAyRTAyLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S02E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 535337752,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDIvU3RyaWtlLkJhY2suUzAyRTAzLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S02E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 668767592,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDIvU3RyaWtlLkJhY2suUzAyRTA0LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S02E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 585315021,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDIvU3RyaWtlLkJhY2suUzAyRTA1LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S02E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 627469396,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDIvU3RyaWtlLkJhY2suUzAyRTA2LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S02E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 600264323,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDIvU3RyaWtlLkJhY2suUzAyRTA3LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S02E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 748188698,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDIvU3RyaWtlLkJhY2suUzAyRTA4LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S02E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 666698583,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDIvU3RyaWtlLkJhY2suUzAyRTA5LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S02E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 608706615,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDIvU3RyaWtlLkJhY2suUzAyRTEwLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S02E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 628495822,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDMvU3RyaWtlLkJhY2suUzAzRTAxLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S03E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 664328012,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDMvU3RyaWtlLkJhY2suUzAzRTAyLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S03E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 613808999,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDMvU3RyaWtlLkJhY2suUzAzRTAzLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S03E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 939954975,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDMvU3RyaWtlLkJhY2suUzAzRTA0LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S03E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 979054868,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDMvU3RyaWtlLkJhY2suUzAzRTA1LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S03E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 758792549,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDMvU3RyaWtlLkJhY2suUzAzRTA2LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S03E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 780988711,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDMvU3RyaWtlLkJhY2suUzAzRTA3LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S03E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 918985868,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDMvU3RyaWtlLkJhY2suUzAzRTA4LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S03E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 715836107,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDMvU3RyaWtlLkJhY2suUzAzRTA5LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S03E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 741460028,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDMvU3RyaWtlLkJhY2suUzAzRTEwLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S03E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 741215333,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDQvU3RyaWtlLkJhY2suUzA0RTAxLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S04E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 961251038,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDQvU3RyaWtlLkJhY2suUzA0RTAyLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S04E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 762079254,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDQvU3RyaWtlLkJhY2suUzA0RTAzLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S04E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 563429553,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDQvU3RyaWtlLkJhY2suUzA0RTA0LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S04E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 572446639,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDQvU3RyaWtlLkJhY2suUzA0RTA1LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S04E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 545189612,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDQvU3RyaWtlLkJhY2suUzA0RTA2LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S04E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 603351294,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDQvU3RyaWtlLkJhY2suUzA0RTA3LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S04E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 613050778,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDQvU3RyaWtlLkJhY2suUzA0RTA4LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S04E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 703206131,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDQvU3RyaWtlLkJhY2suUzA0RTA5LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S04E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 797013922,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDQvU3RyaWtlLkJhY2suUzA0RTEwLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S04E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 685334153,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDUvU3RyaWtlLkJhY2suUzA1RTAxLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S05E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 972155407,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDUvU3RyaWtlLkJhY2suUzA1RTAyLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S05E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 905019403,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDUvU3RyaWtlLkJhY2suUzA1RTAzLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S05E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 924055544,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDUvU3RyaWtlLkJhY2suUzA1RTA0LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S05E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 1061694997,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDUvU3RyaWtlLkJhY2suUzA1RTA1LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S05E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 761106969,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDUvU3RyaWtlLkJhY2suUzA1RTA2LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S05E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 639961097,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDUvU3RyaWtlLkJhY2suUzA1RTA3LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S05E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 789232364,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDUvU3RyaWtlLkJhY2suUzA1RTA4LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S05E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 721978562,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDUvU3RyaWtlLkJhY2suUzA1RTA5LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S05E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 799518227,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDUvU3RyaWtlLkJhY2suUzA1RTEwLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S05E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 989038194,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDYvU3RyaWtlLkJhY2suUzA2RTAxLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S06E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 792099828,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDYvU3RyaWtlLkJhY2suUzA2RTAyLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S06E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 710510565,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDYvU3RyaWtlLkJhY2suUzA2RTAzLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S06E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 698832788,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDYvU3RyaWtlLkJhY2suUzA2RTA0LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S06E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 869180391,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDYvU3RyaWtlLkJhY2suUzA2RTA1LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S06E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 679868831,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDYvU3RyaWtlLkJhY2suUzA2RTA2LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S06E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 655175588,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDYvU3RyaWtlLkJhY2suUzA2RTA3LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S06E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 643132314,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDYvU3RyaWtlLkJhY2suUzA2RTA4LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S06E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 529988390,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDYvU3RyaWtlLkJhY2suUzA2RTA5LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S06E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 689414462,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDYvU3RyaWtlLkJhY2suUzA2RTEwLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S06E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 734866600,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDcvU3RyaWtlLkJhY2suUzA3RTAxLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S07E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 581805697,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDcvU3RyaWtlLkJhY2suUzA3RTAyLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S07E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 611896578,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDcvU3RyaWtlLkJhY2suUzA3RTAzLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S07E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 639492405,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDcvU3RyaWtlLkJhY2suUzA3RTA0LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S07E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 625199931,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDcvU3RyaWtlLkJhY2suUzA3RTA1LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S07E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 722211447,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDcvU3RyaWtlLkJhY2suUzA3RTA2LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S07E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 795286826,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDcvU3RyaWtlLkJhY2suUzA3RTA3LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S07E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 635556245,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDcvU3RyaWtlLkJhY2suUzA3RTA4LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S07E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 544648267,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDcvU3RyaWtlLkJhY2suUzA3RTA5LjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S07E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 583507972,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDcvU3RyaWtlLkJhY2suUzA3RTEwLjEwODBwLkJsdVJheS5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S07E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+      "size": 618518551,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDgvU3RyaWtlLkJhY2suUzA4RTAxLjEwODBwLldlYi1EbC5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S08E01.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E01.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E01.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "size": 711198944,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDgvU3RyaWtlLkJhY2suUzA4RTAyLjEwODBwLldlYi1EbC5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S08E02.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E02.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E02.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "size": 696833904,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDgvU3RyaWtlLkJhY2suUzA4RTAzLjEwODBwLldlYi1EbC5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S08E03.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E03.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E03.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "size": 683143452,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDgvU3RyaWtlLkJhY2suUzA4RTA0LjEwODBwLldlYi1EbC5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S08E04.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E04.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E04.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "size": 703195108,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDgvU3RyaWtlLkJhY2suUzA4RTA1LjEwODBwLldlYi1EbC5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S08E05.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E05.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E05.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "size": 767797616,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDgvU3RyaWtlLkJhY2suUzA4RTA2LjEwODBwLldlYi1EbC5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S08E06.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E06.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E06.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "size": 834767601,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDgvU3RyaWtlLkJhY2suUzA4RTA3LjEwODBwLldlYi1EbC5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S08E07.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E07.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E07.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "size": 747036527,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDgvU3RyaWtlLkJhY2suUzA4RTA4LjEwODBwLldlYi1EbC5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S08E08.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E08.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E08.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "size": 588532938,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDgvU3RyaWtlLkJhY2suUzA4RTA5LjEwODBwLldlYi1EbC5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S08E09.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E09.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E09.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "size": 536512322,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9TdHJpa2UuQmFjay9TMDgvU3RyaWtlLkJhY2suUzA4RTEwLjEwODBwLldlYi1EbC5BQzMueDI2NS1JUFNPLm1rdg",
+      "name": "Strike.Back.S08E10.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E10.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E10.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+      "size": 769558254,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9UaGUuQXJrL1MwMy9UaGUgQXJrIFMwM0UxMCBUaGUgTHVja3kgT25lcyA3MjBwIEFNWk4gV0VCLURMIEREUDUgMSBIIDI2NC1SQVdSW0VaVFZ4LnRvXS5ta3Y",
+      "name": "The Ark S03E10 The Lucky Ones 720p AMZN WEB-DL DDP5 1 H 264-RAWR[EZTVx.to].mkv",
+      "path": "Videos/Series/The.Ark/S03/The Ark S03E10 The Lucky Ones 720p AMZN WEB-DL DDP5 1 H 264-RAWR[EZTVx.to].mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/The.Ark/S03/The Ark S03E10 The Lucky Ones 720p AMZN WEB-DL DDP5 1 H 264-RAWR[EZTVx.to].mkv",
+      "size": 1539431536,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1Nlcmllcy9UaGUuQXJrL1MwMy9UaGUgQXJrIFMwM0UxMSBBIFByZXR0eSBOYXN0eSBPbmUgNzIwcCBBTVpOIFdFQi1ETCBERFA1IDEgSCAyNjQtUkFXUltFWlRWeC50b10ubWt2",
+      "name": "The Ark S03E11 A Pretty Nasty One 720p AMZN WEB-DL DDP5 1 H 264-RAWR[EZTVx.to].mkv",
+      "path": "Videos/Series/The.Ark/S03/The Ark S03E11 A Pretty Nasty One 720p AMZN WEB-DL DDP5 1 H 264-RAWR[EZTVx.to].mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/The.Ark/S03/The Ark S03E11 A Pretty Nasty One 720p AMZN WEB-DL DDP5 1 H 264-RAWR[EZTVx.to].mkv",
+      "size": 1248462333,
+      "category": "Series"
+    },
+    {
+      "id": "VmlkZW9zL1NwZWNpYWwuT3BzLkxpb25lc3MvUzAxL0UwMS5ta3Y",
+      "name": "E01.mkv",
+      "path": "Videos/Special.Ops.Lioness/S01/E01.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Special.Ops.Lioness/S01/E01.mkv",
+      "size": 264848647,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NwZWNpYWwuT3BzLkxpb25lc3MvUzAxL0UwMi5ta3Y",
+      "name": "E02.mkv",
+      "path": "Videos/Special.Ops.Lioness/S01/E02.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Special.Ops.Lioness/S01/E02.mkv",
+      "size": 219168028,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NwZWNpYWwuT3BzLkxpb25lc3MvUzAxL0UwMy5ta3Y",
+      "name": "E03.mkv",
+      "path": "Videos/Special.Ops.Lioness/S01/E03.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Special.Ops.Lioness/S01/E03.mkv",
+      "size": 269528231,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NwZWNpYWwuT3BzLkxpb25lc3MvUzAxL0UwNC5ta3Y",
+      "name": "E04.mkv",
+      "path": "Videos/Special.Ops.Lioness/S01/E04.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Special.Ops.Lioness/S01/E04.mkv",
+      "size": 258993964,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NwZWNpYWwuT3BzLkxpb25lc3MvUzAxL0UwNS5ta3Y",
+      "name": "E05.mkv",
+      "path": "Videos/Special.Ops.Lioness/S01/E05.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Special.Ops.Lioness/S01/E05.mkv",
+      "size": 186167399,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NwZWNpYWwuT3BzLkxpb25lc3MvUzAxL0UwNi5ta3Y",
+      "name": "E06.mkv",
+      "path": "Videos/Special.Ops.Lioness/S01/E06.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Special.Ops.Lioness/S01/E06.mkv",
+      "size": 152998756,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NwZWNpYWwuT3BzLkxpb25lc3MvUzAxL0UwNy5ta3Y",
+      "name": "E07.mkv",
+      "path": "Videos/Special.Ops.Lioness/S01/E07.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Special.Ops.Lioness/S01/E07.mkv",
+      "size": 232463479,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NwZWNpYWwuT3BzLkxpb25lc3MvUzAxL0UwOC5ta3Y",
+      "name": "E08.mkv",
+      "path": "Videos/Special.Ops.Lioness/S01/E08.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Special.Ops.Lioness/S01/E08.mkv",
+      "size": 308905075,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NwZWNpYWwuT3BzLkxpb25lc3MvUzAyL0xpb25lc3MuMjAyMy5TMDJFMDEuNzIwcC54MjY1LVRpUEVYLm1rdg",
+      "name": "Lioness.2023.S02E01.720p.x265-TiPEX.mkv",
+      "path": "Videos/Special.Ops.Lioness/S02/Lioness.2023.S02E01.720p.x265-TiPEX.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Special.Ops.Lioness/S02/Lioness.2023.S02E01.720p.x265-TiPEX.mkv",
+      "size": 509080398,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NwZWNpYWwuT3BzLkxpb25lc3MvUzAyL0xpb25lc3MuMjAyMy5TMDJFMDIuNzIwcC54MjY1LVRpUEVYLm1rdg",
+      "name": "Lioness.2023.S02E02.720p.x265-TiPEX.mkv",
+      "path": "Videos/Special.Ops.Lioness/S02/Lioness.2023.S02E02.720p.x265-TiPEX.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Special.Ops.Lioness/S02/Lioness.2023.S02E02.720p.x265-TiPEX.mkv",
+      "size": 451388972,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NwZWNpYWwuT3BzLkxpb25lc3MvUzAyL0xpb25lc3MuMjAyMy5TMDJFMDMuNzIwcC54MjY1LVRpUEVYLm1rdg",
+      "name": "Lioness.2023.S02E03.720p.x265-TiPEX.mkv",
+      "path": "Videos/Special.Ops.Lioness/S02/Lioness.2023.S02E03.720p.x265-TiPEX.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Special.Ops.Lioness/S02/Lioness.2023.S02E03.720p.x265-TiPEX.mkv",
+      "size": 451302763,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NwZWNpYWwuT3BzLkxpb25lc3MvUzAyL0xpb25lc3MuMjAyMy5TMDJFMDQuNzIwcC54MjY1LVRpUEVYLm1rdg",
+      "name": "Lioness.2023.S02E04.720p.x265-TiPEX.mkv",
+      "path": "Videos/Special.Ops.Lioness/S02/Lioness.2023.S02E04.720p.x265-TiPEX.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Special.Ops.Lioness/S02/Lioness.2023.S02E04.720p.x265-TiPEX.mkv",
+      "size": 369626518,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NwZWNpYWwuT3BzLkxpb25lc3MvUzAyL0xpb25lc3MuMjAyMy5TMDJFMDUuNzIwcC54MjY1LVRpUEVYLm1rdg",
+      "name": "Lioness.2023.S02E05.720p.x265-TiPEX.mkv",
+      "path": "Videos/Special.Ops.Lioness/S02/Lioness.2023.S02E05.720p.x265-TiPEX.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Special.Ops.Lioness/S02/Lioness.2023.S02E05.720p.x265-TiPEX.mkv",
+      "size": 372817791,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NwZWNpYWwuT3BzLkxpb25lc3MvUzAyL0xpb25lc3MuMjAyMy5TMDJFMDYuNzIwcC54MjY1LVRpUEVYLm1rdg",
+      "name": "Lioness.2023.S02E06.720p.x265-TiPEX.mkv",
+      "path": "Videos/Special.Ops.Lioness/S02/Lioness.2023.S02E06.720p.x265-TiPEX.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Special.Ops.Lioness/S02/Lioness.2023.S02E06.720p.x265-TiPEX.mkv",
+      "size": 460488659,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NwZWNpYWwuT3BzLkxpb25lc3MvUzAyL0xpb25lc3MuMjAyMy5TMDJFMDcuNzIwcC54MjY1LVRpUEVYLm1rdg",
+      "name": "Lioness.2023.S02E07.720p.x265-TiPEX.mkv",
+      "path": "Videos/Special.Ops.Lioness/S02/Lioness.2023.S02E07.720p.x265-TiPEX.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Special.Ops.Lioness/S02/Lioness.2023.S02E07.720p.x265-TiPEX.mkv",
+      "size": 413498278,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1NwZWNpYWwuT3BzLkxpb25lc3MvUzAyL0xpb25lc3MuMjAyMy5TMDJFMDguNzIwcC54MjY1LVRpUEVYLm1rdg",
+      "name": "Lioness.2023.S02E08.720p.x265-TiPEX.mkv",
+      "path": "Videos/Special.Ops.Lioness/S02/Lioness.2023.S02E08.720p.x265-TiPEX.mkv",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Special.Ops.Lioness/S02/Lioness.2023.S02E08.720p.x265-TiPEX.mkv",
+      "size": 748034068,
+      "category": "Other"
+    },
+    {
+      "id": "VmlkZW9zL1RpcHMvZmluYWxfdjEubXA0",
+      "name": "final_v1.mp4",
+      "path": "Videos/Tips/final_v1.mp4",
+      "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Tips/final_v1.mp4",
+      "size": 32648895,
+      "category": "Other"
+    }
+  ],
+  "series": [
+    {
+      "title": "Strike.Back",
+      "showPath": "Videos/Series/Strike.Back",
+      "seasons": [
+        {
+          "name": "S01",
+          "episodes": [
+            {
+              "name": "Making.Of.Strike.Back.Project.Dawn.mkv",
+              "path": "Videos/Series/Strike.Back/S01/Making.Of.Strike.Back.Project.Dawn.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S01/Making.Of.Strike.Back.Project.Dawn.mkv",
+              "size": 512749658
+            },
+            {
+              "name": "Strike.Back.S01e01e02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S01/Strike.Back.S01e01e02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S01/Strike.Back.S01e01e02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 1380760233
+            },
+            {
+              "name": "Strike.Back.S01e03e04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S01/Strike.Back.S01e03e04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S01/Strike.Back.S01e03e04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 1319277556
+            },
+            {
+              "name": "Strike.Back.S01e05e06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S01/Strike.Back.S01e05e06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S01/Strike.Back.S01e05e06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 1348049276
+            }
+          ]
+        },
+        {
+          "name": "S02",
+          "episodes": [
+            {
+              "name": "Strike.Back.S02E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 590352327
+            },
+            {
+              "name": "Strike.Back.S02E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 535337752
+            },
+            {
+              "name": "Strike.Back.S02E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 668767592
+            },
+            {
+              "name": "Strike.Back.S02E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 585315021
+            },
+            {
+              "name": "Strike.Back.S02E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 627469396
+            },
+            {
+              "name": "Strike.Back.S02E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 600264323
+            },
+            {
+              "name": "Strike.Back.S02E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 748188698
+            },
+            {
+              "name": "Strike.Back.S02E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 666698583
+            },
+            {
+              "name": "Strike.Back.S02E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 608706615
+            },
+            {
+              "name": "Strike.Back.S02E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S02/Strike.Back.S02E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S02/Strike.Back.S02E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 628495822
+            }
+          ]
+        },
+        {
+          "name": "S03",
+          "episodes": [
+            {
+              "name": "Strike.Back.S03E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 664328012
+            },
+            {
+              "name": "Strike.Back.S03E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 613808999
+            },
+            {
+              "name": "Strike.Back.S03E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 939954975
+            },
+            {
+              "name": "Strike.Back.S03E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 979054868
+            },
+            {
+              "name": "Strike.Back.S03E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 758792549
+            },
+            {
+              "name": "Strike.Back.S03E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 780988711
+            },
+            {
+              "name": "Strike.Back.S03E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 918985868
+            },
+            {
+              "name": "Strike.Back.S03E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 715836107
+            },
+            {
+              "name": "Strike.Back.S03E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 741460028
+            },
+            {
+              "name": "Strike.Back.S03E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S03/Strike.Back.S03E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S03/Strike.Back.S03E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 741215333
+            }
+          ]
+        },
+        {
+          "name": "S04",
+          "episodes": [
+            {
+              "name": "Strike.Back.S04E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 961251038
+            },
+            {
+              "name": "Strike.Back.S04E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 762079254
+            },
+            {
+              "name": "Strike.Back.S04E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 563429553
+            },
+            {
+              "name": "Strike.Back.S04E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 572446639
+            },
+            {
+              "name": "Strike.Back.S04E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 545189612
+            },
+            {
+              "name": "Strike.Back.S04E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 603351294
+            },
+            {
+              "name": "Strike.Back.S04E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 613050778
+            },
+            {
+              "name": "Strike.Back.S04E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 703206131
+            },
+            {
+              "name": "Strike.Back.S04E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 797013922
+            },
+            {
+              "name": "Strike.Back.S04E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S04/Strike.Back.S04E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S04/Strike.Back.S04E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 685334153
+            }
+          ]
+        },
+        {
+          "name": "S05",
+          "episodes": [
+            {
+              "name": "Strike.Back.S05E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 972155407
+            },
+            {
+              "name": "Strike.Back.S05E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 905019403
+            },
+            {
+              "name": "Strike.Back.S05E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 924055544
+            },
+            {
+              "name": "Strike.Back.S05E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 1061694997
+            },
+            {
+              "name": "Strike.Back.S05E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 761106969
+            },
+            {
+              "name": "Strike.Back.S05E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 639961097
+            },
+            {
+              "name": "Strike.Back.S05E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 789232364
+            },
+            {
+              "name": "Strike.Back.S05E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 721978562
+            },
+            {
+              "name": "Strike.Back.S05E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 799518227
+            },
+            {
+              "name": "Strike.Back.S05E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S05/Strike.Back.S05E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S05/Strike.Back.S05E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 989038194
+            }
+          ]
+        },
+        {
+          "name": "S06",
+          "episodes": [
+            {
+              "name": "Strike.Back.S06E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 792099828
+            },
+            {
+              "name": "Strike.Back.S06E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 710510565
+            },
+            {
+              "name": "Strike.Back.S06E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 698832788
+            },
+            {
+              "name": "Strike.Back.S06E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 869180391
+            },
+            {
+              "name": "Strike.Back.S06E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 679868831
+            },
+            {
+              "name": "Strike.Back.S06E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 655175588
+            },
+            {
+              "name": "Strike.Back.S06E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 643132314
+            },
+            {
+              "name": "Strike.Back.S06E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 529988390
+            },
+            {
+              "name": "Strike.Back.S06E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 689414462
+            },
+            {
+              "name": "Strike.Back.S06E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S06/Strike.Back.S06E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S06/Strike.Back.S06E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 734866600
+            }
+          ]
+        },
+        {
+          "name": "S07",
+          "episodes": [
+            {
+              "name": "Strike.Back.S07E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E01.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 581805697
+            },
+            {
+              "name": "Strike.Back.S07E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E02.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 611896578
+            },
+            {
+              "name": "Strike.Back.S07E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E03.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 639492405
+            },
+            {
+              "name": "Strike.Back.S07E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E04.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 625199931
+            },
+            {
+              "name": "Strike.Back.S07E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E05.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 722211447
+            },
+            {
+              "name": "Strike.Back.S07E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E06.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 795286826
+            },
+            {
+              "name": "Strike.Back.S07E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E07.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 635556245
+            },
+            {
+              "name": "Strike.Back.S07E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E08.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 544648267
+            },
+            {
+              "name": "Strike.Back.S07E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E09.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 583507972
+            },
+            {
+              "name": "Strike.Back.S07E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S07/Strike.Back.S07E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S07/Strike.Back.S07E10.1080p.BluRay.AC3.x265-IPSO.mkv",
+              "size": 618518551
+            }
+          ]
+        },
+        {
+          "name": "S08",
+          "episodes": [
+            {
+              "name": "Strike.Back.S08E01.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E01.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E01.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "size": 711198944
+            },
+            {
+              "name": "Strike.Back.S08E02.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E02.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E02.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "size": 696833904
+            },
+            {
+              "name": "Strike.Back.S08E03.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E03.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E03.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "size": 683143452
+            },
+            {
+              "name": "Strike.Back.S08E04.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E04.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E04.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "size": 703195108
+            },
+            {
+              "name": "Strike.Back.S08E05.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E05.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E05.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "size": 767797616
+            },
+            {
+              "name": "Strike.Back.S08E06.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E06.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E06.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "size": 834767601
+            },
+            {
+              "name": "Strike.Back.S08E07.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E07.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E07.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "size": 747036527
+            },
+            {
+              "name": "Strike.Back.S08E08.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E08.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E08.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "size": 588532938
+            },
+            {
+              "name": "Strike.Back.S08E09.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E09.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E09.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "size": 536512322
+            },
+            {
+              "name": "Strike.Back.S08E10.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "path": "Videos/Series/Strike.Back/S08/Strike.Back.S08E10.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/Strike.Back/S08/Strike.Back.S08E10.1080p.Web-Dl.AC3.x265-IPSO.mkv",
+              "size": 769558254
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The.Ark",
+      "showPath": "Videos/Series/The.Ark",
+      "seasons": [
+        {
+          "name": "S03",
+          "episodes": [
+            {
+              "name": "The Ark S03E10 The Lucky Ones 720p AMZN WEB-DL DDP5 1 H 264-RAWR[EZTVx.to].mkv",
+              "path": "Videos/Series/The.Ark/S03/The Ark S03E10 The Lucky Ones 720p AMZN WEB-DL DDP5 1 H 264-RAWR[EZTVx.to].mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/The.Ark/S03/The Ark S03E10 The Lucky Ones 720p AMZN WEB-DL DDP5 1 H 264-RAWR[EZTVx.to].mkv",
+              "size": 1539431536
+            },
+            {
+              "name": "The Ark S03E11 A Pretty Nasty One 720p AMZN WEB-DL DDP5 1 H 264-RAWR[EZTVx.to].mkv",
+              "path": "Videos/Series/The.Ark/S03/The Ark S03E11 A Pretty Nasty One 720p AMZN WEB-DL DDP5 1 H 264-RAWR[EZTVx.to].mkv",
+              "fullPath": "/home/ogilo/Projects/video-platform/videos/Videos/Series/The.Ark/S03/The Ark S03E11 A Pretty Nasty One 720p AMZN WEB-DL DDP5 1 H 264-RAWR[EZTVx.to].mkv",
+              "size": 1248462333
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "Movies": 18,
+    "Music": 0,
+    "Series": 76,
+    "Other": 27,
+    "total": 121
+  }
+}
