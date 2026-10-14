@@ -1,0 +1,14 @@
+node_modules/
+public/styles.css
+*.log
+.DS_Store
+.env
+
+# Never commit media
+videos/*
+!videos/.gitkeep
+*.mp4
+*.webm
+*.mkv
+*.mov
+*.m4v

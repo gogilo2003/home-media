@@ -1,0 +1,13 @@
+{
+  "name": "video-platform",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "css": "tailwindcss -i ./src/input.css -o ./public/styles.css --watch",
+    "css:build": "tailwindcss -i ./src/input.css -o ./public/styles.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}
