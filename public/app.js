@@ -120,7 +120,8 @@ function filterVideos() {
 
 async function loadVideos() {
   const res = await fetch('/api/videos');
-  allVideos = /** @type {Video[]} */ (await res.json());
+  const data = /** @type {any} */ (await res.json());
+  allVideos = Array.isArray(data) ? data : (data.videos || []);
   filterVideos();
 }
 

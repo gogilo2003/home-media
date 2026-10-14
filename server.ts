@@ -14,7 +14,9 @@ const server = http.createServer(async (req, res) => {
     const file = STATIC_ROUTES[url.pathname];
     if (file) return await serveStatic(res, file);
     if (url.pathname === '/api/videos') {
-      return send(res, 200, JSON.stringify(await listVideos()), { 'Content-Type': 'application/json' });
+      const vids = await listVideos();
+      const { toApiResponse } = await import('./server/api.ts');
+      return send(res, 200, JSON.stringify(toApiResponse(vids)), { 'Content-Type': 'application/json' });
     }
     if (url.pathname.startsWith('/video/')) {
       return await streamVideo(req, res, decodeURIComponent(url.pathname.slice(7)));
