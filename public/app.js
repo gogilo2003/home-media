@@ -1,5 +1,9 @@
 const grid = document.getElementById('video-grid');
 const empty = document.getElementById('empty');
+const listView = document.getElementById('list-view');
+const playerView = document.getElementById('player-view');
+const player = document.getElementById('player');
+const title = document.getElementById('player-title');
 
 const UNITS = ['B', 'KB', 'MB', 'GB', 'TB'];
 
@@ -23,6 +27,22 @@ function escapeHtml(s) {
   })[c]);
 }
 
+function play(id, name) {
+  player.src = `/video/${id}`;
+  title.textContent = name;
+  listView.classList.add('hidden');
+  playerView.classList.remove('hidden');
+  player.play().catch(() => {});
+}
+
+function back() {
+  player.pause();
+  player.removeAttribute('src');
+  player.load();
+  playerView.classList.add('hidden');
+  listView.classList.remove('hidden');
+}
+
 function renderCards(videos) {
   grid.innerHTML = videos.map((v) => `
     <button data-id="${escapeHtml(v.id)}" data-name="${escapeHtml(v.name)}"
@@ -31,6 +51,9 @@ function renderCards(videos) {
       <div class="text-xs text-slate-500 mt-1">${formatSize(v.size)}</div>
     </button>
   `).join('');
+  grid.querySelectorAll('button').forEach((btn) => {
+    btn.addEventListener('click', () => play(btn.dataset.id, btn.dataset.name));
+  });
 }
 
 async function loadVideos() {
@@ -46,4 +69,5 @@ async function loadVideos() {
   renderCards(videos);
 }
 
+document.getElementById('back-btn').addEventListener('click', back);
 loadVideos().catch((err) => console.error(err));

@@ -2,6 +2,7 @@ import http from 'node:http';
 import { PORT, VIDEO_ROOT, STATIC_ROUTES } from './server/config.js';
 import { send, serveStatic } from './server/http.js';
 import { listVideos } from './server/videos.js';
+import { streamVideo } from './server/stream.js';
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
@@ -15,8 +16,7 @@ const server = http.createServer(async (req, res) => {
       return send(res, 200, JSON.stringify(await listVideos()), { 'Content-Type': 'application/json' });
     }
     if (url.pathname.startsWith('/video/')) {
-      // Phase 3 lands streaming here; until then the id is still refused as malformed.
-      return send(res, 501, 'Not Implemented');
+      return await streamVideo(req, res, decodeURIComponent(url.pathname.slice(7)));
     }
     send(res, 404, 'Not found');
   } catch (err) {
