@@ -33,7 +33,7 @@ Stop and report. Do not proceed to the next phase without confirmation.
 - Runtime deps: **none**. Dev deps: only `tailwindcss`.
 - No HTTP framework (no Express, Fastify, Koa, Hono).
 - No `dotenv`, `lodash`, `axios`, `node-fetch`, or any utility library.
-- Every fs call must pass its path through `safeResolve()` first.
+- Every fs call using a **client-supplied or `id`-derived** path must pass it through `safeResolve()` first. Paths returned by `readdir()` under `VIDEO_ROOT` are already trusted and do not need it.
 - Range requests: `206` with correct `Content-Range`, or `416`. Never `200`.
 - Full responses include `Accept-Ranges: bytes`.
 - `server.js` must stay under 150 lines. If a change pushes it over, stop and ask.

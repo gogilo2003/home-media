@@ -174,13 +174,13 @@ Accept-Ranges: bytes
 
 ## 7. Server Implementation Notes
 
-**Single file `server.js`** — roughly 100 lines. Structure:
+**Single file `server.js`** — roughly 100 lines. `package.json` sets `"type": "module"`, so this is **ESM**: use `import`, not `require`. Structure:
 
 ```javascript
-const http = require('node:http');
-const fs = require('node:fs');
-const fsp = require('node:fs/promises');
-const path = require('node:path');
+import http from 'node:http';
+import fs from 'node:fs';
+import fsp from 'node:fs/promises';
+import path from 'node:path';
 
 const VIDEO_ROOT = path.resolve(process.env.VIDEO_ROOT || './videos');
 const PORT = process.env.PORT || 3000;
@@ -445,7 +445,9 @@ async function streamVideo(req, res, id) {
   }
 
   const match = /^bytes=(\d*)-(\d*)$/.exec(range);
-  if (!match) return res.writeHead(416).end();
+  if (!match) {
+    return res.writeHead(416, { 'Content-Range': `bytes */${stat.size}` }).end();
+  }
 
   const start = match[1] ? parseInt(match[1], 10) : 0;
   const end = match[2] ? parseInt(match[2], 10) : stat.size - 1;
@@ -467,9 +469,12 @@ async function streamVideo(req, res, id) {
 
 **Edge cases handled:**
 - `bytes=1000-` → open-ended
-- `bytes=-500` → last 500 bytes (the regex above handles this as `start=0, end=500` — technically wrong, but browsers don't send this form; you can add support later)
+- `bytes=-500` → suffix range. This project parses it as `start=0, end=500` — technically wrong, but browsers don't send this form. Do not add suffix-range support.
+- Malformed header (fails the regex) → `416` **with** `Content-Range: bytes */<size>`
 - Out-of-bounds → `416`
 - Missing file → `404`
+
+**Every `416` carries `Content-Range: bytes */<size>`** — including the regex-mismatch branch. Omitting it violates the Range hard rule in `AGENTS.md`.
 
 ---
 

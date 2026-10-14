@@ -17,8 +17,8 @@ description: Implement HTTP Range request handling for video streaming. Use when
 - Parse `Range: bytes=start-end` with regex `/^bytes=(\d*)-(\d*)$/`
 - If `start` and `end` both present: validate `start <= end < size`
 - If only `start`: `end = size - 1`
-- If only `end`: treat as last N bytes (`start = size - N`)
-- Invalid range → `416` with `Content-Range: bytes */<size>`
+- If only `end`: this project treats `start = 0` and `end = <parsed end>`. Browsers do not send this form; do not add suffix-range support.
+- Invalid range → `416` with `Content-Range: bytes */<size>` — on **every** `416` path, including a malformed header that fails the regex
 - Valid → `206` with `Content-Range: bytes <start>-<end>/<size>` and `Content-Length: <end - start + 1>`
 - Use `fs.createReadStream(path, { start, end })` — never read the whole file
 
