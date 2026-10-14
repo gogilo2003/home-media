@@ -26,7 +26,7 @@
 ```mermaid
 graph LR
     Browser["Browser<br/>(Tailwind UI)"]
-    Server["Node.js<br/>http module<br/>single file"]
+    Server["Node.js<br/>http module<br/>server/ modules"]
     FS[("Videos Directory<br/>/srv/videos")]
 
     Browser -->|GET /| Server
@@ -63,7 +63,15 @@ movies/inception.mp4  →  id = bW92aWVzL2luY2VwdGlvbi5tcDQ
 
 ```
 video-platform/
-├── server.js              # everything: http server + routes
+├── server.js              # entry point: http server + routing + listen
+├── server/
+│   ├── config.js          # PORT, VIDEO_ROOT, PUBLIC_DIR, static routes
+│   ├── http.js            # response helper + static file serving
+│   ├── ids.js             # encodeId / decodeId / safeResolve
+│   ├── mime.js            # extension sets + MIME lookup
+│   ├── range.js           # HTTP Range parsing
+│   ├── videos.js          # /api/videos listing
+│   └── stream.js          # /video/:id streaming
 ├── public/
 │   ├── index.html         # the page
 │   ├── app.js             # fetch + render + player logic
@@ -77,6 +85,9 @@ video-platform/
 ├── package.json
 └── README.md
 ```
+
+`server.js` stays a thin entry point; backend concerns live in `server/`, one
+file per concern. No module may exceed 80 lines.
 
 `videos/` is scanned recursively at request time (or cached — see §7). Supported extensions: `.mp4`, `.webm`, `.mkv`, `.mov`, `.m4v`.
 
@@ -174,41 +185,42 @@ Accept-Ranges: bytes
 
 ## 7. Server Implementation Notes
 
-**Single file `server.js`** — roughly 100 lines. `package.json` sets `"type": "module"`, so this is **ESM**: use `import`, not `require`. Structure:
+`package.json` sets `"type": "module"`, so everything is **ESM**: use `import`,
+never `require`. `server.js` is a thin entry point that creates the HTTP
+server, dispatches routes, and listens. Backend concerns live in `server/`,
+one file per concern, each well under the 80-line ceiling.
+
+**`server/config.js`** — resolved once at startup:
+
+```javascript
+import path from 'node:path';
+
+export const PORT = process.env.PORT || 3000;
+export const VIDEO_ROOT = path.resolve(process.env.VIDEO_ROOT || './videos');
+export const PUBLIC_DIR = path.join(import.meta.dirname, '..', 'public');
+```
+
+**`server.js`** — entry point and nothing else:
 
 ```javascript
 import http from 'node:http';
-import fs from 'node:fs';
-import fsp from 'node:fs/promises';
-import path from 'node:path';
+import { PORT, VIDEO_ROOT, STATIC_ROUTES } from './server/config.js';
+import { send, serveStatic } from './server/http.js';
+import { listVideos } from './server/videos.js';
+import { streamVideo } from './server/stream.js';
 
-const VIDEO_ROOT = path.resolve(process.env.VIDEO_ROOT || './videos');
-const PORT = process.env.PORT || 3000;
-
-// --- helpers ---
-function encodeId(relPath) { /* base64url */ }
-function decodeId(id) { /* base64url → relPath */ }
-function safeResolve(relPath) { /* path.resolve + prefix check */ }
-function mimeFor(ext) { /* map ext → mime type */ }
-
-// --- routes ---
-async function listVideos(req, res) { /* scan dir, filter, JSON */ }
-async function streamVideo(req, res, id) { /* stat, range, pipe */ }
-async function serveStatic(req, res, file) { /* public/ */ }
-
-// --- dispatcher ---
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
   try {
-    if (url.pathname === '/api/videos') return await listVideos(req, res);
-    if (url.pathname.startsWith('/video/')) return await streamVideo(req, res, url.pathname.slice(7));
-    if (url.pathname === '/') return await serveStatic(req, res, 'index.html');
-    if (url.pathname === '/app.js') return await serveStatic(req, res, 'app.js');
-    if (url.pathname === '/styles.css') return await serveStatic(req, res, 'styles.css');
-    res.writeHead(404).end('Not found');
+    const file = STATIC_ROUTES[url.pathname];
+    if (file) return await serveStatic(res, file);
+    if (url.pathname === '/api/videos') return send(res, 200, JSON.stringify(await listVideos()), { 'Content-Type': 'application/json' });
+    if (url.pathname.startsWith('/video/')) return await streamVideo(req, res, decodeURIComponent(url.pathname.slice(7)));
+    send(res, 404, 'Not found');
   } catch (err) {
     console.error(err);
-    res.writeHead(500).end('Server error');
+    if (res.headersSent) res.destroy();
+    else send(res, 500, 'Server error');
   }
 });
 
@@ -217,6 +229,11 @@ server.listen(PORT, '0.0.0.0', () => {
   console.log(`Video root: ${VIDEO_ROOT}`);
 });
 ```
+
+The remaining modules are listed where each concern is described: `ids.js`
+in §3 and §13, `range.js` in §12, `stream.js` in §12, `videos.js` in §11,
+`mime.js` with the type tables, `http.js` for the response helper and static
+serving.
 
 **Key implementation points:**
 

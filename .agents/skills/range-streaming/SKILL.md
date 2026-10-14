@@ -5,6 +5,19 @@ description: Implement HTTP Range request handling for video streaming. Use when
 
 # HTTP Range Streaming
 
+## Where this code lives
+
+| Concern | File |
+|---|---|
+| Range header parsing | `server/range.js` |
+| `/video/:id` handler | `server/stream.js` |
+| Path-traversal guard, id encoding | `server/ids.js` |
+| MIME lookup | `server/mime.js` |
+| Response helper | `server/http.js` |
+
+`server.js` is the entry point and holds routing only — never put streaming
+logic there. No module may exceed 80 lines.
+
 ## When to use
 
 - Adding a new streaming endpoint
@@ -17,8 +30,9 @@ description: Implement HTTP Range request handling for video streaming. Use when
 - Parse `Range: bytes=start-end` with regex `/^bytes=(\d*)-(\d*)$/`
 - If `start` and `end` both present: validate `start <= end < size`
 - If only `start`: `end = size - 1`
-- If only `end`: this project treats `start = 0` and `end = <parsed end>`. Browsers do not send this form; do not add suffix-range support.
+- If only `end` (suffix range, `bytes=-N`): `start = max(size - N, 0)`, `end = size - 1`. `-0` is unsatisfiable.
 - Invalid range → `416` with `Content-Range: bytes */<size>` — on **every** `416` path, including a malformed header that fails the regex
+- Multiple ranges (`bytes=0-9,20-29`) do not match the single-range regex → `416`
 - Valid → `206` with `Content-Range: bytes <start>-<end>/<size>` and `Content-Length: <end - start + 1>`
 - Use `fs.createReadStream(path, { start, end })` — never read the whole file
 
