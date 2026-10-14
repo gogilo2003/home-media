@@ -1,0 +1,12 @@
+node_modules/
+cache/
+videos/
+catalog/previews/
+docs/
+.git/
+*.log
+.DS_Store
+.env
+compose.yml
+Dockerfile
+.dockerignore

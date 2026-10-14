@@ -1,0 +1,15 @@
+services:
+  video-platform:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      VIDEO_ROOT: /app/videos
+    volumes:
+      # Media library — read-only; regenerate the catalog on the host
+      # with `node scripts/build-catalog.mjs` whenever it changes
+      - ./videos:/app/videos:ro
+      # Generated catalog (index.json + previews); host is the source of truth
+      - ./catalog:/app/catalog:ro
+    restart: unless-stopped
