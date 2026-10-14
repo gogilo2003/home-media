@@ -162,7 +162,6 @@ function renderCards(videos) {
       </div>
       <div class="min-w-0 p-3 sm:p-4">
         <div class="truncate font-semibold text-slate-100 transition group-hover:text-white">${escapeHtml(v.name)}</div>
-        <div class="truncate font-semibold text-slate-100 transition group-hover:text-white">${escapeHtml(v.preview)}</div>
         <div class="mt-1 flex items-center justify-between text-xs text-slate-400">
           <span>${formatSize(v.size)}</span>
         </div>
