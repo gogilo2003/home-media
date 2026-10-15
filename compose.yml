@@ -1,6 +1,7 @@
 services:
   video-platform:
     build: .
+    container_name: video-platform
     ports:
       - "3000:3000"
     environment:
