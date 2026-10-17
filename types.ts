@@ -16,6 +16,7 @@ export interface Video {
   size: number;
   category?: Category;
   preview?: string;
+  mtimeMs?: number;
 }
 
 export interface ByteRange {

@@ -94,6 +94,7 @@ export async function catalogVideos(options: CatalogOptions = {}): Promise<Catal
           path: relPath,
           fullPath,
           size: stat.size,
+          mtimeMs: stat.mtimeMs,
           category: classify(relPath),
         });
       } catch {
@@ -130,6 +131,7 @@ export async function catalogVideos(options: CatalogOptions = {}): Promise<Catal
           path: relPath,
           fullPath,
           size: stat.size,
+          mtimeMs: stat.mtimeMs,
           category: classify(relPath),
         });
       } catch {

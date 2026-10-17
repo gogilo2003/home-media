@@ -7,7 +7,7 @@
         "css": "tailwindcss -i ./src/input.css -o ./public/styles.css --watch",
         "css:build": "tailwindcss -i ./src/input.css -o ./public/styles.css --minify",
         "typecheck": "tsc --noEmit",
-        "catalog": "node scripts/catalog.mjs"
+        "catalog": "node scripts/build-catalog.mjs"
     },
     "devDependencies": {
         "@types/node": "^26.6.5",

@@ -1,78 +1,78 @@
 #!/usr/bin/env node
 import {catalogVideos} from '../server/catalog.ts';
 import {findCaptionsForVideo} from '../server/captions.ts';
-import {addPreviews} from './catalog-previews.mjs';
+import {buildSeriesCatalog} from '../server/series.ts';
+import {readExistingMap, writeCatalogIndex} from '../server/catalog-index.ts';
+import {addPreviews, hasFfmpeg, prunePreviews} from './catalog-previews.mjs';
 import {createProgress} from './progress.mjs';
-import fsp from 'node:fs/promises';
 import path from 'node:path';
+
+function printHelp() {
+  console.log(`Usage: npm run catalog -- [options] [path]
+Options:
+  --skip-previews     Skip extracting preview thumbnails
+  --refresh-previews  Force re-extraction of all preview thumbnails
+  --previews-only     Only update previews; do not rewrite catalog/index.json
+  --prune             Remove orphaned preview images from catalog/previews/
+  --help, -h          Show this help message`);
+}
+
+async function enrich(videos, existing) {
+  const bar = createProgress(videos.length, 'captions');
+  const enriched = [];
+  let reused = 0;
+  for (const v of videos) {
+    const prev = existing.get(v.id);
+    if (prev && prev.size === v.size) {
+      enriched.push({...v, captions: prev.captions, preview: prev.preview});
+      reused++;
+    } else {
+      try {
+        const caps = await findCaptionsForVideo(v.fullPath, v.path);
+        enriched.push({...v, captions: caps.length ? caps : undefined, preview: prev?.preview});
+      } catch { enriched.push({...v, preview: prev?.preview}); }
+    }
+    bar.render(v.name);
+  }
+  bar.end(reused > 0 ? `Captions done (${reused} cached)` : 'Captions done');
+  return enriched;
+}
 
 async function main() {
   const args = process.argv.slice(2);
+  if (args.includes('--help') || args.includes('-h')) return printHelp();
   const previewsOnly = args.includes('--previews-only');
+  const skipPreviews = args.includes('--skip-previews') || args.includes('--no-previews');
   const forcePreviews = previewsOnly || args.includes('--refresh-previews');
-  const root = args.find(arg => !arg.startsWith('--')) || process.env.VIDEO_ROOT || './videos';
+  const shouldPrune = args.includes('--prune') || args.includes('--clean');
+  const root = args.find(a => !a.startsWith('-')) || process.env.VIDEO_ROOT || './videos';
+
   console.error(`Scanning ${root} ...`);
   const c = await catalogVideos({root, followSymlinks: true});
   console.error(`Found ${c.total} videos`);
-  const captionsBar = createProgress(c.total, 'captions');
-  const enriched = [];
-  for (let i=0; i<c.videos.length; i++) {
-    const v = c.videos[i];
-    try {
-      const captions = await findCaptionsForVideo(v.fullPath, v.path);
-      enriched.push({...v, captions: captions.length? captions: undefined});
-    } catch {
-      enriched.push({...v});
-    }
-    captionsBar.render(v.name);
-  }
-  captionsBar.end('Captions done');
+
+  const enriched = await enrich(c.videos, await readExistingMap());
   const previewDir = path.resolve('catalog/previews');
-  await fsp.mkdir(previewDir, {recursive: true});
-  const previewsBar = createProgress(c.total, 'previews');
-  await addPreviews(enriched, previewDir, forcePreviews, (video) => {
-    previewsBar.render(video.preview ? video.name : `${video.name} (no preview)`);
-  });
-  previewsBar.end('Previews done');
-  if (previewsOnly) {
-    console.log('Previews refreshed; catalog/index.json was not changed.');
-    return;
-  }
-  const byShow = new Map();
-  for (const v of enriched) {
-    if (v.category === 'Series') {
-      const parts = v.path.split('/');
-      if (parts.length >= 4) {
-        const show = parts[2];
-        const season = parts[3];
-        if (!byShow.has(show)) byShow.set(show, new Map());
-        const smap = byShow.get(show);
-        if (!smap.has(season)) smap.set(season, []);
-        smap.get(season).push(v);
-      }
+
+  if (!skipPreviews) {
+    if (await hasFfmpeg()) {
+      const bar = createProgress(c.total, 'previews');
+      await addPreviews(enriched, previewDir, forcePreviews, (v) => bar.render(v.preview ? v.name : `${v.name} (no preview)`));
+      bar.end('Previews done');
+    } else {
+      console.warn('Warning: ffmpeg not found in PATH; skipping preview extraction.');
     }
   }
-  const series = [];
-  for (const [show, smap] of byShow.entries()) {
-    const seasons = [];
-    for (const [season, eps] of smap.entries()) {
-      eps.sort((a,b)=>a.path.localeCompare(b.path));
-      seasons.push({name: season, preview: eps[0]?.preview, episodes: eps.map(e=>({name:e.name, path:e.path, fullPath:e.fullPath, size:e.size, captions:e.captions, preview:e.preview}))});
-    }
-    seasons.sort((a,b)=>a.name.localeCompare(b.name, undefined,{numeric:true}));
-    series.push({title: show, showPath: 'Videos/Series/' + show, preview: seasons[0]?.preview, seasons});
-  }
+  if (shouldPrune) await prunePreviews(enriched, previewDir);
+  if (previewsOnly) return console.log('Previews refreshed; catalog/index.json was not changed.');
+
   const meta = {
-    version: '1.0',
-    updated: new Date().toISOString(),
-    videos: enriched,
-    series,
-    counts: c.byCategory
+    version: '1.0', updated: new Date().toISOString(),
+    videos: enriched, series: buildSeriesCatalog(enriched),
+    counts: {...c.byCategory, total: c.total}
   };
-  meta.counts.total = c.total;
-  await fsp.mkdir('catalog', {recursive:true});
-  await fsp.writeFile(path.join('catalog', 'index.json'), JSON.stringify(meta, null, 2));
+  await writeCatalogIndex(meta);
   console.log('Catalog written to catalog/index.json');
   console.log('Total:', meta.counts.total, 'Movies:', meta.counts.Movies, 'Series:', meta.counts.Series, 'Music:', meta.counts.Music, 'Other:', meta.counts.Other);
 }
-main().catch(e=>{console.error(e); process.exit(1);});
+main().catch(e => { console.error(e); process.exit(1); });

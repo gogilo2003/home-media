@@ -2,6 +2,14 @@ import {spawn} from 'node:child_process';
 import fsp from 'node:fs/promises';
 import path from 'node:path';
 
+export function hasFfmpeg() {
+  return new Promise(resolve => {
+    const child = spawn('ffmpeg', ['-version'], {stdio: 'ignore'});
+    child.once('error', () => resolve(false));
+    child.once('exit', code => resolve(code === 0));
+  });
+}
+
 function runFfmpeg(args) {
   return new Promise(resolve => {
     const child = spawn('ffmpeg', args, {stdio: 'ignore'});
@@ -48,4 +56,19 @@ export async function addPreviews(videos, previewDir, force = false, onVideo) {
     }
   });
   await Promise.all(workers);
+}
+
+export async function prunePreviews(videos, previewDir) {
+  const valid = new Set(videos.map(v => `${v.id}.jpg`));
+  try {
+    const files = await fsp.readdir(previewDir);
+    let count = 0;
+    for (const f of files) {
+      if (f.endsWith('.jpg') && !valid.has(f)) {
+        await fsp.unlink(path.join(previewDir, f)).catch(() => {});
+        count++;
+      }
+    }
+    if (count > 0) console.error(`Pruned ${count} orphaned preview(s).`);
+  } catch {}
 }
