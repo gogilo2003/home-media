@@ -1,8 +1,9 @@
 // @ts-check
 import { el } from './js/util.js';
-import { state, loadCatalog, restoreState, saveState } from './js/state.js';
+import { state, loadCatalog, restoreState } from './js/state.js';
 import { closeSeries } from './js/series.js';
-import { render, setPlayHandler, syncTabs } from './js/browse.js';
+import { initBrowse, render, setPlayHandler } from './js/browse.js';
+import { fillGenres, syncFilters } from './js/filters.js';
 
 const listView = el('list-view');
 const playerView = el('player-view');
@@ -11,7 +12,6 @@ const playerTitle = el('player-title');
 const search = /** @type {HTMLInputElement} */ (el('search-input'));
 const loading = el('loading');
 const errorBox = el('error');
-const tabs = Array.from(document.querySelectorAll('.category-tab'));
 
 /** @param {string} id @param {string} name */
 function play(id, name) {
@@ -33,14 +33,6 @@ function back() {
 function wireControls() {
   setPlayHandler(play);
   el('back-btn').addEventListener('click', back);
-  tabs.forEach((tab) => tab.addEventListener('click', () => {
-    closeSeries();
-    state.category = tab.getAttribute('data-category') || 'All';
-    state.page = 1;
-    syncTabs(state.category);
-    saveState();
-    render();
-  }));
   search.addEventListener('input', () => {
     state.query = search.value;
     state.page = 1;
@@ -57,10 +49,12 @@ function wireControls() {
 
 async function boot() {
   restoreState();
-  syncTabs(state.category);
+  initBrowse();
   wireControls();
   try {
     await loadCatalog();
+    fillGenres();
+    syncFilters();
     render();
   } catch (err) {
     console.error(err);

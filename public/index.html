@@ -31,7 +31,7 @@
             <circle cx="7" cy="7" r="4.2" />
             <line x1="10.2" y1="10.2" x2="13.8" y2="13.8" stroke-linecap="round" />
           </svg>
-          <input id="search-input" type="search" placeholder="Search your library..." class="min-w-0 flex-1 bg-transparent text-sm placeholder:text-[#6E7376] focus:outline-none" autocomplete="off" spellcheck="false">
+          <input id="search-input" type="search" placeholder="Search titles, genres, people" class="min-w-0 flex-1 bg-transparent text-sm placeholder:text-[#6E7376] focus:outline-none" autocomplete="off" spellcheck="false">
           <span class="hidden rounded-md border border-[#303234] bg-[#101112] px-1.5 py-0.5 text-[10px] font-semibold text-[#6E7376] sm:inline-flex">⌘ K</span>
         </div>
       </div>
@@ -40,13 +40,39 @@
 
   <main class="mx-auto max-w-[1440px] px-4 pb-10 sm:px-8">
     <section id="list-view" class="space-y-6 pt-6">
-      <nav aria-label="Video categories" class="flex items-center gap-2 overflow-x-auto pb-1">
-        <button type="button" data-category="All" class="category-tab active">All</button>
-        <button type="button" data-category="Movies" class="category-tab">Movies</button>
-        <button type="button" data-category="Series" class="category-tab">Series</button>
-        <button type="button" data-category="Music" class="category-tab">Music</button>
-        <button type="button" data-category="Other" class="category-tab">Others</button>
-      </nav>
+      <div id="hero" class="hidden rounded-2xl border border-[#303234] bg-[#191B1D] p-6 sm:p-8"></div>
+
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <h2 class="flex items-baseline gap-2 text-lg font-semibold">Your library
+          <span id="library-count" class="text-sm font-normal text-[#A2A3A3]"></span>
+        </h2>
+        <div class="flex items-center gap-1 rounded-lg border border-[#303234] bg-[#191B1D] p-1" role="group" aria-label="View mode">
+          <button type="button" id="view-grid" aria-label="Grid view" class="rounded-md px-2.5 py-1.5 text-[#E9B477] transition">
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="6" height="6" rx="1"/><rect x="9" y="1" width="6" height="6" rx="1"/><rect x="1" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg>
+          </button>
+          <button type="button" id="view-list" aria-label="List view" class="rounded-md px-2.5 py-1.5 text-[#A2A3A3] transition">
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="1" y="2" width="14" height="2" rx="1"/><rect x="1" y="7" width="14" height="2" rx="1"/><rect x="1" y="12" width="14" height="2" rx="1"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <div class="flex items-center gap-2 overflow-x-auto pb-1" role="group" aria-label="Categories">
+          <button type="button" data-category="All" class="chip active">All</button>
+          <button type="button" data-category="Movies" class="chip">Movies</button>
+          <button type="button" data-category="Series" class="chip">Series</button>
+          <button type="button" data-category="Music" class="chip">Music</button>
+          <button type="button" data-category="Other" class="chip">Others</button>
+        </div>
+        <select id="genre-select" aria-label="Genre" class="hidden rounded-lg border border-[#303234] bg-[#191B1D] px-3 py-2 text-sm text-[#F4F0E9]"></select>
+        <label class="ml-auto flex items-center gap-2 text-sm text-[#A2A3A3]">Sort by
+          <select id="sort-select" class="rounded-lg border border-[#303234] bg-[#191B1D] px-3 py-2 text-sm text-[#F4F0E9]">
+            <option value="recent">Recently added</option>
+            <option value="name">Name</option>
+            <option value="size">Size</option>
+          </select>
+        </label>
+      </div>
 
       <div id="loading" class="flex items-center gap-3 py-16 text-sm text-[#A2A3A3]">
         <span class="h-4 w-4 animate-spin rounded-full border-2 border-[#303234] border-t-[#E9B477]" aria-hidden="true"></span>
@@ -57,8 +83,14 @@
         Could not load your library. Check that the server is running, then reload.
       </div>
 
-      <div id="video-grid" class="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"></div>
+      <div id="video-grid" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
+      <div id="video-list" class="hidden flex-col divide-y divide-[#303234] overflow-hidden rounded-xl border border-[#303234] bg-[#191B1D]"></div>
       <p id="empty" class="hidden py-16 text-sm text-[#A2A3A3]">No videos match this view.</p>
+
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+        <p id="page-summary" class="text-sm text-[#A2A3A3]"></p>
+        <div id="page-buttons" class="flex flex-wrap items-center gap-1"></div>
+      </div>
     </section>
 
     <section id="player-view" class="hidden pt-6">

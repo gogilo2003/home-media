@@ -13,4 +13,8 @@ export const STATIC_ROUTES: Readonly<Record<string, string>> = {
   '/js/state.js': 'js/state.js',
   '/js/browse.js': 'js/browse.js',
   '/js/series.js': 'js/series.js',
+  '/js/cards.js': 'js/cards.js',
+  '/js/hero.js': 'js/hero.js',
+  '/js/filters.js': 'js/filters.js',
+  '/js/pagination.js': 'js/pagination.js',
 };

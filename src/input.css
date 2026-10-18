@@ -2,13 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Category tabs on the library bar — plain CSS so they survive any purge. */
-.category-tab {
+:root {
+  color-scheme: dark;
+}
+
+/* Category chips — plain CSS so they survive any purge. */
+.chip {
   flex-shrink: 0;
   border: 1px solid #303234;
-  border-radius: 0.5rem;
+  border-radius: 9999px;
   background: #191B1D;
-  padding: 0.5rem 1rem;
+  padding: 0.375rem 0.875rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
@@ -16,18 +20,73 @@
   transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
 }
 
-.category-tab:hover {
+.chip:hover {
   border-color: #6E7376;
   color: #F4F0E9;
 }
 
-.category-tab:focus-visible {
+.chip:focus-visible {
   outline: 2px solid #E9B477;
   outline-offset: 2px;
 }
 
-.category-tab.active {
+.chip.active {
   border-color: #E9B477;
   background: #E9B477;
   color: #101112;
+}
+
+/* Pagination buttons */
+.page-btn {
+  border: 1px solid #303234;
+  border-radius: 0.5rem;
+  background: #191B1D;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #A2A3A3;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.page-btn:hover:not(:disabled) {
+  border-color: #6E7376;
+  color: #F4F0E9;
+}
+
+.page-btn.active {
+  border-color: #E9B477;
+  background: #E9B477;
+  color: #101112;
+}
+
+.page-btn:disabled {
+  opacity: 0.4;
+}
+
+/* Browse cards and list rows */
+.card {
+  overflow: hidden;
+  border: 1px solid #303234;
+  border-radius: 0.75rem;
+  background: #191B1D;
+  text-align: left;
+  transition: border-color 150ms ease;
+}
+
+.card:hover {
+  border-color: #6E7376;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #F4F0E9;
+  transition: background-color 150ms ease;
+}
+
+.row:hover {
+  background: #222426;
 }
