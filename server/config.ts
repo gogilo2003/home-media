@@ -19,6 +19,8 @@ export const STATIC_ROUTES: Readonly<Record<string, string>> = {
   '/js/pagination.js': 'js/pagination.js',
   '/js/preview.js': 'js/preview.js',
   '/js/controls.js': 'js/controls.js',
+  '/js/watch.js': 'js/watch.js',
+  '/js/watchinfo.js': 'js/watchinfo.js',
   '/vendor/plyr/plyr.js': 'vendor/plyr/plyr.js',
   '/vendor/plyr/plyr.css': 'vendor/plyr/plyr.css',
 };

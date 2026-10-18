@@ -96,15 +96,25 @@
       </div>
     </section>
 
-    <section id="player-view" class="hidden pt-6">
-      <button id="back-btn" type="button" class="mb-4 inline-flex items-center gap-1.5 text-sm text-[#A2A3A3] transition hover:text-[#F4F0E9]">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M10 4L6 8L10 12" />
-        </svg>
-        Back
-      </button>
-      <h2 id="player-title" class="mb-4 text-lg font-medium"></h2>
-      <video id="player" controls class="aspect-video w-full rounded-2xl border border-[#303234] bg-black"></video>
+    <section id="watch-view" class="hidden pt-6">
+      <div class="flex flex-wrap items-center gap-2 text-sm">
+        <button id="back-btn" type="button" class="inline-flex items-center gap-1.5 text-[#A2A3A3] transition hover:text-[#F4F0E9]">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10 4L6 8L10 12" />
+          </svg>
+          Back to library
+        </button>
+        <span aria-hidden="true" class="text-[#303234]">/</span>
+        <span id="watch-crumb" class="text-[#F4F0E9]"></span>
+        <span class="ml-auto rounded-md border border-[#303234] bg-[#191B1D] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#E9B477]">Now playing</span>
+      </div>
+      <div id="watch-layout" class="mt-5 grid gap-6">
+        <div class="min-w-0">
+          <video id="player" controls class="aspect-video w-full rounded-2xl border border-[#303234] bg-black"></video>
+        </div>
+        <aside id="watch-sidebar" class="hidden overflow-hidden rounded-xl border border-[#303234] bg-[#191B1D]"></aside>
+      </div>
+      <div id="watch-info" class="mt-8"></div>
     </section>
   </main>
 

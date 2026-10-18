@@ -2,7 +2,7 @@
 /** @typedef {import('../../types.ts').Video} Video */
 import { el } from './util.js';
 import { state, filteredVideos, saveState } from './state.js';
-import { groupSeries, isSeriesOpen, openSeries, renderSeriesDetail, seriesInfo } from './series.js';
+import { episodeSort, groupSeries, seriesInfo } from './series.js';
 import { cardMarkup, itemsOf, rowMarkup, wireCards } from './cards.js';
 import { wirePreview } from './preview.js';
 import { renderHero } from './hero.js';
@@ -35,19 +35,19 @@ function setView(view) {
   render();
 }
 
+/** Play the first episode of a show in Watch. @param {string} _show @param {Video[]} episodes */
+function playShow(_show, episodes) {
+  const first = episodeSort(episodes)[0];
+  if (first) playVideo(first.id, first.name);
+}
+
 export function render() {
-  if (isSeriesOpen()) {
-    grid.classList.remove('hidden');
-    list.classList.add('hidden');
-    renderSeriesDetail();
-    return;
-  }
   const videos = filteredVideos();
   count.textContent = `${videos.length} title${videos.length === 1 ? '' : 's'}`;
   const shows = groupSeries(videos);
   renderHero(videos, playVideo, (video) => {
     const show = seriesInfo(video)?.show ?? '';
-    openSeries(show, shows.get(show) || [], render);
+    playShow(show, shows.get(show) ?? []);
   });
   if (videos.length === 0) {
     grid.innerHTML = '';
@@ -66,7 +66,7 @@ export function render() {
   list.classList.toggle('hidden', useGrid);
   const container = useGrid ? grid : list;
   container.innerHTML = pageItems.map((item) => (useGrid ? cardMarkup(item) : rowMarkup(item))).join('');
-  wireCards(container, shows, playVideo, (show, episodes) => openSeries(show, episodes, render));
+  wireCards(container, shows, playVideo, playShow);
   if (useGrid) wirePreview(grid);
   renderPagination(items.length, goPage);
 }

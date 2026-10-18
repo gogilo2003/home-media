@@ -1,24 +1,9 @@
 // @ts-check
 /** @typedef {import('../../types.ts').Video} Video */
-import { el, escapeHtml, formatSize } from './util.js';
+import { escapeHtml, formatSize, previewMarkup, runtimeOf } from './util.js';
+import { resumeOf } from './state.js';
 
-const grid = el('video-grid');
-
-/** @type {{show: string, videos: Video[]} | null} */
-let selectedSeries = null;
-/** @type {string | null} */
-let selectedEpisode = null;
-/** @type {() => void} */
-let rerender = () => {};
-
-export function isSeriesOpen() {
-  return selectedSeries !== null;
-}
-
-export function closeSeries() {
-  selectedSeries = null;
-  selectedEpisode = null;
-}
+const AUTOPLAY_KEY = 'hm:autoplay';
 
 /** @param {Video} video */
 export function seriesInfo(video) {
@@ -46,34 +31,46 @@ export function groupSeries(videos) {
   return shows;
 }
 
-/** @param {string} show @param {Video[]} videos @param {() => void} onBack */
-export function openSeries(show, videos, onBack) {
-  selectedSeries = { show, videos };
-  selectedEpisode = null;
-  rerender = onBack;
-  renderSeriesDetail();
+/** @param {Video[]} episodes */
+export function episodeSort(episodes) {
+  return [...episodes].sort((a, b) => a.path.localeCompare(b.path, undefined, { numeric: true }));
 }
 
-export function renderSeriesDetail() {
-  if (!selectedSeries) return;
-  const seasons = [...new Set(selectedSeries.videos.map((video) => seriesInfo(video)?.season).filter(Boolean))]
+export function autoplayOn() {
+  try { return localStorage.getItem(AUTOPLAY_KEY) !== '0'; } catch { return true; }
+}
+
+/** @param {boolean} on */
+export function setAutoplay(on) {
+  try { localStorage.setItem(AUTOPLAY_KEY, on ? '1' : '0'); } catch { /* storage unavailable */ }
+}
+
+/** Episode status: saved position (M7) when present, else the runtime or size. @param {Video} video */
+function statusOf(video) {
+  const position = resumeOf(video.id);
+  if (position === null) return video.runtime ? runtimeOf(video.runtime) : formatSize(video.size);
+  return `${Math.max(1, Math.round(((video.runtime ?? 0) - position) / 60))} min left`;
+}
+
+/**
+ * Episodes sidebar for the Watch view.
+ * @param {HTMLElement} host
+ * @param {Video[]} episodes every episode of the show
+ * @param {{ season: string, selectedId: string | null, onSeason: (season: string) => void, onPick: (id: string) => void }} opts
+ */
+export function renderEpisodes(host, episodes, opts) {
+  const seasons = [...new Set(episodes.map((video) => seriesInfo(video)?.season).filter(Boolean))]
     .sort((a, b) => (a ?? '').localeCompare(b ?? '', undefined, { numeric: true }));
-  const season = /** @type {HTMLSelectElement | null} */ (grid.querySelector('#season-select'))?.value || seasons[0] || '';
-  const episodes = selectedSeries.videos.filter((video) => seriesInfo(video)?.season === season)
-    .sort((a, b) => a.path.localeCompare(b.path, undefined, { numeric: true }));
-  if (!episodes.some((episode) => episode.id === selectedEpisode)) selectedEpisode = episodes[0]?.id ?? null;
-  const current = selectedSeries.videos.find((episode) => episode.id === selectedEpisode);
-  grid.innerHTML = `<div class="col-span-full space-y-5">
-    <div class="flex items-center gap-4"><button id="series-back" type="button" class="text-sm text-[#E9B477] hover:underline">← All titles</button><div><h2 class="text-2xl font-semibold">${escapeHtml(selectedSeries.show)}</h2><p class="text-sm text-[#A2A3A3]">${episodes.length} episodes in ${escapeHtml(season)}</p></div></div>
-    <div class="grid gap-5 lg:grid-cols-[minmax(0,1fr)_22rem]">
-      <div class="min-w-0"><video id="series-player" controls ${current ? `src="/video/${escapeHtml(current.id)}"` : ''} class="aspect-video w-full rounded-2xl border border-[#303234] bg-black"></video><h3 class="mt-3 font-medium">${escapeHtml(current?.name.replace(/\\.[^.]+$/, '') || 'Select an episode')}</h3></div>
-      <aside class="overflow-hidden rounded-xl border border-[#303234] bg-[#191B1D]"><div class="flex items-center justify-between gap-3 border-b border-[#303234] p-4"><h3 class="font-semibold">Episodes</h3><select id="season-select" aria-label="Select season" class="max-w-36 rounded-lg border border-[#303234] bg-[#101112] px-3 py-2 text-sm">${seasons.map((s) => `<option${s === season ? ' selected' : ''}>${escapeHtml(s ?? '')}</option>`).join('')}</select></div><div class="max-h-[28rem] divide-y divide-[#303234] overflow-y-auto">${episodes.map((v, i) => `<button type="button" data-episode="${escapeHtml(v.id)}" class="flex w-full items-start gap-3 p-3 text-left transition hover:bg-[#222426] ${v.id === selectedEpisode ? 'bg-[#E9B477]/10' : ''}"><span class="pt-0.5 text-xs text-[#6E7376]">${String(i + 1).padStart(2, '0')}</span><span class="min-w-0 flex-1"><span class="block truncate text-sm">${escapeHtml(v.name.replace(/\\.[^.]+$/, ''))}</span><span class="mt-1 block text-xs text-[#6E7376]">${formatSize(v.size)}</span></span><span class="text-[#E9B477]">${v.id === selectedEpisode ? '▶' : ''}</span></button>`).join('')}</div></aside>
-    </div>
-  </div>`;
-  grid.querySelector('#series-back')?.addEventListener('click', () => { closeSeries(); rerender(); });
-  grid.querySelector('#season-select')?.addEventListener('change', renderSeriesDetail);
-  grid.querySelectorAll('button[data-episode]').forEach((btn) => {
-    const button = /** @type {HTMLButtonElement} */ (btn);
-    button.addEventListener('click', () => { selectedEpisode = button.dataset.episode ?? null; renderSeriesDetail(); });
-  });
+  const season = seasons.includes(opts.season) ? opts.season : seasons[0] ?? '';
+  const list = episodeSort(episodes.filter((video) => seriesInfo(video)?.season === season));
+  const rows = list.map((video, index) => {
+    const active = video.id === opts.selectedId;
+    return `<button type="button" data-ep="${escapeHtml(video.id)}" class="flex w-full items-center gap-3 p-3 text-left transition hover:bg-[#222426]${active ? ' bg-[#E9B477]/10' : ''}"><span class="relative h-[45px] w-20 shrink-0 overflow-hidden rounded-md bg-[#08090A]">${previewMarkup(video.preview)}</span><span class="min-w-0 flex-1"><span class="block truncate text-sm font-medium${active ? ' text-[#E9B477]' : ''}">${String(index + 1).padStart(2, '0')} · ${escapeHtml(video.name.replace(/\.[^.]+$/, ''))}</span><span class="mt-0.5 block truncate text-xs text-[#6E7376]">${escapeHtml(statusOf(video))}</span>${active ? '<span class="mt-1 block h-0.5 w-10 rounded bg-[#E9B477]"></span>' : ''}</span></button>`;
+  }).join('');
+  host.innerHTML = `<div class="flex items-center justify-between gap-3 border-b border-[#303234] p-4"><h2 class="font-semibold">Episodes</h2><select id="season-select" aria-label="Select season" class="rounded-lg border border-[#303234] bg-[#101112] px-3 py-2 text-sm">${seasons.map((s) => `<option${s === season ? ' selected' : ''}>${escapeHtml(s ?? '')}</option>`).join('')}</select></div><div class="max-h-[28rem] divide-y divide-[#303234] overflow-y-auto">${rows}</div><label class="flex items-center justify-between gap-3 border-t border-[#303234] p-4 text-sm text-[#F4F0E9]"><span>Autoplay next episode</span><input id="autoplay-toggle" type="checkbox" class="h-4 w-4 accent-[#E9B477]"${autoplayOn() ? ' checked' : ''}></label>`;
+  host.querySelectorAll('button[data-ep]').forEach((btn) => btn.addEventListener('click', () => opts.onPick(btn.getAttribute('data-ep') ?? '')));
+  const select = /** @type {HTMLSelectElement | null} */ (host.querySelector('#season-select'));
+  if (select) select.addEventListener('change', () => opts.onSeason(select.value));
+  const toggle = /** @type {HTMLInputElement | null} */ (host.querySelector('#autoplay-toggle'));
+  if (toggle) toggle.addEventListener('change', () => setAutoplay(toggle.checked));
 }

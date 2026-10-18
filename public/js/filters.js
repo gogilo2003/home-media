@@ -2,7 +2,6 @@
 /** @typedef {import('../../types.ts').Video} Video */
 import { el, escapeHtml } from './util.js';
 import { catalogVideos, state, saveState } from './state.js';
-import { closeSeries } from './series.js';
 
 const chips = Array.from(document.querySelectorAll('.chip'));
 const genreSelect = /** @type {HTMLSelectElement} */ (el('genre-select'));
@@ -11,7 +10,6 @@ const sortSelect = /** @type {HTMLSelectElement} */ (el('sort-select'));
 /** @param {() => void} onChange */
 export function initFilters(onChange) {
   chips.forEach((chip) => chip.addEventListener('click', () => {
-    closeSeries();
     state.category = chip.getAttribute('data-category') || 'All';
     state.page = 1;
     state.view = 'grid';

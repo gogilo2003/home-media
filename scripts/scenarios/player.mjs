@@ -21,9 +21,9 @@ export async function player(h) {
   await h.type('#search-input', word);
   await h.waitFor(`!!document.querySelector('#video-grid button[data-id="${target.id}"]')`, 'target card');
   await h.click(`#video-grid button[data-id="${target.id}"]`);
-  await h.waitFor(`!document.getElementById('player-view').classList.contains('hidden')`, 'player view');
-  await h.waitFor(`!!document.querySelector('#player-view .plyr')`, 'plyr root');
+  await h.waitFor(`!document.getElementById('watch-view').classList.contains('hidden')`, 'watch view');
+  await h.waitFor(`!!document.querySelector('#watch-view .plyr')`, 'plyr root');
   await h.waitFor(`document.querySelectorAll('#player track').length > 0`, 'captions track attached');
-  await h.click('#player-view .plyr__control[data-plyr="settings"]');
+  await h.click('#watch-view .plyr__control[data-plyr="settings"]');
   await h.waitFor(`!!document.querySelector('.plyr__menu__container [data-plyr="speed"]')`, 'speed menu reachable');
 }

@@ -1,44 +1,25 @@
 // @ts-check
 import { el } from './js/util.js';
-import { state, loadCatalog, restoreState, videoById } from './js/state.js';
-import { closeSeries } from './js/series.js';
+import { state, loadCatalog, restoreState, saveState } from './js/state.js';
 import { initBrowse, render, setPlayHandler } from './js/browse.js';
 import { fillGenres, syncFilters } from './js/filters.js';
-import { initPlayer, loadCaptions } from './js/controls.js';
+import { initPlayer } from './js/controls.js';
+import { initWatch, openWatch } from './js/watch.js';
 
-const listView = el('list-view');
-const playerView = el('player-view');
-const player = /** @type {HTMLVideoElement} */ (el('player'));
-const playerTitle = el('player-title');
 const search = /** @type {HTMLInputElement} */ (el('search-input'));
 const loading = el('loading');
 const errorBox = el('error');
 
-/** @param {string} id @param {string} name */
-function play(id, name) {
-  player.src = `/video/${id}`;
-  playerTitle.textContent = name;
-  listView.classList.add('hidden');
-  playerView.classList.remove('hidden');
-  loadCaptions(videoById(id)?.captions ?? []);
-  player.play().catch(() => { });
-}
-
-function back() {
-  player.pause();
-  player.removeAttribute('src');
-  player.load();
-  playerView.classList.add('hidden');
-  listView.classList.remove('hidden');
-}
-
 function wireControls() {
-  setPlayHandler(play);
-  el('back-btn').addEventListener('click', back);
+  setPlayHandler(openWatch);
+  initWatch(() => {
+    state.page = 1;
+    saveState();
+    render();
+  });
   search.addEventListener('input', () => {
     state.query = search.value;
     state.page = 1;
-    closeSeries();
     render();
   });
   document.addEventListener('keydown', (event) => {
