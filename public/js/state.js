@@ -4,12 +4,11 @@
 /** Persisted slice of `state` — the search query stays transient. */
 export const STATE_KEY = 'hm:browse-state';
 
-const CATEGORIES = ['All', 'Movies', 'Series', 'Music', 'Other'];
 const SORTS = ['recent', 'name', 'size'];
 const VIEWS = ['grid', 'list'];
 
 export const state = {
-  category: 'All',
+  mediaType: 'All',
   genre: 'All',
   query: '',
   sort: 'recent',
@@ -36,7 +35,7 @@ export function videoById(id) { return catalog.find((video) => video.id === id);
 export function filteredVideos() {
   const query = state.query.trim().toLowerCase();
   const result = catalog.filter((video) =>
-    (state.category === 'All' || (video.category || 'Other') === state.category)
+    (state.mediaType === 'All' || video.mediaType === state.mediaType)
     && (state.genre === 'All' || (video.genres ?? []).includes(state.genre))
     && (query.length === 0 || video.name.toLowerCase().includes(query)));
   if (state.sort === 'name') return result.sort((a, b) => a.name.localeCompare(b.name));
@@ -46,8 +45,8 @@ export function filteredVideos() {
 
 export function saveState() {
   try {
-    const { category, genre, sort, page, view } = state;
-    localStorage.setItem(STATE_KEY, JSON.stringify({ category, genre, sort, page, view }));
+    const { mediaType, genre, sort, page, view } = state;
+    localStorage.setItem(STATE_KEY, JSON.stringify({ mediaType, genre, sort, page, view }));
   } catch {
     /* storage unavailable — state stays in memory */
   }
@@ -57,7 +56,7 @@ export function restoreState() {
   try {
     const saved = JSON.parse(localStorage.getItem(STATE_KEY) ?? 'null');
     if (!saved || typeof saved !== 'object') return;
-    if (CATEGORIES.includes(saved.category)) state.category = saved.category;
+    if (typeof saved.mediaType === 'string') state.mediaType = saved.mediaType;
     if (typeof saved.genre === 'string') state.genre = saved.genre;
     if (SORTS.includes(saved.sort)) state.sort = saved.sort;
     if (VIEWS.includes(saved.view)) state.view = saved.view;

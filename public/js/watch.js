@@ -1,6 +1,6 @@
 // @ts-check
 /** @typedef {import('../../types.ts').Video} Video */
-import { el } from './util.js';
+import { el, titleOf } from './util.js';
 import { catalogVideos, videoById } from './state.js';
 import { groupSeries, renderEpisodes, seriesInfo } from './series.js';
 import { loadCaptions } from './controls.js';
@@ -20,10 +20,7 @@ let current = null;
 /** @type {string} */
 let season = '';
 /** @param {Video} video */
-function isSeries(video) { return (video.category || 'Other') === 'Series'; }
-
-/** @param {string} name */
-function stripExt(name) { return name.replace(/\.[^.]+$/, ''); }
+function isSeries(video) { return video.mediaType === 'series'; }
 
 /** @param {() => void} onBack */
 export function initWatch(onBack) {
@@ -43,7 +40,7 @@ export function openWatch(id) {
   const video = videoById(id);
   if (!video) return;
   const series = isSeries(video) ? seriesInfo(video) : null;
-  crumb.textContent = series ? series.show : stripExt(video.name);
+  crumb.textContent = series ? series.show : titleOf(video);
   season = series?.season ?? '';
   listView.classList.add('hidden');
   view.classList.remove('hidden');

@@ -2,7 +2,7 @@
 import { el } from './js/util.js';
 import { state, loadCatalog, restoreState, saveState } from './js/state.js';
 import { initBrowse, render, setPlayHandler } from './js/browse.js';
-import { fillGenres, syncFilters } from './js/filters.js';
+import { fillGenres, fillMediaTypes, syncFilters } from './js/filters.js';
 import { initPlayer } from './js/controls.js';
 import { initWatch, openWatch } from './js/watch.js';
 import { initQueue } from './js/queueui.js';
@@ -45,6 +45,7 @@ async function boot() {
   initShortcuts();
   try {
     await loadCatalog();
+    fillMediaTypes();
     fillGenres();
     syncFilters();
     render();

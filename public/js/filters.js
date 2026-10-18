@@ -3,20 +3,26 @@
 import { el, escapeHtml } from './util.js';
 import { catalogVideos, state, saveState } from './state.js';
 
-const chips = Array.from(document.querySelectorAll('.chip'));
+/** @type {Record<string, string>} */
+const LABELS = { movie: 'Movies', series: 'Series', music: 'Music', other: 'Others' };
+const ORDER = ['movie', 'series', 'music', 'other'];
+const chipHost = el('media-type-chips');
 const genreSelect = /** @type {HTMLSelectElement} */ (el('genre-select'));
 const sortSelect = /** @type {HTMLSelectElement} */ (el('sort-select'));
 
 /** @param {() => void} onChange */
 export function initFilters(onChange) {
-  chips.forEach((chip) => chip.addEventListener('click', () => {
-    state.category = chip.getAttribute('data-category') || 'All';
+  chipHost.addEventListener('click', (event) => {
+    const target = /** @type {Element | null} */ (event.target);
+    const chip = target?.closest('[data-media-type]');
+    if (!chip) return;
+    state.mediaType = chip.getAttribute('data-media-type') || 'All';
     state.page = 1;
     state.view = 'grid';
     syncFilters();
     saveState();
     onChange();
-  }));
+  });
   genreSelect.addEventListener('change', () => {
     state.genre = genreSelect.value;
     state.page = 1;
@@ -31,8 +37,17 @@ export function initFilters(onChange) {
   });
 }
 
+/** One chip per media type present in the catalog, `All` first. */
+export function fillMediaTypes() {
+  const present = new Set(/** @type {string[]} */ (catalogVideos().map((video) => video.mediaType ?? '')));
+  const types = ORDER.filter((type) => present.has(type));
+  chipHost.innerHTML = ['All', ...types]
+    .map((type) => `<button type="button" data-media-type="${type}" class="chip${type === state.mediaType ? ' active' : ''}">${escapeHtml(LABELS[type] ?? type)}</button>`)
+    .join('');
+}
+
 export function syncFilters() {
-  chips.forEach((chip) => chip.classList.toggle('active', chip.getAttribute('data-category') === state.category));
+  chipHost.querySelectorAll('[data-media-type]').forEach((chip) => chip.classList.toggle('active', chip.getAttribute('data-media-type') === state.mediaType));
   genreSelect.value = state.genre;
   sortSelect.value = state.sort;
 }

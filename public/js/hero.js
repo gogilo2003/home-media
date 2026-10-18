@@ -1,6 +1,6 @@
 // @ts-check
 /** @typedef {import('../../types.ts').Video} Video */
-import { el, escapeHtml, metaOf } from './util.js';
+import { el, escapeHtml, metaOf, titleOf } from './util.js';
 import { resumeOf } from './resume.js';
 import { seriesInfo } from './series.js';
 
@@ -20,14 +20,14 @@ export function renderHero(videos, play, openShow) {
     return;
   }
   hero.classList.remove('hidden');
-  const info = (featured.category || 'Other') === 'Series' ? seriesInfo(featured) : null;
-  const title = info ? info.show : stripExt(featured.name);
+  const info = featured.mediaType === 'series' ? seriesInfo(featured) : null;
+  const title = info ? info.show : titleOf(featured);
   const position = resumeOf(featured.id);
   const minutesLeft = position === null || !featured.runtime ? null
     : Math.max(1, Math.ceil(featured.runtime / 60 - position / 60));
   const progress = info
     ? `${info.season} · ${stripExt(featured.name)}${minutesLeft === null ? '' : ` — ${minutesLeft} min left`}`
-    : `${stripExt(featured.name)}${minutesLeft === null ? '' : ` — ${minutesLeft} min left`}`;
+    : `${titleOf(featured)}${minutesLeft === null ? '' : ` — ${minutesLeft} min left`}`;
   hero.innerHTML = `
     <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#E9B477]">Tonight, pick up where you left off</p>
     <h2 class="mt-3 text-2xl font-semibold sm:text-3xl">${escapeHtml(title)}</h2>

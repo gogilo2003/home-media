@@ -52,8 +52,15 @@ export function runtimeOf(seconds) {
 }
 
 /**
- * Meta line: `year · genres · runtime` when the M0 fields exist, otherwise
- * the pre-M0 fallback `category · size`.
+ * Display title: the TMDB `title`, else the filename without its extension.
+ * @param {import('../../types.ts').Video} video
+ */
+export function titleOf(video) {
+  return video.title || video.name.replace(/\.[^.]+$/, '');
+}
+
+/**
+ * Meta line: `year · genres · runtime` when present, otherwise the file size.
  * @param {import('../../types.ts').Video} video
  */
 export function metaOf(video) {
@@ -62,7 +69,7 @@ export function metaOf(video) {
     (video.genres ?? []).slice(0, 2).join(', '),
     video.runtime ? runtimeOf(video.runtime) : '',
   ].filter(Boolean);
-  return bits.length ? bits.join(' · ') : `${video.category || 'Other'} · ${formatSize(video.size)}`;
+  return bits.length ? bits.join(' · ') : formatSize(video.size);
 }
 
 /** Resolution badge, parsed from the filename — only rendered when present. @param {string} name */

@@ -2,29 +2,17 @@
 /** @typedef {import('../../types.ts').Video} Video */
 import { escapeHtml, formatSize, previewMarkup, runtimeOf } from './util.js';
 import { isDone, minutesLeft, resumeOf } from './resume.js';
+import { seriesInfo } from './paths.js';
+
+export { seriesInfo };
 
 const AUTOPLAY_KEY = 'hm:autoplay';
-
-/** @param {Video} video */
-export function seriesInfo(video) {
-  const parts = video.path.replaceAll('\\', '/').split('/');
-  const rootIndex = parts.findIndex((part) => ['series', 'tv', 'shows', 'tv shows'].includes(part.toLowerCase()));
-  const showFolder = parts[rootIndex + 1];
-  if (rootIndex < 0 || !showFolder) return null;
-  const show = showFolder.replace(/[._]+/g, ' ').trim();
-  const folderSeason = parts[rootIndex + 2] || '';
-  const fileSeason = video.name.match(/\bS(\d{1,2})\b/i)?.[1];
-  const season = /^s\d+$/i.test(folderSeason) ? `Season ${Number(folderSeason.slice(1))}`
-    : /^season\s*\d+$/i.test(folderSeason) ? folderSeason.replace(/season\s*/i, 'Season ')
-      : fileSeason ? `Season ${Number(fileSeason)}` : (folderSeason || 'Season 1');
-  return { show, season };
-}
 
 /** @param {Video[]} videos @returns {Map<string, Video[]>} */
 export function groupSeries(videos) {
   const shows = new Map();
   for (const video of videos) {
-    if ((video.category || 'Other') !== 'Series') continue;
+    if (video.mediaType !== 'series') continue;
     const info = seriesInfo(video);
     if (info) shows.set(info.show, [...(shows.get(info.show) || []), video]);
   }

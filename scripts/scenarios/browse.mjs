@@ -22,16 +22,17 @@ export async function browse(h) {
   await h.clear('#search-input');
   await h.waitFor(`${CARD_COUNT} === 8`, 'search cleared');
   if (await h.evaluate(CARD_KEYS) !== page1) throw new Error('page 1 changed after the search round-trip');
-  if (api.counts.Movies > 0) {
-    await h.click('.chip[data-category="Movies"]');
-    await h.waitFor(`document.querySelector('.chip[data-category="Movies"]').classList.contains('active')`, 'Movies chip active');
-    await h.waitFor(`${CARD_COUNT} === ${Math.min(8, api.counts.Movies)}`, 'movie cards');
+  if (api.counts.movie > 0) {
+    await h.click('.chip[data-media-type="movie"]');
+    await h.waitFor(`document.querySelector('.chip[data-media-type="movie"]').classList.contains('active')`, 'Movies chip active');
+    await h.waitFor(`${CARD_COUNT} === ${Math.min(8, api.counts.movie)}`, 'movie cards');
   }
-  if (api.counts.Music === 0) {
-    await h.click('.chip[data-category="Music"]');
-    await h.waitFor(`!document.getElementById('empty').classList.contains('hidden')`, 'empty state for Music');
-  }
-  await h.click('.chip[data-category="All"]');
+  await h.click('#search-input');
+  await h.type('#search-input', 'zzzznotarealtitle');
+  await h.waitFor(`!document.getElementById('empty').classList.contains('hidden')`, 'empty state for a no-match search');
+  await h.clear('#search-input');
+  await h.waitFor(`${CARD_COUNT} === 8`, 'empty search cleared');
+  await h.click('.chip[data-media-type="All"]');
   await h.waitFor(`${CARD_COUNT} === 8`, 'back to All');
   await h.click('#page-buttons button[data-page="2"]');
   await h.waitFor(`document.querySelector('#page-buttons .page-btn.active')?.dataset.page === '2'`, 'page 2 active');

@@ -2,22 +2,34 @@
 import { BASE } from '../cdp.mjs';
 
 const ROOTS = ['series', 'tv', 'shows', 'tv shows'];
+const GROUPS = ['series', 'tv', 'shows', 'show', 'tvshows', 'movie', 'movies', 'film', 'films', 'new'];
+const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '').replace(/\d+$/, '');
 
 /** @param {string} p */
 const parts = (p) => p.replaceAll('\\', '/').split('/');
 
 /** @param {any} v */
-function showOf(v) {
+function showIndex(v) {
   const seg = parts(v.path);
   const root = seg.findIndex((s) => ROOTS.includes(s.toLowerCase()));
-  return root < 0 ? null : (seg[root + 1] || '').replace(/[._]+/g, ' ').trim() || null;
+  if (root < 0) return -1;
+  let i = root + 1;
+  while (i < seg.length - 1 && GROUPS.includes(slug(seg[i]))) i++;
+  return i < seg.length - 1 ? i : -1;
+}
+
+/** @param {any} v */
+function showOf(v) {
+  const seg = parts(v.path);
+  const i = showIndex(v);
+  return i < 0 ? null : (seg[i] || '').replace(/[._]+/g, ' ').trim() || null;
 }
 
 /** @param {any} v */
 function seasonOf(v) {
   const seg = parts(v.path);
-  const root = seg.findIndex((s) => ROOTS.includes(s.toLowerCase()));
-  const folder = seg[root + 2] || '';
+  const i = showIndex(v);
+  const folder = i < 0 ? '' : (seg[i + 1] || '');
   const file = v.name.match(/\bS(\d{1,2})\b/i)?.[1];
   return /^s\d+$/i.test(folder) ? `Season ${Number(folder.slice(1))}`
     : /^season\s*\d+$/i.test(folder) ? folder.replace(/season\s*/i, 'Season ')
@@ -28,13 +40,13 @@ function seasonOf(v) {
 export async function watch(h) {
   const api = await (await fetch(`${BASE}/api/videos`)).json();
   const videos = Array.isArray(api) ? api : api.videos;
-  const series = videos.filter((v) => (v.category || 'Other') === 'Series');
+  const series = videos.filter((v) => v.mediaType === 'series');
   if (series.length === 0) throw new Error('no series in catalog');
 
   await h.goto(`${BASE}/`);
   await h.waitFor(`document.querySelectorAll('#video-grid .card').length === 8`, 'cards on page 1');
-  await h.click('.chip[data-category="Series"]');
-  await h.waitFor(`document.querySelector('.chip[data-category="Series"]').classList.contains('active')`, 'series filter');
+  await h.click('.chip[data-media-type="series"]');
+  await h.waitFor(`document.querySelector('.chip[data-media-type="series"]').classList.contains('active')`, 'series filter');
   await h.waitFor(`!!document.querySelector('#video-grid .card[data-show]')`, 'series card');
   const show = await h.evaluate(`document.querySelector('#video-grid .card[data-show]').dataset.show`);
   await h.click(`#video-grid .card[data-show="${show}"]`);
