@@ -203,3 +203,84 @@ routes, and many new response fields.
    (built-in), or always export `TMDB_API_KEY` manually?
 6. **Scope boundary:** new roadmap phase under `docs/roadmaps/` (including the
    UI chip changes), or build/backend only with the UI adapted afterwards?
+
+---
+
+## 7. Decisions (answered 2026-10-18)
+
+1. **Model:** **Option A** — separate structural `mediaType`
+   (`movie | series | music | other`) from descriptive `genres[]`.
+2. **`name` policy:** add a new `title` field; fill it from the TMDB title
+   when matched. When TMDB has no title, derive `title` from `name` by
+   cleaning dots/dashes/file-extension. Keep `name` as the raw filename; no
+   on-disk renaming.
+3. **Unmatched / offline:** never exclude — fall back to heuristic typing plus
+   the cleaned title derived from `name`. (Deriving `title` from `name` is the
+   default whenever a TMDB title is unavailable.)
+4. **Fields:** `title`, `mediaType`, `genres`, `year`, `runtime`, `synopsis`
+   (from TMDB; `runtime`/`year` keep ffprobe/filename fallbacks).
+5. **`.env` loading:** see §8 — clarification requested.
+6. **Scope:** **back-to-front** — build pipeline first, then the backend
+   contract (`types.ts`, `server/catalog.ts`, `server/api.ts`,
+   `server/series.ts`), then the frontend (`index.html` chips,
+   `public/js/state.js` `CATEGORIES`, and the `category` string comparisons in
+   `cards.js`, `series.js`, `hero.js`, `watch.js`, `watchinfo.js`, `util.js`).
+
+---
+
+## 8. TMDB key loading — clarification
+
+### The problem
+
+`npm run catalog` runs `node scripts/build-catalog.mjs`, and that process only
+sees variables exported into the shell. The repo's `.env` holds
+`TMDB_API_KEY` and `TMDB_API_READ_ACCESS_TOKEN`, but **nothing reads the
+file** — which is exactly why the current catalog has `genres 0/433` and
+`synopsis 0/433`.
+
+`dotenv` is banned (AGENTS.md: no utility libraries), but Node itself can read
+an env file — no dependency, no code.
+
+### Verified on this machine (Node v22.23.3)
+
+```
+node -e "Boolean(process.env.TMDB_API_KEY)"                       -> false
+node --env-file-if-exists=.env -e "Boolean(...TMDB_API_KEY)"      -> true
+TMDB_API_KEY=shell node --env-file-if-exists=.env -e "..."        -> shell value wins
+```
+
+So the flag loads the file, and a shell-exported value still overrides it
+(handy for one-off builds). Values are never printed.
+
+### Options
+
+| # | `package.json` `catalog` script | Behavior | Trade-off |
+|---|---|---|---|
+| A | `node --env-file=.env scripts/build-catalog.mjs` | loads `.env`; **hard-fails if `.env` is missing** | simple, but breaks fresh clones / CI |
+| B | `node --env-file-if-exists=.env scripts/build-catalog.mjs` | loads if present, silently continues otherwise | keyless/offline builds still work; needs Node ≥ 22.9 (you have 22.23) |
+| C | leave as-is; document `TMDB_API_KEY=… npm run catalog` | explicit, nothing changes | easy to forget — the exact state that produced 0 genres |
+| D | add `catalog:tmdb` alongside the plain `catalog` script | opt-in TMDB build | two entry points to maintain |
+
+### Recommendation
+
+**Option B** (`--env-file-if-exists`), because it makes the common case
+(`npm run catalog` with a local `.env`) just work while keeping the
+keyless/offline path intact.
+
+### Notes
+
+- `.env` stays gitignored; nothing is committed; `--env-file` never logs
+  values. The flag is added **only** to the build script — `server.ts` is
+  never given it, so the runtime still has zero TMDB access.
+- `.env` carries both a v3 key and a v4 read-access token. The current client
+  uses the v3 `api_key` query param; keep that unless you'd rather switch to
+  the v4 bearer header.
+- A contributor without a key still gets a full catalog (heuristic typing +
+  cleaned titles); TMDB simply refines it.
+
+---
+
+## 9. Next step
+
+Confirm the `.env` option (§8) and then a phase plan can be drafted under
+`docs/roadmaps/`, ordered back-to-front per §7.6.

@@ -7,7 +7,6 @@
  * against one definition.
  */
 
-export type Category = 'Movies' | 'Music' | 'Series' | 'Other';
 export type MediaType = 'movie' | 'series' | 'music' | 'other';
 
 export interface CaptionTrack {
@@ -24,8 +23,6 @@ export interface Video {
   size: number;
   title?: string;
   mediaType?: MediaType;
-  /** @deprecated use `mediaType`; removed in B4 */
-  category?: Category;
   preview?: string;
   mtimeMs?: number;
   year?: number;

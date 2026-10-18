@@ -4,8 +4,8 @@ import path from 'node:path';
 import { VIDEO_ROOT } from './config.ts';
 import { isVideo } from './mime.ts';
 import { encodeId } from './ids.ts';
-import { categoryOf, classifyMedia, cleanTitle } from './classify.ts';
-import type { Category, MediaType, Video } from '../types.ts';
+import { classifyMedia, cleanTitle } from './classify.ts';
+import type { MediaType, Video } from '../types.ts';
 
 async function* walkDir(dir: string, seen: Set<string>): AsyncIterable<string> {
   let entries: fs.Dirent[];
@@ -55,7 +55,6 @@ export interface CatalogVideo extends Video {
 export interface Catalog {
   root: string;
   total: number;
-  byCategory: Record<Category, number>;
   byMediaType: Record<MediaType, number>;
   videos: CatalogVideo[];
 }
@@ -90,7 +89,6 @@ export async function catalogVideos(options: CatalogOptions = {}): Promise<Catal
           mtimeMs: stat.mtimeMs,
           title: cleanTitle(name),
           mediaType,
-          category: categoryOf(mediaType),
         });
       } catch {
         continue;
@@ -105,7 +103,6 @@ export async function catalogVideos(options: CatalogOptions = {}): Promise<Catal
         return {
           root,
           total: 0,
-          byCategory: { Movies: 0, Music: 0, Series: 0, Other: 0 },
           byMediaType: { movie: 0, series: 0, music: 0, other: 0 },
           videos: [],
         };
@@ -131,7 +128,6 @@ export async function catalogVideos(options: CatalogOptions = {}): Promise<Catal
           mtimeMs: stat.mtimeMs,
           title: cleanTitle(entry.name),
           mediaType,
-          category: categoryOf(mediaType),
         });
       } catch {
         continue;
@@ -140,17 +136,14 @@ export async function catalogVideos(options: CatalogOptions = {}): Promise<Catal
   }
   videos.sort((a, b) => a.path.localeCompare(b.path));
 
-  const byCategory: Record<Category, number> = { Movies: 0, Music: 0, Series: 0, Other: 0 };
   const byMediaType: Record<MediaType, number> = { movie: 0, series: 0, music: 0, other: 0 };
   for (const v of videos) {
-    byCategory[v.category ?? 'Other']++;
     if (v.mediaType) byMediaType[v.mediaType]++;
   }
 
   return {
     root,
     total: videos.length,
-    byCategory,
     byMediaType,
     videos,
   };

@@ -1,5 +1,5 @@
 // Heuristic media typing and title cleaning for the build pipeline.
-import type { Category, MediaType } from '../types.ts';
+import type { MediaType } from '../types.ts';
 
 const SERIES_WORDS = new Set(['series', 'tv', 'shows', 'show', 'tvshows']);
 const GROUP_WORDS = new Set([...SERIES_WORDS, 'movie', 'movies', 'film', 'films', 'new']);
@@ -64,12 +64,4 @@ export function seriesParts(relPath: string): { show: string; season?: string; s
 /** Show name for a series path (empty when the path is not a series). */
 export function showName(relPath: string): string {
   return seriesParts(relPath)?.show ?? '';
-}
-
-/** Legacy compatibility alias: map the new media type back to `category`. */
-export function categoryOf(mediaType: MediaType): Category {
-  if (mediaType === 'series') return 'Series';
-  if (mediaType === 'music') return 'Music';
-  if (mediaType === 'other') return 'Other';
-  return 'Movies';
 }

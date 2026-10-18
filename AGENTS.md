@@ -12,8 +12,14 @@ No auth. Just filesystem + HTTP.
   - `mime.ts` — extension sets and MIME lookup
   - `net.ts` — LAN address discovery for the startup banner
   - `range.ts` — HTTP Range parsing
-  - `videos.ts` — `/api/videos` directory listing
+  - `file-stream.ts` — Range-aware file streaming
   - `stream.ts` — `/video/:id` streaming
+  - `catalog.ts` — recursive scan + media typing (`byMediaType`)
+  - `classify.ts` — `classifyMedia` / `cleanTitle` / `seriesParts`
+  - `catalog-index.ts` — read/write `catalog/index.json`
+  - `api.ts` — `/api/videos` response shape
+  - `series.ts` — series grouping
+  - `preview.ts` / `captions.ts` / `captions-api.ts` — thumbnails and subtitles
 - `types.ts` — shared API contract (`Video`, `ByteRange`). Type-only; nothing is served.
 - `public/` — static frontend. `app.js` is the thin entry, plain JavaScript,
   type-checked via JSDoc.
@@ -41,8 +47,18 @@ No auth. Just filesystem + HTTP.
 - The browser cannot strip types, so `public/app.js` stays JavaScript and opts
   in with `// @ts-check`, referencing `types.ts` through JSDoc.
 
+## Catalog & TMDB
+- `npm run catalog` is the only writer of `catalog/index.json`; it loads `.env`
+  via `node --env-file-if-exists=.env`. A shell-exported key still wins.
+- `TMDB_API_KEY` / `TMDB_API_READ_ACCESS_TOKEN` are **build-time only**, read
+  from env, never logged and never committed. `server.ts` never calls out and is
+  never given `--env-file`.
+- The contract is structural `mediaType` (`movie` / `series` / `music` / `other`)
+  plus descriptive `genres` and a display `title`. The legacy `category` field
+  was retired — do not reintroduce it.
+
 ## Current Work
-Roadmap: `docs/roadmaps/v0.2.0-ui.md`
+Roadmap: `docs/roadmaps/catalog-tmdb-enrichment.md`
 Execute **one phase per session**. Run the phase's verification commands. Commit.
 Stop and report. Do not proceed to the next phase without confirmation.
 

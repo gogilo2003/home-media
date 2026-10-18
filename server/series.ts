@@ -1,4 +1,4 @@
-import type { Category, MediaType, Video } from '../types.ts';
+import type { MediaType, Video } from '../types.ts';
 import { seriesParts } from './classify.ts';
 
 export interface SeriesGroup {
@@ -6,8 +6,8 @@ export interface SeriesGroup {
   seasons: string[];
 }
 
-export function isSeries(v: { category?: Category; mediaType?: MediaType }): boolean {
-  return v.mediaType ? v.mediaType === 'series' : (v.category || 'Other') === 'Series';
+export function isSeries(v: { mediaType?: MediaType }): boolean {
+  return v.mediaType === 'series';
 }
 
 export function getSeriesInfo(filePath: string): { show: string; season: string; showPath: string } | null {

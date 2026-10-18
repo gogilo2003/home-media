@@ -11,8 +11,11 @@ built-in `http`, `fs`, and `path` modules, plus a Tailwind build for the CSS.
 ## Features
 
 - **Recursive library scan** of `VIDEO_ROOT`, following directory symlinks.
-- **Automatic categorization** into Movies / Series / Music / Other based on
-  folder names (`Movies`, `Series`, `TV`, `Shows`, `Music`).
+- **Automatic media typing** into `movie` / `series` / `music` / `other` from
+  folder names (`Movies`, `Series`, `TV`, `Shows`, `Music`) and episodic markers
+  (`S01E02`, `Season 1`); descriptive `genres` are a separate axis.
+- **TMDB enrichment** (optional, build-time): canonical `title`, `genres`,
+  `year`, `runtime`, and `synopsis` when `TMDB_API_KEY` is set.
 - **Series grouping** — episodes are grouped by show and season, with a season
   picker and an in-page player.
 - **Preview thumbnails** extracted with `ffmpeg` at catalog build time.
@@ -20,7 +23,7 @@ built-in `http`, `fs`, and `path` modules, plus a Tailwind build for the CSS.
   the browser player.
 - **HTTP Range streaming** (`206` / `416`) so the native `<video>` element can
   seek without any player library.
-- **Search and category filters** in the UI.
+- **Search and media-type filters** in the UI.
 - **LAN-first** — binds to `0.0.0.0` and prints the addresses your phone can use.
 
 ## Requirements
@@ -47,16 +50,32 @@ any device on the same network.
 
 ## Adding media
 
-Drop supported files anywhere under `videos/` (mirror the folder names to get
-categories, e.g. `videos/Movies/`, `videos/Series/Breaking Bad/S01/`). Then
-rebuild the catalog:
+Drop supported files anywhere under `videos/` (mirror folders so media is typed,
+e.g. `videos/Movies/`, `videos/Series/Breaking Bad/S01/`). Then rebuild the
+catalog:
 
 ```bash
 npm run catalog
 ```
 
 The catalog build is incremental: files whose size is unchanged reuse their
-cached captions and preview, so re-runs are fast.
+cached captions, preview, and metadata, so re-runs are fast.
+
+### Metadata enrichment (TMDB)
+
+Set a TMDB API key in `.env` (gitignored) and `npm run catalog` fills each
+entry's canonical `title`, `genres`, `year`, `runtime`, and `synopsis`:
+
+```bash
+# .env
+TMDB_API_KEY=your_v3_key
+```
+
+The `catalog` script auto-loads `.env` via `node --env-file-if-exists=.env`; an
+exported `TMDB_API_KEY` still wins, and a missing `.env` simply skips
+enrichment. TMDB is used **only at build time** — the server never reads the key
+and never calls out. Unmatched titles keep the heuristic typing plus a cleaned
+`title` derived from the filename.
 
 ### Catalog options
 
@@ -70,6 +89,8 @@ npm run catalog -- [options] [path]
 | `--refresh-previews` | Force re-extraction of every thumbnail.                      |
 | `--previews-only`    | Refresh thumbnails without rewriting `catalog/index.json`.   |
 | `--prune`            | Delete orphaned preview images from `catalog/previews/`.     |
+| `--no-tmdb`          | Skip TMDB lookups (heuristic typing + cleaned titles only).  |
+| `--refresh-meta`     | Re-probe runtimes and re-query TMDB for every title.         |
 | `--help`, `-h`       | Show help.                                                    |
 | `[path]`             | Scan this directory instead of `VIDEO_ROOT` (`./videos`).    |
 
@@ -95,8 +116,11 @@ Subtitles: `.srt` and `.vtt`, discovered in the video's folder and in `Subs/`,
 |--------------|------------------|------------------------------------------------------|
 | `PORT`       | `3000`           | HTTP listen port.                                    |
 | `VIDEO_ROOT` | `./videos`       | Media directory to scan.                             |
+| `TMDB_API_KEY` | *(unset)*      | Build-time TMDB v3 key; enables metadata enrichment. |
 
 `VIDEO_ROOT` is read by the catalog builder and by the server's path guard.
+`TMDB_API_KEY` (or `TMDB_API_READ_ACCESS_TOKEN`) is read only by the catalog
+builder, typically from `.env`.
 
 ## Docker
 
@@ -142,7 +166,8 @@ home-media/
 │   ├── file-stream.ts     # Range-aware file streaming
 │   ├── stream.ts          # /video/:id
 │   ├── preview.ts         # /catalog/previews/:id.jpg
-│   ├── catalog.ts         # recursive scan + categorization
+│   ├── catalog.ts         # recursive scan + media typing
+│   ├── classify.ts        # media typing, title cleaning, series paths
 │   ├── catalog-index.ts   # read/write catalog/index.json
 │   ├── captions.ts        # subtitle discovery
 │   ├── captions-api.ts    # /captions/:id/:name
@@ -151,6 +176,8 @@ home-media/
 ├── types.ts               # shared Video / ByteRange contract (erased at runtime)
 ├── scripts/
 │   ├── build-catalog.mjs  # catalog CLI
+│   ├── tmdb.mjs           # TMDB client (search + field mapping)
+│   ├── enrich.mjs         # metadata + caption carry-forward
 │   ├── catalog-previews.mjs # ffmpeg thumbnail extraction
 │   └── progress.mjs       # TTY-aware progress reporter
 ├── public/                # static frontend (index.html, app.js)
@@ -187,6 +214,7 @@ home-media/
 - `docs/video-streaming-design.md` — architecture and implementation details.
 - `docs/roadmaps/v0.1.0-minimal.md` — phase-by-phase build plan.
 - `docs/roadmaps/v0.2.0-ui.md` — UI redesign plan (Browse + Watch, queue, player).
+- `docs/roadmaps/catalog-tmdb-enrichment.md` — mediaType model + TMDB catalog.
 - `docs/ui-design/` — design mockups.
 - `AGENTS.md` — module conventions and hard rules.
 

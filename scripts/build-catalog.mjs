@@ -54,10 +54,10 @@ async function main() {
   const meta = {
     version: '1.0', updated: new Date().toISOString(),
     videos: enriched, series: buildSeriesCatalog(enriched),
-    counts: {...c.byCategory, total: c.total}
+    counts: {...c.byMediaType, total: c.total}
   };
   await writeCatalogIndex(meta);
   console.log('Catalog written to catalog/index.json');
-  console.log('Total:', meta.counts.total, 'Movies:', meta.counts.Movies, 'Series:', meta.counts.Series, 'Music:', meta.counts.Music, 'Other:', meta.counts.Other);
+  console.log('Total:', meta.counts.total, 'Movies:', meta.counts.movie, 'Series:', meta.counts.series, 'Music:', meta.counts.music, 'Other:', meta.counts.other);
 }
 main().catch(e => { console.error(e); process.exit(1); });

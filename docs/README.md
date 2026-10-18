@@ -6,5 +6,6 @@
 - `video-streaming-design.md` — Architecture and implementation details for the streaming server.
 
 ## Roadmaps
-- `roadmaps/v0.2.0-ui.md` — UI redesign (browse + watch, hover preview, queue, player). Current plan.
+- `roadmaps/catalog-tmdb-enrichment.md` — standard `mediaType` model + TMDB catalog enrichment. Current plan.
+- `roadmaps/v0.2.0-ui.md` — UI redesign (browse + watch, hover preview, queue, player).
 - `roadmaps/v0.1.0-minimal.md` — Phase-by-phase implementation plan (base server).
