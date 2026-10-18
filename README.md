@@ -112,15 +112,45 @@ Subtitles: `.srt` and `.vtt`, discovered in the video's folder and in `Subs/`,
 
 ## Configuration
 
-| Variable     | Default          | Description                                          |
-|--------------|------------------|------------------------------------------------------|
-| `PORT`       | `3000`           | HTTP listen port.                                    |
-| `VIDEO_ROOT` | `./videos`       | Media directory to scan.                             |
-| `TMDB_API_KEY` | *(unset)*      | Build-time TMDB v3 key; enables metadata enrichment. |
+| Variable       | Default                 | Description                                                          |
+|----------------|-------------------------|----------------------------------------------------------------------|
+| `PORT`         | `3000`                  | Listen port (HTTP and HTTPS).                                        |
+| `VIDEO_ROOT`   | `./videos`              | Media directory to scan.                                             |
+| `TLS_KEY`      | `certs/server-key.pem`  | TLS private key; set together with `TLS_CERT` to serve HTTPS.       |
+| `TLS_CERT`     | `certs/server-cert.pem` | TLS certificate with an IP SAN.                                      |
+| `TMDB_API_KEY` | *(unset)*               | Build-time TMDB v3 key; enables metadata enrichment.                |
 
 `VIDEO_ROOT` is read by the catalog builder and by the server's path guard.
 `TMDB_API_KEY` (or `TMDB_API_READ_ACCESS_TOKEN`) is read only by the catalog
 builder, typically from `.env`.
+
+## HTTPS on the LAN
+
+Mobile browsers now default to **HTTPS-First**: they silently upgrade `http://`
+to `https://`, and against a plain-HTTP server that fails with
+`ERR_SSL_PROTOCOL_ERROR`. Serve real TLS on the same port (3000) to satisfy the
+upgrade:
+
+```bash
+node scripts/gen-certs.mjs 192.168.100.7   # your server's LAN IP(s)
+TLS_KEY=certs/server-key.pem TLS_CERT=certs/server-cert.pem npm start
+```
+
+The script mints a local CA and an IP-SAN server certificate under `certs/`
+(gitignored; private keys are mode `600`). Install `certs/ca-cert.pem` once on
+each device — Android: **Settings → Security & location → Encryption &
+credentials → Install from storage → CA certificate** (a screen lock is
+required). Chrome then accepts the certificate and the upgrade succeeds with no
+warning.
+
+- TLS also turns on with no env vars when both default files exist, so the
+  export line is optional if you keep the default paths.
+- The certificate is identity-bound to the IP. If the router later hands out a
+  different address, re-run the script (or set a DHCP reservation).
+- The SAN must match the **exact host the browser dials** — an IP, not a name.
+  `127.0.0.1` will not validate unless it is in the SAN list.
+- No HSTS and no redirect: the browser performs the upgrade itself.
+  `node:https` is built in, so there are still no runtime dependencies.
 
 ## Docker
 
@@ -155,9 +185,11 @@ filesystem.
 
 ```
 home-media/
-├── server.ts              # entry point: HTTP server, routing, listen
+├── server.ts              # entry point: create server (http/https), listen, banner
 ├── server/                # backend modules, one concern per file
 │   ├── config.ts          # PORT, VIDEO_ROOT, PUBLIC_DIR, static routes
+│   ├── router.ts          # request handler (route dispatch)
+│   ├── tls.ts             # opt-in TLS options from env / certs/
 │   ├── http.ts            # response helper + static file serving
 │   ├── ids.ts             # encodeId / decodeId / safeResolve
 │   ├── mime.ts            # extension sets + MIME lookup
@@ -176,10 +208,12 @@ home-media/
 ├── types.ts               # shared Video / ByteRange contract (erased at runtime)
 ├── scripts/
 │   ├── build-catalog.mjs  # catalog CLI
+│   ├── gen-certs.mjs      # local CA + IP-SAN TLS certificate
 │   ├── tmdb.mjs           # TMDB client (search + field mapping)
 │   ├── enrich.mjs         # metadata + caption carry-forward
 │   ├── catalog-previews.mjs # ffmpeg thumbnail extraction
 │   └── progress.mjs       # TTY-aware progress reporter
+├── certs/                 # generated TLS material (never committed)
 ├── public/                # static frontend (index.html, app.js)
 ├── src/input.css          # Tailwind source (styles.css is generated)
 ├── videos/                # media (never committed)
@@ -215,6 +249,7 @@ home-media/
 - `docs/roadmaps/v0.1.0-minimal.md` — phase-by-phase build plan.
 - `docs/roadmaps/v0.2.0-ui.md` — UI redesign plan (Browse + Watch, queue, player).
 - `docs/roadmaps/catalog-tmdb-enrichment.md` — mediaType model + TMDB catalog.
+- `docs/roadmaps/https-lan.md` — opt-in HTTPS on port 3000.
 - `docs/ui-design/` — design mockups.
 - `AGENTS.md` — module conventions and hard rules.
 

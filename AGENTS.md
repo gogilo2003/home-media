@@ -4,9 +4,12 @@ Modular Node.js streaming server for the LAN. No framework. No database.
 No auth. Just filesystem + HTTP.
 
 ## Architecture
-- `server.ts` — entry point only: creates the HTTP server, dispatches routes, listens.
+- `server.ts` — entry point only: creates the server (HTTP, or HTTPS when certs
+  are configured), listens, prints the banner.
 - `server/` — backend modules, one concern each:
   - `config.ts` — `PORT`, `VIDEO_ROOT`, `PUBLIC_DIR`, static route map
+  - `router.ts` — the request handler and route dispatch
+  - `tls.ts` — opt-in TLS options from env or `certs/`
   - `http.ts` — response helper and static file serving
   - `ids.ts` — `encodeId` / `decodeId` / `safeResolve`
   - `mime.ts` — extension sets and MIME lookup
@@ -35,6 +38,8 @@ No auth. Just filesystem + HTTP.
   as-is. Registered in `server/config.ts` `STATIC_ROUTES`. No other vendored code.
 - `src/input.css` — Tailwind source. `public/styles.css` is generated.
 - `videos/` — media directory (`VIDEO_ROOT`). Never commit its contents.
+- `certs/` — generated TLS material (`ca-cert.pem`, server key/cert). Gitignored;
+  never commit. Produced by `node scripts/gen-certs.mjs`.
 - `docs/roadmaps/` — phase-by-phase work plans.
 
 ## TypeScript
@@ -57,8 +62,21 @@ No auth. Just filesystem + HTTP.
   plus descriptive `genres` and a display `title`. The legacy `category` field
   was retired — do not reintroduce it.
 
+## HTTPS / TLS
+- TLS is **opt-in** and serves on the same port (3000) so browsers' HTTPS-First
+  upgrade succeeds. `server/tls.ts` enables it when `TLS_KEY` + `TLS_CERT` are
+  set, or when both default files exist under `certs/`.
+- Certificates are minted locally with the system `openssl` via
+  `node scripts/gen-certs.mjs [ip ...]`: a local CA (installed once per device)
+  signs a leaf whose **SAN is the LAN IP**. No mkcert, no reverse proxy, no HSTS,
+  no redirect.
+- `certs/` and `*.key` are gitignored. Key material is **never committed and
+  never logged**. `node:https` is built in — no new dependency.
+- A cert is identity-bound to an IP; a changed DHCP lease means re-running the
+  script.
+
 ## Current Work
-Roadmap: `docs/roadmaps/catalog-tmdb-enrichment.md`
+Roadmap: `docs/roadmaps/https-lan.md`
 Execute **one phase per session**. Run the phase's verification commands. Commit.
 Stop and report. Do not proceed to the next phase without confirmation.
 

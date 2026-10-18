@@ -16,3 +16,7 @@ catalog/previews/*.jpg
 catalog/index.json
 .env
 catalog/index-bak.json
+
+# Never commit TLS material
+certs/
+*.key
