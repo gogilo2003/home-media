@@ -15,7 +15,16 @@ No auth. Just filesystem + HTTP.
   - `videos.ts` — `/api/videos` directory listing
   - `stream.ts` — `/video/:id` streaming
 - `types.ts` — shared API contract (`Video`, `ByteRange`). Type-only; nothing is served.
-- `public/` — static frontend. `app.js` is plain JavaScript, type-checked via JSDoc.
+- `public/` — static frontend. `app.js` is the thin entry, plain JavaScript,
+  type-checked via JSDoc.
+- `public/js/` — frontend ES modules, one concern each, all `// @ts-check`:
+  `state.js` (catalog + filters), `browse.js` / `cards.js` / `hero.js` /
+  `filters.js` / `pagination.js` (library view), `preview.js` (hover playback),
+  `series.js` (show grouping), `watch.js` / `watchinfo.js` (watch view),
+  `controls.js` (Plyr + captions), `player.js` / `navbuttons.js` / `playback.js`
+  / `navigation.js` / `resume.js` (player commands, prev/next, resume store),
+  `queue.js` / `queueui.js` (playback queue), `shortcuts.js` (keys + modal).
+  Every module must be registered in `STATIC_ROUTES` (`server/config.ts`).
 - `public/vendor/plyr/` — vendored Plyr 3.8.5 dist (`plyr.js`, `plyr.css`), committed
   as-is. Registered in `server/config.ts` `STATIC_ROUTES`. No other vendored code.
 - `src/input.css` — Tailwind source. `public/styles.css` is generated.
@@ -33,19 +42,22 @@ No auth. Just filesystem + HTTP.
   in with `// @ts-check`, referencing `types.ts` through JSDoc.
 
 ## Current Work
-Roadmap: `docs/roadmaps/v0.1.0-minimal.md`
-Execute **one phase at a time**. Run the phase's verification commands. Commit.
+Roadmap: `docs/roadmaps/v0.2.0-ui.md`
+Execute **one phase per session**. Run the phase's verification commands. Commit.
 Stop and report. Do not proceed to the next phase without confirmation.
 
 ## Commands
-| Purpose    | Command                                                                           |
-|------------|-----------------------------------------------------------------------------------|
-| Run server | `npm start`                                                                       |
-| Typecheck  | `npm run typecheck`                                                               |
-| Watch CSS  | `npm run css`                                                                     |
-| Build CSS  | `npm run css:build`                                                               |
-| Smoke test | `curl -s http://localhost:3000/api/videos`                                        |
-| Range test | `curl -sD - -o /dev/null -H "Range: bytes=0-99" http://localhost:3000/video/<id>` |
+| Purpose     | Command                                                                           |
+|-------------|-----------------------------------------------------------------------------------|
+| Run server  | `npm start`                                                                       |
+| Typecheck   | `npm run typecheck`                                                               |
+| Watch CSS   | `npm run css`                                                                     |
+| Build CSS   | `npm run css:build`                                                               |
+| Smoke test  | `curl -s http://localhost:3000/api/videos`                                        |
+| Range test  | `curl -sD - -o /dev/null -H "Range: bytes=0-99" http://localhost:3000/video/<id>` |
+| Verify UI   | `node scripts/verify-ui.mjs <shell\|browse\|preview\|player\|watch\|queue\|controls>` |
+
+Start the server first; the UI harness reads `BASE` (default `http://localhost:3000`).
 
 ## Agent Routing
 - **Streaming, Range, fs, path validation** → delegate to `@streamer` (`server/ids.js`, `server/range.js`, `server/stream.js`)
