@@ -11,9 +11,11 @@ export async function serveCaption(_req: IncomingMessage, res: ServerResponse, v
     const videoRel = decoded;
     const full = safeResolve(videoRel);
     const dir = path.dirname(full);
+    const name = path.basename(decodeURIComponent(captionName));
     const candidates = [dir, path.join(dir, 'Subs'), path.join(dir, 'subs'), path.join(dir, 'Subtitles'), path.join(dir, 'subtitles')];
     for (const d of candidates) {
-      const capPath = path.join(d, captionName);
+      const capPath = path.resolve(d, name);
+      if (path.dirname(capPath) !== path.resolve(d)) continue;
       try {
         const stat = await fsp.stat(capPath);
         if (stat.isFile()) {

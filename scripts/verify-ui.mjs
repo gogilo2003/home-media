@@ -4,8 +4,9 @@ import { launch } from './cdp.mjs';
 import { shell } from './scenarios/shell.mjs';
 import { browse } from './scenarios/browse.mjs';
 import { preview } from './scenarios/preview.mjs';
+import { player } from './scenarios/player.mjs';
 
-const scenarios = { shell, browse, preview };
+const scenarios = { shell, browse, preview, player };
 const scenario = process.argv[2];
 
 if (!scenario || !scenarios[scenario]) {

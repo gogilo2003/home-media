@@ -9,6 +9,13 @@
 
 export type Category = 'Movies' | 'Music' | 'Series' | 'Other';
 
+export interface CaptionTrack {
+  label: string;
+  url: string;
+  format: 'srt' | 'vtt';
+  lang?: string;
+}
+
 export interface Video {
   id: string;
   name: string;
@@ -21,6 +28,7 @@ export interface Video {
   genres?: string[];
   runtime?: number;
   synopsis?: string;
+  captions?: CaptionTrack[];
 }
 
 export interface ByteRange {

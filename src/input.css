@@ -119,3 +119,13 @@
     transition: none;
   }
 }
+
+/* Plyr control bar themed with the design tokens. */
+.plyr {
+  --plyr-color-main: #E9B477;
+  --plyr-video-background: #08090A;
+  --plyr-menu-background: #191B1D;
+  --plyr-menu-color: #F4F0E9;
+  --plyr-font-family: inherit;
+  border-radius: 1rem;
+}

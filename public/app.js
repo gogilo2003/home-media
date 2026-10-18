@@ -1,9 +1,10 @@
 // @ts-check
 import { el } from './js/util.js';
-import { state, loadCatalog, restoreState } from './js/state.js';
+import { state, loadCatalog, restoreState, videoById } from './js/state.js';
 import { closeSeries } from './js/series.js';
 import { initBrowse, render, setPlayHandler } from './js/browse.js';
 import { fillGenres, syncFilters } from './js/filters.js';
+import { initPlayer, loadCaptions } from './js/controls.js';
 
 const listView = el('list-view');
 const playerView = el('player-view');
@@ -19,6 +20,7 @@ function play(id, name) {
   playerTitle.textContent = name;
   listView.classList.add('hidden');
   playerView.classList.remove('hidden');
+  loadCaptions(videoById(id)?.captions ?? []);
   player.play().catch(() => { });
 }
 
@@ -51,6 +53,7 @@ async function boot() {
   restoreState();
   initBrowse();
   wireControls();
+  initPlayer();
   try {
     await loadCatalog();
     fillGenres();

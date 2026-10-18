@@ -16,6 +16,8 @@ No auth. Just filesystem + HTTP.
   - `stream.ts` — `/video/:id` streaming
 - `types.ts` — shared API contract (`Video`, `ByteRange`). Type-only; nothing is served.
 - `public/` — static frontend. `app.js` is plain JavaScript, type-checked via JSDoc.
+- `public/vendor/plyr/` — vendored Plyr 3.8.5 dist (`plyr.js`, `plyr.css`), committed
+  as-is. Registered in `server/config.ts` `STATIC_ROUTES`. No other vendored code.
 - `src/input.css` — Tailwind source. `public/styles.css` is generated.
 - `videos/` — media directory (`VIDEO_ROOT`). Never commit its contents.
 - `docs/roadmaps/` — phase-by-phase work plans.
@@ -58,7 +60,8 @@ Stop and report. Do not proceed to the next phase without confirmation.
 - Range requests: `206` with correct `Content-Range`, or `416`. Never `200`.
 - Full responses include `Accept-Ranges: bytes`.
 - No module may exceed **80 lines**. `server.ts` is a thin entry point and should stay under 50; if it grows, the logic belongs in `server/`.
-- Browser `<video>` handles seeking. Do not add MSE, HLS, or a player library.
+- Player UI: vendored Plyr only, committed under `public/vendor/plyr/`. No other
+  runtime deps; no MSE/HLS; `<video>` still handles seeking.
 
 ## MIME Types (use exactly)
 | Extension | Content-Type       |

@@ -30,6 +30,9 @@ export async function loadCatalog() {
 /** @returns {Video[]} */
 export function catalogVideos() { return catalog; }
 
+/** @param {string} id @returns {Video | undefined} */
+export function videoById(id) { return catalog.find((video) => video.id === id); }
+
 export function filteredVideos() {
   const query = state.query.trim().toLowerCase();
   const result = catalog.filter((video) =>
