@@ -4,18 +4,8 @@ import path from 'node:path';
 import { VIDEO_ROOT } from './config.ts';
 import { isVideo } from './mime.ts';
 import { encodeId } from './ids.ts';
-import type { Category, Video } from '../types.ts';
-
-function classify(relPath: string): Category {
-  const parts = relPath.split(path.sep);
-  for (let i = parts.length - 1; i >= 0; i--) {
-    const p = parts[i]?.toLowerCase() ?? '';
-    if (p === 'movies') return 'Movies';
-    if (p === 'music') return 'Music';
-    if (p === 'series' || p === 'tv' || p === 'shows' || p === 'tv shows') return 'Series';
-  }
-  return 'Other';
-}
+import { categoryOf, classifyMedia, cleanTitle } from './classify.ts';
+import type { Video } from '../types.ts';
 
 // Walk VIDEO_ROOT recursively, following directory symlinks.
 async function* walkDir(dir: string, seen: Set<string>): AsyncIterable<string> {
@@ -74,12 +64,16 @@ export async function listVideos(options: { followSymlinks?: boolean } = {}): Pr
         const stat = await fsp.stat(fullPath);
         if (!stat.isFile()) continue;
         const relPath = path.relative(VIDEO_ROOT, fullPath);
+        const name = path.basename(fullPath);
+        const mediaType = classifyMedia(relPath, name);
         videos.push({
           id: encodeId(relPath),
-          name: path.basename(fullPath),
+          name,
           path: relPath,
           size: stat.size,
-          category: classify(relPath),
+          title: cleanTitle(name),
+          mediaType,
+          category: categoryOf(mediaType),
           preview: `/catalog/previews/${encodeId(relPath)}.jpg`,
         });
       } catch {
@@ -106,12 +100,15 @@ export async function listVideos(options: { followSymlinks?: boolean } = {}): Pr
       const relPath = path.relative(VIDEO_ROOT, fullPath);
       try {
         const stat = await fsp.stat(fullPath);
+        const mediaType = classifyMedia(relPath, entry.name);
         videos.push({
           id: encodeId(relPath),
           name: entry.name,
           path: relPath,
           size: stat.size,
-          category: classify(relPath),
+          title: cleanTitle(entry.name),
+          mediaType,
+          category: categoryOf(mediaType),
           preview: `/catalog/previews/${encodeId(relPath)}.jpg`,
         });
       } catch {
@@ -122,5 +119,3 @@ export async function listVideos(options: { followSymlinks?: boolean } = {}): Pr
   videos.sort((a, b) => a.name.localeCompare(b.name));
   return videos;
 }
-
-export { classify };

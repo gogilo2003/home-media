@@ -4,18 +4,8 @@ import path from 'node:path';
 import { VIDEO_ROOT } from './config.ts';
 import { isVideo } from './mime.ts';
 import { encodeId } from './ids.ts';
-import type { Category, Video } from '../types.ts';
-
-export function classify(relPath: string): Category {
-  const parts = relPath.split(path.sep);
-  for (let i = parts.length - 1; i >= 0; i--) {
-    const p = parts[i]?.toLowerCase() ?? '';
-    if (p === 'movies') return 'Movies';
-    if (p === 'music') return 'Music';
-    if (p === 'series' || p === 'tv' || p === 'shows' || p === 'tv shows') return 'Series';
-  }
-  return 'Other';
-}
+import { categoryOf, classifyMedia, cleanTitle } from './classify.ts';
+import type { Category, MediaType, Video } from '../types.ts';
 
 async function* walkDir(dir: string, seen: Set<string>): AsyncIterable<string> {
   let entries: fs.Dirent[];
@@ -66,6 +56,7 @@ export interface Catalog {
   root: string;
   total: number;
   byCategory: Record<Category, number>;
+  byMediaType: Record<MediaType, number>;
   videos: CatalogVideo[];
 }
 
@@ -88,14 +79,18 @@ export async function catalogVideos(options: CatalogOptions = {}): Promise<Catal
         const stat = await fsp.stat(fullPath);
         if (!stat.isFile()) continue;
         const relPath = path.relative(root, fullPath);
+        const name = path.basename(fullPath);
+        const mediaType = classifyMedia(relPath, name);
         videos.push({
           id: encodeId(relPath),
-          name: path.basename(fullPath),
+          name,
           path: relPath,
           fullPath,
           size: stat.size,
           mtimeMs: stat.mtimeMs,
-          category: classify(relPath),
+          title: cleanTitle(name),
+          mediaType,
+          category: categoryOf(mediaType),
         });
       } catch {
         continue;
@@ -111,6 +106,7 @@ export async function catalogVideos(options: CatalogOptions = {}): Promise<Catal
           root,
           total: 0,
           byCategory: { Movies: 0, Music: 0, Series: 0, Other: 0 },
+          byMediaType: { movie: 0, series: 0, music: 0, other: 0 },
           videos: [],
         };
       }
@@ -125,6 +121,7 @@ export async function catalogVideos(options: CatalogOptions = {}): Promise<Catal
       const relPath = path.relative(root, fullPath);
       try {
         const stat = await fsp.stat(fullPath);
+        const mediaType = classifyMedia(relPath, entry.name);
         videos.push({
           id: encodeId(relPath),
           name: entry.name,
@@ -132,7 +129,9 @@ export async function catalogVideos(options: CatalogOptions = {}): Promise<Catal
           fullPath,
           size: stat.size,
           mtimeMs: stat.mtimeMs,
-          category: classify(relPath),
+          title: cleanTitle(entry.name),
+          mediaType,
+          category: categoryOf(mediaType),
         });
       } catch {
         continue;
@@ -142,14 +141,17 @@ export async function catalogVideos(options: CatalogOptions = {}): Promise<Catal
   videos.sort((a, b) => a.path.localeCompare(b.path));
 
   const byCategory: Record<Category, number> = { Movies: 0, Music: 0, Series: 0, Other: 0 };
+  const byMediaType: Record<MediaType, number> = { movie: 0, series: 0, music: 0, other: 0 };
   for (const v of videos) {
-    byCategory[(v.category as Category) || 'Other']++;
+    byCategory[v.category ?? 'Other']++;
+    if (v.mediaType) byMediaType[v.mediaType]++;
   }
 
   return {
     root,
     total: videos.length,
     byCategory,
+    byMediaType,
     videos,
   };
 }

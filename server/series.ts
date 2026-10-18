@@ -1,21 +1,18 @@
-import type { Category, Video } from '../types.ts';
+import type { Category, MediaType, Video } from '../types.ts';
+import { seriesParts } from './classify.ts';
 
 export interface SeriesGroup {
   show: string;
   seasons: string[];
 }
 
-export function isSeries(v: Video | { path: string; category?: Category }): boolean {
-  return (v.category || 'Other') === 'Series';
+export function isSeries(v: { category?: Category; mediaType?: MediaType }): boolean {
+  return v.mediaType ? v.mediaType === 'series' : (v.category || 'Other') === 'Series';
 }
 
-export function getSeriesInfo(filePath: string): { show: string; season?: string } | null {
-  const parts = filePath.split(/[/\\]/);
-  const idx = parts.findIndex((p) => ['series', 'tv', 'shows', 'tv shows'].includes(p.toLowerCase()));
-  if (idx === -1 || idx + 1 >= parts.length - 1) return null;
-  const show = parts[idx + 1]!;
-  const season = idx + 2 < parts.length - 1 ? parts[idx + 2]! : 'Season 1';
-  return { show, season };
+export function getSeriesInfo(filePath: string): { show: string; season: string; showPath: string } | null {
+  const info = seriesParts(filePath);
+  return info ? { show: info.show, season: info.season ?? 'Season 1', showPath: info.showPath } : null;
 }
 
 export function groupSeries(videos: Video[]): Record<string, SeriesGroup> {
@@ -36,11 +33,13 @@ export function groupSeries(videos: Video[]): Record<string, SeriesGroup> {
 
 export function buildSeriesCatalog(videos: any[]): any[] {
   const byShow = new Map<string, Map<string, any[]>>();
+  const showPaths = new Map<string, string>();
   for (const v of videos) {
     if (!isSeries(v)) continue;
     const info = getSeriesInfo(v.path);
     if (!info?.show) continue;
     const { show, season = 'Season 1' } = info;
+    if (!showPaths.has(show)) showPaths.set(show, info.showPath);
     if (!byShow.has(show)) byShow.set(show, new Map());
     const smap = byShow.get(show)!;
     if (!smap.has(season)) smap.set(season, []);
@@ -49,10 +48,8 @@ export function buildSeriesCatalog(videos: any[]): any[] {
   const series = [];
   for (const [show, smap] of byShow.entries()) {
     const seasons = [];
-    let showPath = '';
     for (const [season, eps] of smap.entries()) {
       eps.sort((a, b) => a.path.localeCompare(b.path));
-      if (!showPath && eps[0]) showPath = eps[0].path.slice(0, eps[0].path.indexOf(show) + show.length);
       seasons.push({
         name: season,
         preview: eps[0]?.preview,
@@ -62,7 +59,7 @@ export function buildSeriesCatalog(videos: any[]): any[] {
       });
     }
     seasons.sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
-    series.push({ title: show, showPath, preview: seasons[0]?.preview, seasons });
+    series.push({ title: show, showPath: showPaths.get(show) ?? '', preview: seasons[0]?.preview, seasons });
   }
   return series;
 }

@@ -1,7 +1,5 @@
 // Heuristic media typing and title cleaning for the build pipeline.
-import type { Category } from '../types.ts';
-
-export type MediaType = 'movie' | 'series' | 'music' | 'other';
+import type { Category, MediaType } from '../types.ts';
 
 const SERIES_WORDS = new Set(['series', 'tv', 'shows', 'show', 'tvshows']);
 const GROUP_WORDS = new Set([...SERIES_WORDS, 'movie', 'movies', 'film', 'films', 'new']);
@@ -50,14 +48,22 @@ export function cleanTitle(name: string): string {
   return out.join(' ').trim();
 }
 
-/** Show name for a series path: first folder after the last grouping folder. */
-export function showName(relPath: string): string {
+/** Parse a series path into `{show, season, showPath}`, skipping grouping folders. */
+export function seriesParts(relPath: string): { show: string; season?: string; showPath: string } | null {
   const parts = relPath.split(/[/\\]/).filter(Boolean);
   const root = parts.findIndex((p) => SERIES_WORDS.has(normalize(p)));
-  if (root < 0) return '';
+  if (root < 0) return null;
   let i = root + 1;
   while (i < parts.length - 1 && GROUP_WORDS.has(normalize(parts[i]!))) i++;
-  return i < parts.length - 1 ? parts[i]!.replace(/[._]+/g, ' ').trim() : '';
+  if (i >= parts.length - 1) return null;
+  const show = parts[i]!.replace(/[._]+/g, ' ').trim();
+  const season = i + 1 < parts.length - 1 ? parts[i + 1] : undefined;
+  return { show, season, showPath: parts.slice(0, i + 1).join('/') };
+}
+
+/** Show name for a series path (empty when the path is not a series). */
+export function showName(relPath: string): string {
+  return seriesParts(relPath)?.show ?? '';
 }
 
 /** Legacy compatibility alias: map the new media type back to `category`. */
