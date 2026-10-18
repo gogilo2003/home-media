@@ -17,9 +17,14 @@ export function initPlayer() {
     settings: ['captions', 'speed'],
     speed: { selected: 1, options: [0.5, 0.75, 1, 1.25, 1.5, 2] },
     captions: { active: true, update: true, language: 'en' },
-    keyboard: { focused: true, global: false },
+    keyboard: { focused: false, global: false },
   });
 }
+
+/** @returns {HTMLVideoElement} */
+export function videoEl() { return player; }
+/** @returns {any} */
+export function getPlayer() { return plyr; }
 
 /** Minimal SRT → WebVTT: drop cue indices, swap comma decimals for dots. @param {string} srt */
 function srtToVtt(srt) {

@@ -1,7 +1,7 @@
 // @ts-check
 /** @typedef {import('../../types.ts').Video} Video */
 import { el, escapeHtml, metaOf } from './util.js';
-import { resumeOf } from './state.js';
+import { resumeOf } from './resume.js';
 import { seriesInfo } from './series.js';
 
 const hero = el('hero');

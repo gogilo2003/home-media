@@ -7,8 +7,9 @@ import { preview } from './scenarios/preview.mjs';
 import { player } from './scenarios/player.mjs';
 import { watch } from './scenarios/watch.mjs';
 import { queue } from './scenarios/queue.mjs';
+import { controls } from './scenarios/controls.mjs';
 
-const scenarios = { shell, browse, preview, player, watch, queue };
+const scenarios = { shell, browse, preview, player, watch, queue, controls };
 const scenario = process.argv[2];
 
 if (!scenario || !scenarios[scenario]) {

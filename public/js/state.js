@@ -44,18 +44,6 @@ export function filteredVideos() {
   return result.sort((a, b) => (b.mtimeMs ?? 0) - (a.mtimeMs ?? 0));
 }
 
-/** Resume seam: M7 saves the watched position under `hm:pos:{id}` (seconds).
- * Null until then, which keeps the hero progress line hidden.
- * @param {string} id @returns {number | null} */
-export function resumeOf(id) {
-  try {
-    const seconds = Number(localStorage.getItem(`hm:pos:${id}`));
-    return Number.isFinite(seconds) && seconds > 0 ? seconds : null;
-  } catch {
-    return null;
-  }
-}
-
 export function saveState() {
   try {
     const { category, genre, sort, page, view } = state;

@@ -23,6 +23,12 @@ export const STATIC_ROUTES: Readonly<Record<string, string>> = {
   '/js/watchinfo.js': 'js/watchinfo.js',
   '/js/queue.js': 'js/queue.js',
   '/js/queueui.js': 'js/queueui.js',
+  '/js/resume.js': 'js/resume.js',
+  '/js/navigation.js': 'js/navigation.js',
+  '/js/player.js': 'js/player.js',
+  '/js/navbuttons.js': 'js/navbuttons.js',
+  '/js/playback.js': 'js/playback.js',
+  '/js/shortcuts.js': 'js/shortcuts.js',
   '/vendor/plyr/plyr.js': 'vendor/plyr/plyr.js',
   '/vendor/plyr/plyr.css': 'vendor/plyr/plyr.css',
 };

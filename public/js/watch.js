@@ -4,6 +4,7 @@ import { el } from './util.js';
 import { catalogVideos, videoById } from './state.js';
 import { groupSeries, renderEpisodes, seriesInfo } from './series.js';
 import { loadCaptions } from './controls.js';
+import { flushPosition, trackVideo } from './player.js';
 import { renderInfo } from './watchinfo.js';
 
 const view = el('watch-view');
@@ -18,7 +19,6 @@ const info = el('watch-info');
 let current = null;
 /** @type {string} */
 let season = '';
-
 /** @param {Video} video */
 function isSeries(video) { return (video.category || 'Other') === 'Series'; }
 
@@ -28,6 +28,7 @@ function stripExt(name) { return name.replace(/\.[^.]+$/, ''); }
 /** @param {() => void} onBack */
 export function initWatch(onBack) {
   el('back-btn').addEventListener('click', () => {
+    flushPosition();
     player.pause();
     player.removeAttribute('src');
     player.load();
@@ -53,6 +54,7 @@ export function openWatch(id) {
 
 /** @param {Video} video */
 function selectVideo(video) {
+  trackVideo(video);
   current = video;
   player.src = `/video/${video.id}`;
   loadCaptions(video.captions ?? []);

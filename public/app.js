@@ -6,6 +6,9 @@ import { fillGenres, syncFilters } from './js/filters.js';
 import { initPlayer } from './js/controls.js';
 import { initWatch, openWatch } from './js/watch.js';
 import { initQueue } from './js/queueui.js';
+import { initNavigation } from './js/player.js';
+import { initPlayback } from './js/playback.js';
+import { initShortcuts } from './js/shortcuts.js';
 
 const search = /** @type {HTMLInputElement} */ (el('search-input'));
 const loading = el('loading');
@@ -37,6 +40,9 @@ async function boot() {
   initBrowse();
   wireControls();
   initPlayer();
+  initNavigation(openWatch);
+  initPlayback();
+  initShortcuts();
   try {
     await loadCatalog();
     fillGenres();

@@ -130,7 +130,7 @@
     <div class="mx-auto flex max-w-[1440px] flex-col gap-3 px-4 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-8">
       <p class="text-sm text-[#A2A3A3]">HomeMedia — your library, streamed across the LAN.</p>
       <div class="flex items-center gap-4 text-sm">
-        <button type="button" class="text-[#A2A3A3] transition hover:text-[#E9B477]">Keyboard shortcuts</button>
+        <button id="shortcuts-btn" type="button" class="text-[#A2A3A3] transition hover:text-[#E9B477]">Keyboard shortcuts</button>
         <span aria-hidden="true" class="text-[#303234]">·</span>
         <button type="button" class="text-[#A2A3A3] transition hover:text-[#E9B477]">Library settings</button>
       </div>
@@ -152,6 +152,25 @@
       <button id="queue-play" type="button" class="w-full rounded-lg bg-[#E9B477] px-4 py-2 text-sm font-semibold text-[#101112] transition hover:opacity-90 disabled:opacity-40">Play queue</button>
     </div>
   </aside>
+
+  <div id="shortcuts-modal" role="dialog" aria-modal="true" aria-labelledby="shortcuts-title" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 p-4">
+    <div class="w-full max-w-md rounded-2xl border border-[#303234] bg-[#191B1D] p-6">
+      <div class="flex items-center justify-between gap-3">
+        <h2 id="shortcuts-title" class="text-lg font-semibold">Keyboard shortcuts</h2>
+        <button id="shortcuts-close" type="button" aria-label="Close shortcuts" class="grid h-7 w-7 place-items-center rounded-md border border-[#303234] text-[#A2A3A3] transition hover:border-[#6E7376] hover:text-[#F4F0E9]">×</button>
+      </div>
+      <dl class="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 text-sm text-[#A2A3A3]">
+        <dt class="font-semibold text-[#F4F0E9]">Space</dt><dd>Play / pause</dd>
+        <dt class="font-semibold text-[#F4F0E9]">← / →</dt><dd>Seek 10 seconds</dd>
+        <dt class="font-semibold text-[#F4F0E9]">↑ / ↓</dt><dd>Volume</dd>
+        <dt class="font-semibold text-[#F4F0E9]">F</dt><dd>Fullscreen</dd>
+        <dt class="font-semibold text-[#F4F0E9]">M</dt><dd>Mute</dd>
+        <dt class="font-semibold text-[#F4F0E9]">N / P</dt><dd>Next / previous</dd>
+        <dt class="font-semibold text-[#F4F0E9]">Q</dt><dd>Queue</dd>
+        <dt class="font-semibold text-[#F4F0E9]">/ or ⌘K</dt><dd>Search</dd>
+      </dl>
+    </div>
+  </div>
 
   <script src="/vendor/plyr/plyr.js"></script>
   <script src="/app.js" type="module"></script>

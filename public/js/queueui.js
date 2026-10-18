@@ -25,6 +25,9 @@ function setOpen(next) {
   if (next) render();
 }
 
+/** Toggle the drawer from a keyboard shortcut (M7). */
+export function toggleQueueDrawer() { setOpen(!open); }
+
 /** @param {string} id */
 function itemMarkup(id) {
   const video = videoById(id);
