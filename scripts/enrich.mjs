@@ -1,7 +1,7 @@
 import {createProgress} from './progress.mjs';
 import {findCaptionsForVideo} from '../server/captions.ts';
+import {classifyMedia, cleanTitle, showName} from '../server/classify.ts';
 import {parseTitleYear} from '../server/metadata.ts';
-import {getSeriesInfo} from '../server/series.ts';
 import {addRuntimes, hasFfprobe} from './ffprobe.mjs';
 import {hasTmdbKey, resolveQuery, tmdbMisses} from './tmdb.mjs';
 
@@ -15,8 +15,8 @@ export async function enrichCaptions(videos, existing) {
     const prev = existing.get(video.id);
     const sameFile = Boolean(prev && prev.size === video.size);
     if (sameFile) {
-      const {captions, preview, year, genres, runtime, synopsis} = prev;
-      enriched.push({...video, captions, preview, year, genres, runtime, synopsis});
+      const {captions, preview, year, genres, runtime, synopsis, title, mediaType} = prev;
+      enriched.push({...video, captions, preview, year, genres, runtime, synopsis, title, mediaType});
       reused++;
     } else {
       try {
@@ -33,18 +33,18 @@ export async function enrichCaptions(videos, existing) {
 // What a single video can ask TMDB about: the show folder for a series,
 // otherwise the movie title parsed out of the path.
 function queryFor(video) {
-  if ((video.category || 'Other') === 'Series') {
-    const info = getSeriesInfo(video.path);
-    const show = info?.show.replace(/[._]+/g, ' ').trim();
+  const mediaType = classifyMedia(video.path, video.name);
+  if (mediaType === 'series') {
+    const show = showName(video.path);
     return show ? {kind: 'tv', name: show} : null;
   }
+  if (mediaType !== 'movie') return null;
   const {title, year} = parseTitleYear(video.path);
-  return title ? {kind: 'movie', name: title, year} : null;
+  return {kind: 'movie', name: cleanTitle(video.name) || title, year};
 }
 
 function applyMeta(video, fields) {
-  if (fields.genres) video.genres = fields.genres;
-  if (fields.synopsis) video.synopsis = fields.synopsis;
+  for (const k of ['title', 'mediaType', 'genres', 'synopsis']) if (fields[k] !== undefined) video[k] = fields[k];
   if (video.year === undefined && fields.year !== undefined) video.year = fields.year;
   if (video.runtime === undefined && fields.runtime !== undefined) video.runtime = fields.runtime;
 }
@@ -59,12 +59,13 @@ export async function enrichMetadata(videos, {refreshMeta = false, useTmdb = tru
   }
   const useApi = useTmdb && hasTmdbKey();
   if (useTmdb && !useApi) console.warn('Warning: TMDB_API_KEY not set; skipping TMDB metadata.');
-
   const bar = createProgress(videos.length, 'metadata');
   let queried = 0;
   for (const video of videos) {
     const query = queryFor(video);
     if (video.year === undefined) video.year = query?.year;
+    video.title = video.title ?? cleanTitle(video.name);
+    video.mediaType = video.mediaType ?? classifyMedia(video.path, video.name);
     if (useApi && query && (refreshMeta || video.genres === undefined)) {
       const fields = await resolveQuery(query);
       if (fields) applyMeta(video, fields);
@@ -73,6 +74,5 @@ export async function enrichMetadata(videos, {refreshMeta = false, useTmdb = tru
     bar.render(video.name);
   }
   bar.end(useApi ? `TMDB done (${queried} queried)` : 'Metadata done');
-  const missed = tmdbMisses();
-  if (missed.length) console.warn(`Unmatched by TMDB (${missed.length}): ${missed.join(', ')}`);
+  const missed = tmdbMisses(); if (missed.length) console.warn(`Unmatched by TMDB (${missed.length}): ${missed.join(', ')}`);
 }
