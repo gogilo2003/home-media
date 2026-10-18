@@ -14,6 +14,7 @@ export async function launch() {
   const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'hm-cdp-'));
   const chrome = spawn('google-chrome', [
     '--headless=new', '--disable-gpu', '--no-sandbox', '--mute-audio', '--hide-scrollbars',
+    '--blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4',
     `--user-data-dir=${profile}`, `--remote-debugging-port=${port}`,
     '--remote-allow-origins=*', 'about:blank',
   ], { stdio: 'ignore' });

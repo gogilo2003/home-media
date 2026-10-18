@@ -4,6 +4,7 @@ import { el } from './util.js';
 import { state, filteredVideos, saveState } from './state.js';
 import { groupSeries, isSeriesOpen, openSeries, renderSeriesDetail, seriesInfo } from './series.js';
 import { cardMarkup, itemsOf, rowMarkup, wireCards } from './cards.js';
+import { wirePreview } from './preview.js';
 import { renderHero } from './hero.js';
 import { initFilters } from './filters.js';
 import { PAGE_SIZE, renderPagination } from './pagination.js';
@@ -66,6 +67,7 @@ export function render() {
   const container = useGrid ? grid : list;
   container.innerHTML = pageItems.map((item) => (useGrid ? cardMarkup(item) : rowMarkup(item))).join('');
   wireCards(container, shows, playVideo, (show, episodes) => openSeries(show, episodes, render));
+  if (useGrid) wirePreview(grid);
   renderPagination(items.length, goPage);
 }
 

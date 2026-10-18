@@ -90,3 +90,32 @@
 .row:hover {
   background: #222426;
 }
+
+/* Mouse-over preview — one shared overlay video. */
+.preview-video {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 250ms ease;
+}
+
+.preview-video.preview-live {
+  opacity: 1;
+}
+
+.preview-hidden {
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preview-video,
+  .preview-hidden {
+    transition: none;
+  }
+}

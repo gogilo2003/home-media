@@ -45,6 +45,12 @@ export function makeInput({ cmd, evaluate }) {
         await cmd('Input.dispatchMouseEvent', { type, x: box.x, y: box.y, button: 'left', clickCount: 1 });
       }
     },
+    /** Dispatch real mouse movement onto a selector's centre. @param {string} selector */
+    async hover(selector) {
+      const box = await evaluate(`(() => { const el = document.querySelector(${JSON.stringify(selector)}); if (!el) return null; el.scrollIntoView({ block: 'center' }); const r = el.getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; })()`);
+      if (!box) throw new Error(`hover target not found: ${selector}`);
+      await cmd('Input.dispatchMouseEvent', { type: 'mouseMoved', x: box.x, y: box.y, button: 'none' });
+    },
     /** @param {string} selector @param {string} text */
     async type(selector, text) {
       await evaluate(`document.querySelector(${JSON.stringify(selector)})?.focus()`);
