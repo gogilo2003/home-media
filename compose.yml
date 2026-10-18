@@ -1,7 +1,7 @@
 services:
-  video-platform:
+  home-media:
     build: .
-    container_name: video-platform
+    container_name: home-media
     ports:
       - "3000:3000"
     environment:

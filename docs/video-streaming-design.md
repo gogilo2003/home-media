@@ -62,7 +62,7 @@ movies/inception.mp4  →  id = bW92aWVzL2luY2VwdGlvbi5tcDQ
 ## 4. Directory Layout
 
 ```
-video-platform/
+home-media/
 ├── server.ts              # entry point: http server + routing + listen
 ├── server/
 │   ├── config.ts          # PORT, VIDEO_ROOT, PUBLIC_DIR, static routes

@@ -14,3 +14,4 @@ videos/*
 *.m4v
 catalog/previews/*.jpg
 catalog/index.json
+.env
