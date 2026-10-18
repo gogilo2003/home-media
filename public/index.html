@@ -6,59 +6,84 @@
   <title>HomeMedia</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
-<body class="min-h-screen text-slate-100" style="background: radial-gradient(1200px 800px at 50% 0%, #121721, #0B0E14 60%);">
-  <header class="mx-auto max-w-[1440px] px-4 pt-6 pb-5 sm:px-8 sm:pt-9 sm:pb-6">
-    <div class="flex flex-col items-stretch justify-between gap-4 sm:flex-row sm:items-center sm:gap-6">
-      <div class="flex items-center gap-3">
-        <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 grid place-items-center shadow-[0_8px_24px_-8px_rgba(99,102,241,0.9)]">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="white" aria-hidden="true">
+<body class="min-h-screen bg-[#101112] text-[#F4F0E9]">
+  <header class="border-b border-[#303234]">
+    <div class="mx-auto flex max-w-[1440px] flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:gap-6 sm:px-8 sm:py-5">
+      <a href="/" class="flex items-center gap-3">
+        <span class="grid h-9 w-9 place-items-center rounded-xl bg-[#E9B477]">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="#101112" aria-hidden="true">
             <path d="M5 3.5L12 8L5 12.5V3.5Z" />
           </svg>
-        </div>
-        <div class="flex items-center gap-2">
-          <h1 class="text-lg font-semibold tracking-tight">HomeMedia</h1>
-          <span class="ml-1 px-1.5 py-0.5 text-[10px] font-bold rounded-md bg-slate-800/80 border border-slate-700 text-indigo-200">LOCAL</span>
-        </div>
-      </div>
+        </span>
+        <span class="flex items-center gap-2">
+          <span class="text-lg font-semibold tracking-tight">HomeMedia</span>
+          <span class="rounded-md border border-[#303234] bg-[#191B1D] px-1.5 py-0.5 text-[10px] font-bold text-[#A2A3A3]">LOCAL</span>
+        </span>
+      </a>
+      <nav aria-label="Sections" class="flex items-center gap-4 text-sm">
+        <span aria-current="page" class="font-medium text-[#E9B477]">Library</span>
+        <span class="cursor-not-allowed text-[#6E7376]" title="Coming soon" aria-disabled="true">Collections</span>
+      </nav>
       <div class="relative w-full max-w-md sm:ml-auto">
-        <div class="flex items-center gap-2 rounded-xl bg-[#161B26]/90 border border-slate-700/80 px-3 py-2 shadow-inner">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" class="text-slate-400" aria-hidden="true">
+        <label class="sr-only" for="search-input">Search titles</label>
+        <div class="flex items-center gap-2 rounded-xl border border-[#303234] bg-[#191B1D] px-3 py-2 transition focus-within:border-[#E9B477]">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" class="shrink-0 text-[#6E7376]" aria-hidden="true">
             <circle cx="7" cy="7" r="4.2" />
             <line x1="10.2" y1="10.2" x2="13.8" y2="13.8" stroke-linecap="round" />
           </svg>
-          <input id="search-input" type="search" placeholder="Search titles..." class="flex-1 bg-transparent text-sm placeholder:text-slate-500 focus:outline-none" autocomplete="off" spellcheck="false">
-          <span class="hidden sm:inline-flex px-1.5 py-0.5 text-[10px] font-semibold rounded-md bg-slate-800/80 border border-slate-700 text-slate-400">⌘ K</span>
+          <input id="search-input" type="search" placeholder="Search your library..." class="min-w-0 flex-1 bg-transparent text-sm placeholder:text-[#6E7376] focus:outline-none" autocomplete="off" spellcheck="false">
+          <span class="hidden rounded-md border border-[#303234] bg-[#101112] px-1.5 py-0.5 text-[10px] font-semibold text-[#6E7376] sm:inline-flex">⌘ K</span>
         </div>
       </div>
     </div>
-    <div class="mt-6 h-px w-full bg-gradient-to-r from-transparent via-slate-700/60 to-transparent"></div>
   </header>
 
-  <main class="mx-auto max-w-[1440px] px-4 pb-8 sm:px-8 sm:pb-10">
-    <section id="list-view" class="space-y-6">
-      <nav aria-label="Video categories" class="-mx-1 flex items-center gap-2 overflow-x-auto px-1 pb-1">
-        <button data-category="All" class="category-tab active shrink-0 rounded-lg bg-gradient-to-br from-indigo-500 to-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-[0_8px_30px_-12px_rgba(99,102,241,1)] transition">All</button>
-        <button data-category="Movies" class="category-tab shrink-0 rounded-lg border border-[#262F40] bg-[#161B26] px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80">Movies</button>
-        <button data-category="Series" class="category-tab shrink-0 rounded-lg border border-[#262F40] bg-[#161B26] px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80">Series</button>
-        <button data-category="Music" class="category-tab shrink-0 rounded-lg border border-[#262F40] bg-[#161B26] px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80">Music</button>
-        <button data-category="Other" class="category-tab shrink-0 rounded-lg border border-[#262F40] bg-[#161B26] px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-slate-800/80">Others</button>
+  <main class="mx-auto max-w-[1440px] px-4 pb-10 sm:px-8">
+    <section id="list-view" class="space-y-6 pt-6">
+      <nav aria-label="Video categories" class="flex items-center gap-2 overflow-x-auto pb-1">
+        <button type="button" data-category="All" class="category-tab active">All</button>
+        <button type="button" data-category="Movies" class="category-tab">Movies</button>
+        <button type="button" data-category="Series" class="category-tab">Series</button>
+        <button type="button" data-category="Music" class="category-tab">Music</button>
+        <button type="button" data-category="Other" class="category-tab">Others</button>
       </nav>
 
+      <div id="loading" class="flex items-center gap-3 py-16 text-sm text-[#A2A3A3]">
+        <span class="h-4 w-4 animate-spin rounded-full border-2 border-[#303234] border-t-[#E9B477]" aria-hidden="true"></span>
+        Loading your library…
+      </div>
+
+      <div id="error" class="hidden rounded-xl border border-[#303234] bg-[#191B1D] p-6 text-sm text-[#A2A3A3]">
+        Could not load your library. Check that the server is running, then reload.
+      </div>
+
       <div id="video-grid" class="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"></div>
-      <p id="empty" class="text-slate-400 hidden">No videos found.</p>
+      <p id="empty" class="hidden py-16 text-sm text-[#A2A3A3]">No videos match this view.</p>
     </section>
 
-    <section id="player-view" class="hidden px-0 sm:px-2">
-      <button id="back-btn" class="mb-4 inline-flex items-center gap-1.5 text-slate-400 hover:text-slate-100 transition text-sm">
+    <section id="player-view" class="hidden pt-6">
+      <button id="back-btn" type="button" class="mb-4 inline-flex items-center gap-1.5 text-sm text-[#A2A3A3] transition hover:text-[#F4F0E9]">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M10 4L6 8L10 12" />
         </svg>
         Back
       </button>
-      <h2 id="player-title" class="text-lg mb-4 font-medium"></h2>
-      <video id="player" controls class="w-full rounded-2xl bg-black aspect-video shadow-[0_40px_60px_-40px_rgba(15,23,42,0.9)]"></video>
+      <h2 id="player-title" class="mb-4 text-lg font-medium"></h2>
+      <video id="player" controls class="aspect-video w-full rounded-2xl border border-[#303234] bg-black"></video>
     </section>
   </main>
+
+  <footer class="border-t border-[#303234]">
+    <div class="mx-auto flex max-w-[1440px] flex-col gap-3 px-4 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+      <p class="text-sm text-[#A2A3A3]">HomeMedia — your library, streamed across the LAN.</p>
+      <div class="flex items-center gap-4 text-sm">
+        <button type="button" class="text-[#A2A3A3] transition hover:text-[#E9B477]">Keyboard shortcuts</button>
+        <span aria-hidden="true" class="text-[#303234]">·</span>
+        <button type="button" class="text-[#A2A3A3] transition hover:text-[#E9B477]">Library settings</button>
+      </div>
+    </div>
+    <p class="mx-auto max-w-[1440px] px-4 pb-6 text-xs text-[#6E7376] sm:px-8">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+  </footer>
 
   <script src="/app.js" type="module"></script>
 </body>

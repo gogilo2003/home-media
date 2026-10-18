@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Category tabs on the library bar — plain CSS so they survive any purge. */
+.category-tab {
+  flex-shrink: 0;
+  border: 1px solid #303234;
+  border-radius: 0.5rem;
+  background: #191B1D;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  color: #A2A3A3;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.category-tab:hover {
+  border-color: #6E7376;
+  color: #F4F0E9;
+}
+
+.category-tab:focus-visible {
+  outline: 2px solid #E9B477;
+  outline-offset: 2px;
+}
+
+.category-tab.active {
+  border-color: #E9B477;
+  background: #E9B477;
+  color: #101112;
+}
