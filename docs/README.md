@@ -7,5 +7,6 @@
 
 ## Roadmaps
 - `roadmaps/catalog-tmdb-enrichment.md` — standard `mediaType` model + TMDB catalog enrichment. Current plan.
+- `roadmaps/https-lan.md` — opt-in HTTPS on port 3000 (local CA + IP-SAN cert) so Chrome's HTTPS-First upgrade stops flapping.
 - `roadmaps/v0.2.0-ui.md` — UI redesign (browse + watch, hover preview, queue, player).
 - `roadmaps/v0.1.0-minimal.md` — Phase-by-phase implementation plan (base server).
