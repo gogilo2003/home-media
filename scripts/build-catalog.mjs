@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import {catalogVideos} from '../server/catalog.ts';
-import {findCaptionsForVideo} from '../server/captions.ts';
 import {buildSeriesCatalog} from '../server/series.ts';
 import {readExistingMap, writeCatalogIndex} from '../server/catalog-index.ts';
 import {addPreviews, hasFfmpeg, prunePreviews} from './catalog-previews.mjs';
+import {enrichCaptions, enrichMetadata} from './enrich.mjs';
 import {createProgress} from './progress.mjs';
 import path from 'node:path';
 
@@ -14,28 +14,9 @@ Options:
   --refresh-previews  Force re-extraction of all preview thumbnails
   --previews-only     Only update previews; do not rewrite catalog/index.json
   --prune             Remove orphaned preview images from catalog/previews/
+  --no-tmdb           Skip TMDB lookups (TMDB_API_KEY is read from env only)
+  --refresh-meta      Re-probe runtimes and re-query TMDB for every title
   --help, -h          Show this help message`);
-}
-
-async function enrich(videos, existing) {
-  const bar = createProgress(videos.length, 'captions');
-  const enriched = [];
-  let reused = 0;
-  for (const v of videos) {
-    const prev = existing.get(v.id);
-    if (prev && prev.size === v.size) {
-      enriched.push({...v, captions: prev.captions, preview: prev.preview});
-      reused++;
-    } else {
-      try {
-        const caps = await findCaptionsForVideo(v.fullPath, v.path);
-        enriched.push({...v, captions: caps.length ? caps : undefined, preview: prev?.preview});
-      } catch { enriched.push({...v, preview: prev?.preview}); }
-    }
-    bar.render(v.name);
-  }
-  bar.end(reused > 0 ? `Captions done (${reused} cached)` : 'Captions done');
-  return enriched;
 }
 
 async function main() {
@@ -45,13 +26,15 @@ async function main() {
   const skipPreviews = args.includes('--skip-previews') || args.includes('--no-previews');
   const forcePreviews = previewsOnly || args.includes('--refresh-previews');
   const shouldPrune = args.includes('--prune') || args.includes('--clean');
+  const noTmdb = args.includes('--no-tmdb') || args.includes('--no-meta');
+  const refreshMeta = args.includes('--refresh-meta');
   const root = args.find(a => !a.startsWith('-')) || process.env.VIDEO_ROOT || './videos';
 
   console.error(`Scanning ${root} ...`);
   const c = await catalogVideos({root, followSymlinks: true});
   console.error(`Found ${c.total} videos`);
 
-  const enriched = await enrich(c.videos, await readExistingMap());
+  const enriched = await enrichCaptions(c.videos, await readExistingMap());
   const previewDir = path.resolve('catalog/previews');
 
   if (!skipPreviews) {
@@ -65,6 +48,8 @@ async function main() {
   }
   if (shouldPrune) await prunePreviews(enriched, previewDir);
   if (previewsOnly) return console.log('Previews refreshed; catalog/index.json was not changed.');
+
+  await enrichMetadata(enriched, {refreshMeta, useTmdb: !noTmdb});
 
   const meta = {
     version: '1.0', updated: new Date().toISOString(),

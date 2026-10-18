@@ -1,0 +1,74 @@
+// Build-time TMDB v3 client. Read the key from env only, throttle to ~10 req/s
+// and cache within this process so a rebuild never re-hits a resolved title.
+const BASE = 'https://api.themoviedb.org/3';
+const GAP_MS = 100;
+const hits = new Map();
+const misses = new Set();
+let lastCall = 0;
+
+export function hasTmdbKey() {
+  const key = process.env.TMDB_API_KEY;
+  return Boolean(key && key.trim());
+}
+
+function yearOf(date) {
+  const m = /^(\d{4})-/.exec(String(date ?? ''));
+  return m ? Number(m[1]) : undefined;
+}
+
+function fieldsOf(detail) {
+  return {
+    year: yearOf(detail.release_date ?? detail.first_air_date),
+    genres: (detail.genres ?? []).map((g) => g.name).filter(Boolean),
+    runtime: detail.runtime || undefined,
+    synopsis: detail.overview || undefined,
+  };
+}
+
+async function api(path, params) {
+  const wait = GAP_MS - (Date.now() - lastCall);
+  if (wait > 0) await new Promise((r) => setTimeout(r, wait));
+  lastCall = Date.now();
+  const url = new URL(BASE + path);
+  url.searchParams.set('api_key', process.env.TMDB_API_KEY.trim());
+  for (const [k, v] of Object.entries(params)) {
+    if (v !== undefined && v !== null && v !== '') url.searchParams.set(k, String(v));
+  }
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`${path} -> HTTP ${res.status}`);
+  return res.json();
+}
+
+// Prefer an exact normalized title match; otherwise take TMDB's top hit.
+function pick(results, name) {
+  if (!Array.isArray(results) || results.length === 0) return undefined;
+  const norm = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+  const target = norm(name);
+  return results.find((r) => norm(r.title ?? r.name) === target) || results[0];
+}
+
+async function lookup(query) {
+  const isTv = query.kind === 'tv';
+  const found = await api(isTv ? '/search/tv' : '/search/movie', {query: query.name, year: query.year});
+  const hit = pick(found.results, query.name);
+  if (!hit || !hit.id) return null;
+  return fieldsOf(await api((isTv ? '/tv/' : '/movie/') + hit.id, {}));
+}
+
+/**
+ * Resolve one `{kind, name, year}` query to `{year, genres, runtime, synopsis}`.
+ * Returns null for a known miss or an API failure, and never re-asks either.
+ */
+export async function resolveQuery(query) {
+  const key = `${query.kind}:${query.name.toLowerCase()}`;
+  if (hits.has(key)) return hits.get(key);
+  if (misses.has(key)) return null;
+  let fields = null;
+  try { fields = await lookup(query); } catch { fields = null; }
+  if (fields) hits.set(key, fields); else misses.add(key);
+  return fields;
+}
+
+export function tmdbMisses() {
+  return [...misses].map((key) => key.slice(key.indexOf(':') + 1));
+}
