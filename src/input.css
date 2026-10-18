@@ -129,3 +129,39 @@
   --plyr-font-family: inherit;
   border-radius: 1rem;
 }
+
+/* Queue — hover overlay add button, drawer row actions. */
+.queue-add {
+  opacity: 0;
+  transition: opacity 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.card:hover .queue-add,
+.card:focus-within .queue-add,
+.queue-add:focus-visible,
+.queue-add.queued {
+  opacity: 1;
+}
+
+[data-queue-add].queued {
+  border-color: #E9B477;
+  color: #E9B477;
+}
+
+.qbtn {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid #303234;
+  border-radius: 0.5rem;
+  color: #A2A3A3;
+  font-size: 0.75rem;
+  line-height: 1;
+  transition: border-color 150ms ease, color 150ms ease;
+}
+
+.qbtn:hover {
+  border-color: #6E7376;
+  color: #F4F0E9;
+}

@@ -5,6 +5,7 @@ import { initBrowse, render, setPlayHandler } from './js/browse.js';
 import { fillGenres, syncFilters } from './js/filters.js';
 import { initPlayer } from './js/controls.js';
 import { initWatch, openWatch } from './js/watch.js';
+import { initQueue } from './js/queueui.js';
 
 const search = /** @type {HTMLInputElement} */ (el('search-input'));
 const loading = el('loading');
@@ -17,6 +18,7 @@ function wireControls() {
     saveState();
     render();
   });
+  initQueue(openWatch);
   search.addEventListener('input', () => {
     state.query = search.value;
     state.page = 1;

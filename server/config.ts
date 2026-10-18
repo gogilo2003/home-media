@@ -21,6 +21,8 @@ export const STATIC_ROUTES: Readonly<Record<string, string>> = {
   '/js/controls.js': 'js/controls.js',
   '/js/watch.js': 'js/watch.js',
   '/js/watchinfo.js': 'js/watchinfo.js',
+  '/js/queue.js': 'js/queue.js',
+  '/js/queueui.js': 'js/queueui.js',
   '/vendor/plyr/plyr.js': 'vendor/plyr/plyr.js',
   '/vendor/plyr/plyr.css': 'vendor/plyr/plyr.css',
 };

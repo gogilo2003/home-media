@@ -1,6 +1,7 @@
 // @ts-check
 /** @typedef {import('../../types.ts').Video} Video */
 import { escapeHtml, metaOf, previewMarkup, qualityOf } from './util.js';
+import { isQueued, toggleQueued } from './queue.js';
 
 /** @typedef {{video: Video} | {show: string, episodes: Video[]}} Item */
 
@@ -39,6 +40,7 @@ function videoCard(video) {
     <div class="relative aspect-video bg-[#08090A]">${previewMarkup(video.preview)}
       <span class="absolute left-2 top-2 rounded-md border border-[#303234] bg-[#101112]/85 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#A2A3A3]">${escapeHtml((video.category || 'Other').toLowerCase())}</span>
       ${quality ? `<span class="absolute right-2 top-2 rounded-md border border-[#303234] bg-[#101112]/85 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#A2A3A3]">${escapeHtml(quality)}</span>` : ''}
+      <span role="button" tabindex="0" data-queue-add="${escapeHtml(video.id)}" aria-label="Add to queue" class="queue-add absolute bottom-2 right-2 z-20 grid h-7 w-7 place-items-center rounded-md border border-[#303234] bg-[#101112]/85 text-sm text-[#F4F0E9]${isQueued(video.id) ? ' queued' : ''}">+</span>
     </div>
     <div class="p-3">
       <div class="truncate text-sm font-semibold text-[#F4F0E9] transition group-hover:text-[#E9B477]">${escapeHtml(video.name)}</div>
@@ -70,4 +72,9 @@ export function wireCards(container, shows, play, open) {
     else if (btn.dataset.id) play(btn.dataset.id, btn.dataset.name ?? '');
   }));
   container.querySelectorAll('img[data-preview]').forEach((img) => img.addEventListener('error', () => img.remove(), { once: true }));
+  container.querySelectorAll('[data-queue-add]').forEach((node) => node.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    toggleQueued(node.getAttribute('data-queue-add') ?? '');
+  }));
 }
