@@ -9,6 +9,8 @@ export const STATIC_ROUTES: Readonly<Record<string, string>> = {
   '/': 'index.html',
   '/app.js': 'app.js',
   '/styles.css': 'styles.css',
+  '/logo.png': 'logo.png',
+  '/favicon.png': 'favicon.png',
   '/js/util.js': 'js/util.js',
   '/js/state.js': 'js/state.js',
   '/js/browse.js': 'js/browse.js',
