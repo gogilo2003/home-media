@@ -31,6 +31,7 @@ export const STATIC_ROUTES: Readonly<Record<string, string>> = {
   '/js/player.js': 'js/player.js',
   '/js/navbuttons.js': 'js/navbuttons.js',
   '/js/playback.js': 'js/playback.js',
+  '/js/recovery.js': 'js/recovery.js',
   '/js/shortcuts.js': 'js/shortcuts.js',
   '/vendor/plyr/plyr.js': 'vendor/plyr/plyr.js',
   '/vendor/plyr/plyr.css': 'vendor/plyr/plyr.css',

@@ -8,6 +8,7 @@ import { initWatch, openWatch } from './js/watch.js';
 import { initQueue } from './js/queueui.js';
 import { initNavigation } from './js/player.js';
 import { initPlayback } from './js/playback.js';
+import { initRecovery } from './js/recovery.js';
 import { initShortcuts } from './js/shortcuts.js';
 
 const search = /** @type {HTMLInputElement} */ (el('search-input'));
@@ -42,6 +43,7 @@ async function boot() {
   initPlayer();
   initNavigation(openWatch);
   initPlayback();
+  initRecovery();
   initShortcuts();
   try {
     await loadCatalog();

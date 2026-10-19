@@ -5,6 +5,7 @@ import { catalogVideos, videoById } from './state.js';
 import { groupSeries, renderEpisodes, seriesInfo } from './series.js';
 import { loadCaptions } from './controls.js';
 import { flushPosition, trackVideo } from './player.js';
+import { resetRecovery } from './recovery.js';
 import { renderInfo } from './watchinfo.js';
 
 const view = el('watch-view');
@@ -52,6 +53,7 @@ export function openWatch(id) {
 /** @param {Video} video */
 function selectVideo(video) {
   trackVideo(video);
+  resetRecovery();
   current = video;
   player.src = `/video/${video.id}`;
   loadCaptions(video.captions ?? []);
